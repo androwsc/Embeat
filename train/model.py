@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # Written by GD Studio
-# Date: 2026-04-21
+# Date: 2026-08-12
 
 import torch
 import torch.nn as nn
@@ -15,7 +15,7 @@ class EmbeatMLPConfig:
     key_vocab_size: int = 13
     mode_vocab_size: int = 3
     time_signature_vocab_size: int = 6
-    tempo_vocab_size: int = 5
+    tempo_vocab_size: int = 12
     key_emb_dim: int = 8
     mode_emb_dim: int = 4
     time_signature_emb_dim: int = 4
@@ -25,7 +25,7 @@ class EmbeatMLPConfig:
     acoustic_output_dim: int = 64
     discrete_output_dim: int = 64
     # Backbone dimensions
-    backbone_hidden_dims = (256, 256)
+    backbone_hidden_dims: tuple = (256, 256)
     embedding_dim: int = 64
     # Other settings
     backbone_dropout_p: float = 0.0
