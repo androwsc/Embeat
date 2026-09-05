@@ -64,7 +64,7 @@ def key_to_idx(key: Any):
     return 0
 
 
-# Index musical mode: 0 ~ 1 -> 0 ~ 2, 1 = major, 2 = minor, 0 = unknown
+# Index musical mode: 0 ~ 1 -> 0 ~ 2, 1 = minor, 2 = major, 0 = unknown
 def mode_to_idx(mode: Any):
     if mode is None:
         return 0
