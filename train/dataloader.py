@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # Written by GD Studio
-# Date: 2026-04-17
+# Date: 2026-08-12
 
 import json
 import numpy as np
@@ -14,7 +14,7 @@ project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if project_root not in sys.path:
     sys.path.insert(0, project_root)
 from train.dataset import DatasetConfig, SpotifyTracksDataset
-from train.sampler import Candidate, PairSampler, PairSamplerConfig
+from train.sampler import Candidate, PairSampler, PairSamplerConfig, DENSE_SPEECHINESS_INDEX
 
 
 # Dataloader configurations
@@ -187,8 +187,8 @@ class PairIterableDataset(IterableDataset):
                 if bool(self.sampler.config.anchor_require_known_genre):
                     if int(anchor_item['genre_idx'].item()) <= 0:
                         continue
-                anchor_speechiness_centered = float(anchor_item['dense'][5].item())
-                speechiness_max_exclusive_raw = float(getattr(self.sampler.config, "speechiness_max_exclusive_raw", 0.30))
+                anchor_speechiness_centered = float(anchor_item['dense'][DENSE_SPEECHINESS_INDEX].item())
+                speechiness_max_exclusive_raw = float(getattr(self.sampler.config, "speechiness_max_exclusive_raw", 0.20))
                 speechiness_max_exclusive_centered = speechiness_max_exclusive_raw - 0.5
                 if anchor_speechiness_centered >= speechiness_max_exclusive_centered:
                     continue
