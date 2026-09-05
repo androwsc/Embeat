@@ -161,7 +161,7 @@ def build_discrete_mask(anchor: Dict[str, torch.Tensor], positive: Dict[str, tor
         optional_discrete_mask = optional_discrete_mask & anchor_genre_known_mask
     if pos_require_known_genre:
         positive_genre_known_mask = positive_genre_index > 0
-        positive_genre_known_mask = positive_genre_known_mask[:, None]
+        positive_genre_known_mask = positive_genre_known_mask[None, :]
         optional_discrete_mask = optional_discrete_mask & positive_genre_known_mask
     if require_genre_match:
         genre_equal_mask = anchor_genre_index[:, None] == positive_genre_index[None, :]
