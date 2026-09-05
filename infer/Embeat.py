@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # Written by GD Studio
-# Date: 2026-05-29
+# Date: 2026-08-12
 
 import json
 import numpy as np
@@ -47,7 +47,7 @@ class EmbeatDatabase:
                 enable_name_search: bool = True, is_zhconv: bool = False, use_track_genre: bool = False, verbose_log: bool = True,
                 same_artist_ratio_range: list = [0.15, 0.2], popular_ratio: float = 0.1, min_popularity: float = 0.1, min_related_track_score: float = 0.75,
                 recall_similar_weights: list = [1.7, 1.0], recall_popular_weights: list = [1.0, 0.8], recall_same_artist_weights: list = [1.9, 1.0], recall_related_artist_weights: list = [1.8, 1.0], recall_related_track_weights: list = [2.0, 1.2]):
-        self.file_dir = os.path.dirname(sys.executable) if getattr(sys, "frozen", False) else os.path.dirname(os.path.abspath(__file__))
+        self.file_dir = os.path.dirname(os.path.abspath(sys.argv[0])) if getattr(sys, "frozen", False) or "__compiled__" in globals() else os.path.dirname(os.path.abspath(__file__))
         self.file_dir = str(self.file_dir).replace("\\", "/").rstrip("/")
         self.qdrant_url = qdrant_url
         self.qdrant_api_key = qdrant_api_key
@@ -467,9 +467,9 @@ class EmbeatDatabase:
             return artist_genre_idx
         if artist_genre_idx > 0 and query_artist_genres:
             return artist_genre_idx
-        related_artist_idxs = [idx for idx in related_artist_idxs if idx != artist_genre_idx and idx > 0]
+        related_artist_idxs = [idx for idx in related_artist_idxs if idx != artist_idx and idx > 0]
         if not related_artist_idxs:
-            related_artist_idxs = self.related_artist_idx.get(artist_genre_idx) or []
+            related_artist_idxs = self.related_artist_idx.get(artist_idx) or []
         related_artist_genre_idxs = []
         if query_artist_genres:
             related_artist_genre_idxs.extend(self.get_artist_genre_idxs(query_artist_genres))
@@ -492,7 +492,9 @@ class EmbeatDatabase:
             if records and records[0].payload:
                 related_artist_genres = records[0].payload.get("artist_genres") or ""
                 if related_artist_genres:
-                    related_artist_genre_idxs.extend(self.get_artist_genre_idxs(related_artist_genres))
+                    artist_genre_idxs = self.get_artist_genre_idxs(related_artist_genres)
+                    if artist_genre_idxs:
+                        related_artist_genre_idxs.extend(artist_genre_idxs)
         related_artist_genre_idxs = [idx for idx in related_artist_genre_idxs if idx > 0]
         if not related_artist_genre_idxs:
             return artist_genre_idx
@@ -522,7 +524,6 @@ class EmbeatDatabase:
             if "," in candidate.payload.get("artist_genres", ""):
                 continue
             candidates_artist_genre_idxs.append(candidate.payload.get("artist_genre_idx", 0))
-        candidates_artist_genre_idxs = [candidate.payload.get("artist_genre_idx") for candidate in candidates if candidate.payload.get("artist_genre_idx") is not None and "," not in candidate.payload.get("artist_genres", "")]
         if len(set(candidates_artist_genre_idxs)) == 0:
             track_genre_idx = fallback_idx
         elif len(set(candidates_artist_genre_idxs)) == 1:
@@ -1209,7 +1210,7 @@ class EmbeatDatabase:
                 "pic_id": str(item.get("track_id", "")),
                 "url_id": str(item.get("track_id", "")),
                 "lyric_id": str(item.get("track_id", "")),
-                "source": "spotify"
+                "source": "embeat"
             })
             if self.is_output_extra:
                 result[-1]['extra_data'] = {
