@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # Written by GD Studio
-# Date: 2026-02-13
+# Date: 2026-08-12
 
 import numpy as np
 import os
@@ -94,7 +94,7 @@ class EmbeatTrainer:
         self.config = config
         self.run_config = dict(run_config or {})
         self.use_amp = bool(config.use_amp) and device.type == "cuda"
-        self.scaler = torch.cuda.amp.GradScaler(enabled=self.use_amp)
+        self.scaler = torch.amp.GradScaler(enabled=self.use_amp)
         self.step = 0
         self.t0 = time.time()
 
@@ -102,10 +102,14 @@ class EmbeatTrainer:
     def train_step(self, batch: dict):
         anchor_features = build_features(batch, self.device, "anchor")
         positive_features = build_features(batch, self.device, "positive")
+        combined_features = {
+            k: torch.cat([anchor_features[k], positive_features[k]], dim=0)
+            for k in anchor_features
+        }
         self.optimizer.zero_grad(set_to_none=True)
-        with torch.cuda.amp.autocast(enabled=self.use_amp):
-            anchor_emb = self.model(anchor_features)
-            positive_emb = self.model(positive_features)
+        with torch.amp.autocast("cuda", enabled=self.use_amp):
+            combined_emb = self.model(combined_features)
+            anchor_emb, positive_emb = combined_emb.chunk(2, dim=0)
             loss, stats = self.loss_fn(anchor_emb, positive_emb, batch=batch)
         grad_norm_value = 0.0
         if self.use_amp:
