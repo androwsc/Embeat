@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 # Written by GD Studio
-# Date: 2026-04-23
+# Date: 2026-08-12
 
 import cloudscraper
-import json
 import os
 import random
 import sys
@@ -43,6 +42,73 @@ song_dict = {
     "Koji Tamaki - 初恋": {'key': 4, 'mode': 0, 'tempo': 125, 'time_signature': 4, 'danceability': 0.67, 'energy': 0.49, 'speechiness': 0.03, 'instrumentalness': 0.0, 'valence': 0.61, 'acousticness': 0.82, 'liveness': 0.12},
     "Samantha Lam - 初戀": {'key': 1, 'mode': 0, 'tempo': 130, 'time_signature': 4, 'danceability': 0.65, 'energy': 0.57, 'speechiness': 0.04, 'instrumentalness': 0.0, 'valence': 0.66, 'acousticness': 0.5, 'liveness': 0.07}
 }
+candidates = [
+    {
+        "song_a_name": "Abel Korzeniowski - Dance For Me Wallis",
+        "song_b_name": "Abel Korzeniowski - Charms",
+        "is_positive": True
+    },
+    {
+        "song_a_name": "Eleni Karaindrou - Karaindrou: Waltz By The River",
+        "song_b_name": "Eleni Karaindrou - Karaindrou: Dance Theme",
+        "is_positive": True
+    },
+    {
+        "song_a_name": "Eleni Karaindrou - Karaindrou: Dance Theme",
+        "song_b_name": "Oskar Schuster - Gizeh",
+        "is_positive": True
+    },
+    {
+        "song_a_name": "梶浦 由記 - Decretum",
+        "song_b_name": "梶浦 由記 - Sis puella magica!",
+        "is_positive": True
+    },
+    {
+        "song_a_name": "Satoshi Takebe - Summer of Farewells",
+        "song_b_name": "曲锦楠 - 霞光",
+        "is_positive": True
+    },
+    {
+        "song_a_name": "Koji Tamaki - 行かないで",
+        "song_b_name": "Jacky Cheung - 李香蘭",
+        "is_positive": True
+    },
+    {
+        "song_a_name": "Koji Tamaki - 初恋",
+        "song_b_name": "Samantha Lam - 初戀",
+        "is_positive": True
+    },
+    {
+        "song_a_name": "The Beatles - While My Guitar Gently Weeps Remastered 2009",
+        "song_b_name": "Regina Spektor - While My Guitar Gently Weeps",
+        "is_positive": True
+    },
+    {
+        "song_a_name": "周杰伦 - 晴天",
+        "song_b_name": "Lia - 鳥の詩",
+        "is_positive": False
+    },
+    {
+        "song_a_name": "Oskar Schuster - Gizeh",
+        "song_b_name": "Gorillaz - Feel Good Inc.",
+        "is_positive": False
+    },
+    {
+        "song_a_name": "Oskar Schuster - Gizeh",
+        "song_b_name": "梶浦 由記 - sand dream",
+        "is_positive": False
+    },
+    {
+        "song_a_name": "梶浦 由記 - Decretum",
+        "song_b_name": "Kevin Penkin - Become the God",
+        "is_positive": False
+    },
+    {
+        "song_a_name": "Koji Tamaki - 行かないで",
+        "song_b_name": "Samantha Lam - 初戀",
+        "is_positive": False
+    }
+]
 
 
 def search_song_tags(track_artist: str, track_title: str = ""):
@@ -63,13 +129,14 @@ def search_song_tags(track_artist: str, track_title: str = ""):
             "happiness": 0.0,
             "danceability": 0.0,
             "acousticness": 0.0,
-            "instrumentalness": 0.0
+            "instrumentalness": 0.0,
+            "liveness": 0.0,
+            "speechiness": 0.0
         }
     }
     track_title = track_title.strip()
     if not track_artist:
-        result_str = str(json.dumps(result, ensure_ascii=False, indent=2))
-        return result_str
+        return result
     headers = {
         "User-Agent": f"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{random.randrange(101, 138)}.0.0.0 Safari/537.36",
         "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
@@ -122,7 +189,7 @@ def tunebat_to_embeat(tags: dict):
         "liveness": 0.0
     }
     track_tags = tags['track_tags']
-    if track_tags.get("track_title") is None:
+    if not track_tags.get("track_title"):
         raise ValueError("Tunebat error.")
     KEY_NAME_TO_PITCH_CLASS = {
         "C": 0,
@@ -191,68 +258,7 @@ def compare_two_songs(song_a_name: str, song_b_name: str):
 
 
 def eval_two_checkpoints(checkpoint_a: str, checkpoint_b: str):
-    candidates = [
-        {
-            "song_a_name": "Abel Korzeniowski - Dance For Me Wallis",
-            "song_b_name": "Abel Korzeniowski - Charms",
-            "is_positive": True
-        },
-        {
-            "song_a_name": "Eleni Karaindrou - Karaindrou: Waltz By The River",
-            "song_b_name": "Eleni Karaindrou - Karaindrou: Dance Theme",
-            "is_positive": True
-        },
-        {
-            "song_a_name": "Eleni Karaindrou - Karaindrou: Dance Theme",
-            "song_b_name": "Oskar Schuster - Gizeh",
-            "is_positive": True
-        },
-        {
-            "song_a_name": "梶浦 由記 - Decretum",
-            "song_b_name": "梶浦 由記 - Sis puella magica!",
-            "is_positive": True
-        },
-        {
-            "song_a_name": "Satoshi Takebe - Summer of Farewells",
-            "song_b_name": "曲锦楠 - 霞光",
-            "is_positive": True
-        },
-        {
-            "song_a_name": "Koji Tamaki - 行かないで",
-            "song_b_name": "Jacky Cheung - 李香蘭",
-            "is_positive": True
-        },
-        {
-            "song_a_name": "Koji Tamaki - 初恋",
-            "song_b_name": "Samantha Lam - 初戀",
-            "is_positive": True
-        },
-        {
-            "song_a_name": "The Beatles - While My Guitar Gently Weeps Remastered 2009",
-            "song_b_name": "Regina Spektor - While My Guitar Gently Weeps",
-            "is_positive": True
-        },
-        {
-            "song_a_name": "周杰伦 - 晴天",
-            "song_b_name": "Lia - 鳥の詩",
-            "is_positive": False
-        },
-        {
-            "song_a_name": "Oskar Schuster - Gizeh",
-            "song_b_name": "Gorillaz - Feel Good Inc.",
-            "is_positive": False
-        },
-        {
-            "song_a_name": "Oskar Schuster - Gizeh",
-            "song_b_name": "梶浦 由記 - sand dream",
-            "is_positive": False
-        },
-        {
-            "song_a_name": "梶浦 由記 - Decretum",
-            "song_b_name": "Kevin Penkin - Become the God",
-            "is_positive": False
-        }
-    ]
+    score_diff_threshold = 0.01
     print(f"Checkpoint A: {checkpoint_a}")
     print(f"Checkpoint B: {checkpoint_b}")
     checkpoint_a_win = 0
@@ -269,10 +275,10 @@ def eval_two_checkpoints(checkpoint_a: str, checkpoint_b: str):
             win_point = 1.0
         else:
             win_point = 1.0
-        if ckpt_a_sim > ckpt_b_sim:
+        if ckpt_a_sim > ckpt_b_sim and ckpt_a_sim - ckpt_b_sim > score_diff_threshold:
             checkpoint_a_win = checkpoint_a_win + win_point
             print(f"A Score: {round(ckpt_a_sim, 4)} | B Score: {round(ckpt_b_sim, 4)} | A win")
-        elif ckpt_b_sim > ckpt_a_sim:
+        elif ckpt_b_sim > ckpt_a_sim and ckpt_b_sim - ckpt_a_sim > score_diff_threshold:
             checkpoint_b_win = checkpoint_b_win + win_point
             print(f"A Score: {round(ckpt_a_sim, 4)} | B Score: {round(ckpt_b_sim, 4)} | B win")
         else:
@@ -290,28 +296,40 @@ def eval_two_checkpoints(checkpoint_a: str, checkpoint_b: str):
         return 0
 
 
-def eval_checkpoints(checkpoint_dir: str):
+def score_checkpoint(checkpoint_path: str):
+    pos_scores, neg_scores = [], []
+    for candidate in candidates:
+        sample_a = song_dict[candidate['song_a_name']]
+        sample_b = song_dict[candidate['song_b_name']]
+        sim = infer(sample_a, sample_b, checkpoint_path)
+        if candidate['is_positive']:
+            pos_scores.append(sim)
+        else:
+            neg_scores.append(sim)
+    margin = sum(pos_scores) / len(pos_scores) - sum(neg_scores) / len(neg_scores)
+    return margin, pos_scores, neg_scores
+
+
+def eval_checkpoints(checkpoint_dir: str, tolerance: float = 0.01):
     checkpoint_dir = os.path.abspath(checkpoint_dir)
     ckpt_files = os.listdir(checkpoint_dir)
     ckpt_files = [f for f in ckpt_files if f.endswith(".pt")]
     ckpt_files = natsorted(ckpt_files)
-    if len(ckpt_files) <= 1:
-        print(f"checkpoint_dir should have at least 2 checkpoint files, but got {len(ckpt_files)}.")
-        return
-    checkpoint_a = ""
-    checkpoint_b = ""
-    for i in range(len(ckpt_files)):
-        if i == 0:
-            checkpoint_a = f"{checkpoint_dir}/{ckpt_files[0]}"
-            continue
-        checkpoint_b = f"{checkpoint_dir}/{ckpt_files[i]}"
-        result = eval_two_checkpoints(checkpoint_a=checkpoint_a, checkpoint_b=checkpoint_b)
-        if result in [1, 0]:
-            checkpoint_b = ""
-        else:
-            checkpoint_a = checkpoint_b
-            checkpoint_b = ""
-    print(f"Final winner: {checkpoint_a}")
+    results = []
+    for ckpt_file in ckpt_files:
+        checkpoint_path = os.path.join(checkpoint_dir, ckpt_file)
+        margin, pos, neg = score_checkpoint(checkpoint_path=checkpoint_path)
+        results.append((ckpt_file, margin))
+        pos_mean = sum(pos) / len(pos)
+        neg_mean = sum(neg) / len(neg)
+        print(f"{ckpt_file}: margin={margin:.4f} pos_mean={pos_mean:.4f} neg_mean={neg_mean:.4f}")
+    best_margin = 0.0
+    best_ckpt = ""
+    for ckpt_file, margin in results:
+        if margin >= best_margin + tolerance:
+            best_ckpt = ckpt_file
+            best_margin = margin
+    print(f"Best checkpoint: {best_ckpt} | margin={best_margin:.4f}")
 
 
 if __name__ == "__main__":
