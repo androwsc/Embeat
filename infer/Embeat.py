@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # Written by GD Studio
-# Date: 2026-08-12
+# Date: 2026-09-06
 
 import json
 import numpy as np
@@ -44,8 +44,8 @@ class EmbeatDatabase:
     def __init__(self,
                 qdrant_url: str = "http://127.0.0.1:6333", qdrant_api_key: str = "", collection_name: str = "spotify_tracks", qdrant_timeout: int = 30,
                 engenremap_path: str = "", artist_genre_idx_patch_path: str = "", related_artist_idx_path: str = "", track2vec_path: str = "",
-                enable_name_search: bool = True, is_zhconv: bool = False, use_track_genre: bool = False, verbose_log: bool = True,
-                same_artist_ratio_range: list = [0.15, 0.2], popular_ratio: float = 0.1, min_popularity: float = 0.1, min_related_track_score: float = 0.75,
+                enable_low_ram: bool = False, enable_name_search: bool = True, is_zhconv: bool = False, use_track_genre: bool = True, verbose_log: bool = True,
+                same_artist_ratio_range: list = [0.15, 0.2], popular_ratio: float = 0.1, min_popularity: float = 0.1, min_related_track_score: float = 0.75, track_genre_score_ratio: float = 2.0,
                 recall_similar_weights: list = [1.7, 1.0], recall_popular_weights: list = [1.0, 0.8], recall_same_artist_weights: list = [1.9, 1.0], recall_related_artist_weights: list = [1.8, 1.0], recall_related_track_weights: list = [2.0, 1.2]):
         self.file_dir = os.path.dirname(os.path.abspath(sys.argv[0])) if getattr(sys, "frozen", False) or "__compiled__" in globals() else os.path.dirname(os.path.abspath(__file__))
         self.file_dir = str(self.file_dir).replace("\\", "/").rstrip("/")
@@ -53,6 +53,7 @@ class EmbeatDatabase:
         self.qdrant_api_key = qdrant_api_key
         self.collection_name = collection_name
         self.qdrant_timeout = qdrant_timeout
+        self.enable_low_ram = enable_low_ram
         self.enable_name_search = enable_name_search
         self.is_zhconv = is_zhconv
         self.use_track_genre = use_track_genre
@@ -64,6 +65,7 @@ class EmbeatDatabase:
         self.popular_ratio = popular_ratio
         self.min_popularity = min_popularity
         self.min_related_track_score = min_related_track_score
+        self.track_genre_score_ratio = track_genre_score_ratio
         self.recall_similar_weights = recall_similar_weights
         self.recall_popular_weights = recall_popular_weights
         self.recall_same_artist_weights = recall_same_artist_weights
@@ -88,10 +90,11 @@ class EmbeatDatabase:
             if key.startswith("EMBEAT_"):
                 key = key.replace("EMBEAT_", "").strip().lower()
                 setattr(self, key, value)
+        self.enable_low_ram = True if self.env_config.get("EMBEAT_ENABLE_LOW_RAM", "0").lower() in ["1", "true"] else False
         self.enable_name_search = True if self.env_config.get("EMBEAT_ENABLE_NAME_SEARCH", "0").lower() in ["1", "true"] else False
         self.verbose_log = True if self.env_config.get("EMBEAT_VERBOSE_LOG", "0").lower() in ["1", "true"] else False
         self.is_zhconv = True if self.env_config.get("EMBEAT_ZHCONV", "0").lower() in ["1", "true"] else False
-        self.use_track_genre = True if self.env_config.get("EMBEAT_USE_TRACK_GENRE", "0").lower() in ["1", "true"] else False
+        self.use_track_genre = True if self.env_config.get("EMBEAT_USE_TRACK_GENRE", "1").lower() in ["1", "true"] else False
         self.is_output_extra = True if self.env_config.get("IS_OUTPUT_EXTRA", "0").lower() in ["1", "true"] else False
         self.qdrant_url = str(self.qdrant_url).strip().rstrip("/")
         if isinstance(self.same_artist_ratio_range, str):
@@ -140,6 +143,10 @@ class EmbeatDatabase:
             self.min_related_track_score = float(self.min_related_track_score)
         except Exception as e:
             print(f"Failed to parse params `EMBEAT_MIN_RELATED_TRACK_SCORE` from .env: {e}")
+        try:
+            self.track_genre_score_ratio = float(self.track_genre_score_ratio)
+        except Exception as e:
+            print(f"Failed to parse params `EMBEAT_TRACK_GENRE_SCORE_RATIO` from .env: {e}")
         return
 
     # Check Qdrant state
@@ -179,38 +186,70 @@ class EmbeatDatabase:
 
     # Build Qdrant index to speed up query
     def build_qdrant_index(self):
+        def create_index(field_name, field_schema):
+            try:
+                self.client.create_payload_index(
+                    collection_name=self.collection_name,
+                    field_name=field_name,
+                    field_schema=field_schema,
+                    wait=True
+                )
+                return True
+            except Exception as e:
+                print(f"Failed to create Qdrant index on `{field_name}`: {e}")
+                return False
+
+        def wait_for_green():
+            start = time.time()
+            while time.time() - start < 86400:
+                try:
+                    info = self.client.get_collection(collection_name=self.collection_name)
+                except Exception as e:
+                    print(f"Failed to get Qdrant collection info: {e}")
+                    return False
+                status = str(info.status).lower()
+                if "green" in status:
+                    return True
+                if "red" in status:
+                    print(f"Qdrant collection status is red: {info.optimizer_status}")
+                    return False
+                if self.verbose_log:
+                    print(f"   ... waiting for optimizer, status: {info.status}")
+                time.sleep(30)
+            print("Timed out waiting for Qdrant collection to become green.")
+            return False
+
         self.build_qdrant_client(is_timeout=False)
         if self.verbose_log:
-            print("-> Building Qdrant index for necessary fields to speed up query...")
-        self.client.create_payload_index(collection_name=self.collection_name, field_name="artist_genre_idx", field_schema=qdrant_models.PayloadSchemaType.INTEGER, wait=True)
-        self.client.create_payload_index(collection_name=self.collection_name, field_name="artist_idx", field_schema=qdrant_models.PayloadSchemaType.INTEGER, wait=True)
-        self.client.create_payload_index(collection_name=self.collection_name, field_name="popularity", field_schema=qdrant_models.PayloadSchemaType.FLOAT, wait=True)
+            print(f"-> Building Qdrant index for necessary fields to speed up query... [low RAM mode: {self.enable_low_ram}]")
+        scalar_fields = {
+            "artist_genre_idx": qdrant_models.IntegerIndexParams(
+                type="integer", lookup=True, range=False, on_disk=self.enable_low_ram
+            ),
+            "artist_idx": qdrant_models.IntegerIndexParams(
+                type="integer", lookup=True, range=False, on_disk=self.enable_low_ram
+            ),
+            "popularity": qdrant_models.FloatIndexParams(
+                type="float", on_disk=self.enable_low_ram
+            )
+        }
+        is_payload_ok = all([create_index(name, schema) for name, schema in scalar_fields.items()])
         if self.enable_name_search:
             if self.verbose_log:
                 print("-> Building Qdrant index for name search... This might spend more memory and disk usage.")
-            self.client.create_payload_index(
-                collection_name=self.collection_name,
-                field_name="track_name",
-                field_schema=qdrant_models.TextIndexParams(
-                    type="text",
-                    tokenizer=qdrant_models.TokenizerType.WORD,
-                    lowercase=True,
-                    on_disk=True
-                ),
-                wait=True
+            text_schema = qdrant_models.TextIndexParams(
+                type="text",
+                tokenizer=qdrant_models.TokenizerType.WORD,
+                lowercase=True,
+                ascii_folding=True,
+                min_token_len=1,
+                on_disk=True
             )
-            self.client.create_payload_index(
-                collection_name=self.collection_name,
-                field_name="artist_name",
-                field_schema=qdrant_models.TextIndexParams(
-                    type="text",
-                    tokenizer=qdrant_models.TokenizerType.WORD,
-                    lowercase=True,
-                    on_disk=True
-                ),
-                wait=True
-            )
-        return
+            is_payload_ok = all([create_index(name, text_schema) for name in ("track_name", "artist_name")]) and is_payload_ok
+        if not is_payload_ok:
+            print(f"Error in building Qdrant payload.")
+        is_collection_green = wait_for_green()
+        return is_collection_green
 
     # Get Qdrant collection version by collection fields
     def get_collection_version(self, use_schema: bool = False):
@@ -305,7 +344,8 @@ class EmbeatDatabase:
             if self.track2vec_path.split(".")[-1].lower() == "bin":
                 self.wv = KeyedVectors.load_word2vec_format(self.track2vec_path, binary=True)
             else:
-                self.wv = KeyedVectors.load(self.track2vec_path)
+                self.wv = KeyedVectors.load(self.track2vec_path, mmap="r")
+            self.wv.fill_norms()
         except Exception as e:
             print(f"Failed to read `track2vec.wv` and skip: {e}")
         return
@@ -337,7 +377,7 @@ class EmbeatDatabase:
                     collection_name=self.collection_name,
                     scroll_filter=qdrant_models.Filter(must=must_conditions),
                     limit=100,
-                    with_payload=True, 
+                    with_payload=True,
                     with_vectors=True,
                     offset=next_page_offset
                 )
@@ -380,36 +420,49 @@ class EmbeatDatabase:
                 max_similarity = current_similarity
         return result
 
-    # Find seed track by track_id or track info
-    def find_query_record_by_track(self, track_id: str = "", track_name: str = None, artist_name: str = None):
-        result = None
-        if not track_id and (not track_name or not artist_name):
-            print("Must provide `track_id` or `track_name & artist_name` for `find_query_record_by_track`.")
+    # Find seed track by track_id, isrc, or track info
+    def find_query_record_by_track(self, track_id: Union[str, list] = "", isrc: Union[str, list] = "", track_name: str = None, artist_name: str = None):
+        def normalize_id(value):
+            if isinstance(value, list):
+                return [str(v) for v in value if v], True
+            return ([str(value)] if value else []), False
+
+        track_ids, track_id_batched = normalize_id(track_id)
+        isrcs, isrc_batched = normalize_id(isrc)
+        is_batched = track_id_batched or isrc_batched
+        result = [] if is_batched else None
+        if not track_ids and not isrcs and (not track_name or not artist_name):
+            print("Must provide `track_id`, `isrc`, or `track_name & artist_name` for `find_query_record_by_track`.")
             return result
-        if self.collection_version not in ["v1"] and track_id:
-            target_uuid = str(uuid.uuid5(uuid.NAMESPACE_DNS, str(track_id)))
+        if self.collection_version not in ["v1"] and track_ids:
+            target_uuids = [str(uuid.uuid5(uuid.NAMESPACE_DNS, t)) for t in track_ids]
             try:
                 records = self.client.retrieve(
                     collection_name=self.collection_name,
-                    ids=[target_uuid],
+                    ids=target_uuids,
                     with_payload=True,
-                    with_vectors=True
+                    with_vectors=True if not is_batched else False
                 )
             except Exception as e:
                 print(f"Failed to run Qdrant retrieve: {e}")
                 return result
         else:
             must_conditions = []
-            if track_id:
+            if track_ids:
                 must_conditions.append(
                     qdrant_models.FieldCondition(
                         key="track_id",
-                        match=qdrant_models.MatchValue(value=str(track_id))
+                        match=qdrant_models.MatchAny(any=track_ids)
+                    )
+                )
+            elif isrcs and self.collection_version not in ["v1", "v2"]:
+                must_conditions.append(
+                    qdrant_models.FieldCondition(
+                        key="isrc",
+                        match=qdrant_models.MatchAny(any=isrcs)
                     )
                 )
             else:
-                if not track_name or not artist_name:
-                    return result
                 must_conditions.append(
                     qdrant_models.FieldCondition(
                         key="track_name",
@@ -426,16 +479,19 @@ class EmbeatDatabase:
                 records, _ = self.client.scroll(
                     collection_name=self.collection_name,
                     scroll_filter=qdrant_models.Filter(must=must_conditions),
-                    limit=1,
+                    limit=max(len(track_ids), len(isrcs), 1),
                     with_payload=True,
-                    with_vectors=True
+                    with_vectors=True if not is_batched else False
                 )
             except Exception as e:
                 print(f"Failed to run Qdrant scroll: {e}")
                 return result
         if not records:
-            return None
-        result = records[0]
+            return result
+        if is_batched:
+            result = list(records)
+        else:
+            result = records[0]
         return result
 
     # Find all artist genre indexs
@@ -484,7 +540,7 @@ class EmbeatDatabase:
                     scroll_filter=qdrant_models.Filter(must=must_condition),
                     limit=1,
                     with_payload=True,
-                    with_vectors=True
+                    with_vectors=False
                 )
             except Exception as e:
                 print(f"Failed to run Qdrant scroll: {e}")
@@ -511,12 +567,52 @@ class EmbeatDatabase:
                 artist_genre_idx = top_items[0][0]
         return artist_genre_idx
 
+    # Estimate genre_idx of query track from related_track candidates
+    def get_track_genre_idx_from_related_track(self, query_payload: dict, candidates: list, fallback_idx: int = -1):
+        if not self.use_track_genre:
+            return fallback_idx
+        query_artist_genre_idxs = []
+        for query_artist_genre in str(query_payload.get("artist_genres") or "").split(","):
+            query_artist_genre_idx = int(self.genre_index_dict.get(query_artist_genre.strip()) or 0)
+            if query_artist_genre_idx > 0 and query_artist_genre_idx not in query_artist_genre_idxs:
+                query_artist_genre_idxs.append(query_artist_genre_idx)
+        candidates_artist_genre_idxs = []
+        for candidate in candidates:
+            if candidate.payload.get("artist_idx", 0) == query_payload.get("artist_idx", 0):
+                continue
+            if candidate.payload.get("artist_name", "") == query_payload.get("artist_name", ""):
+                continue
+            if int(candidate.payload.get("artist_genre_idx") or 0) <= 0:
+                continue
+            if int(candidate.payload.get("artist_genre_idx") or 0) not in query_artist_genre_idxs:
+                continue
+            candidates_artist_genre_idxs.append(candidate.payload.get("artist_genre_idx", 0))
+        if len(set(candidates_artist_genre_idxs)) == 0:
+            track_genre_idx = fallback_idx
+        elif len(set(candidates_artist_genre_idxs)) == 1:
+            track_genre_idx = candidates_artist_genre_idxs[0]
+        else:
+            genre_score_dict = {idx: 0.0 for idx in set(candidates_artist_genre_idxs)}
+            for index, idx in enumerate(candidates_artist_genre_idxs):
+                genre_score_dict[idx] = genre_score_dict[idx] + 1 / ((index + 1) ** 0.5)
+            genre_score_list = list(genre_score_dict.items())
+            genre_score_list = sorted(genre_score_list, key=lambda item: item[1], reverse=True)
+            if genre_score_list and genre_score_list[0][1] > genre_score_list[1][1] * max(1.0, self.track_genre_score_ratio):
+                track_genre_idx = genre_score_list[0][0]
+            else:
+                track_genre_idx = fallback_idx
+        if track_genre_idx == 0:
+            track_genre_idx = fallback_idx
+        return track_genre_idx
+
     # Estimate genre_idx of query track from similar candidates
-    def get_track_genre_idx(self, query_payload: dict, candidates: list, fallback_idx: int = -1):
+    def get_track_genre_idx_from_similar(self, query_payload: dict, candidates: list, fallback_idx: int = -1):
         if not self.use_track_genre:
             return fallback_idx
         candidates_artist_genre_idxs = []
         for candidate in candidates:
+            if candidate.payload.get("artist_idx", 0) == query_payload.get("artist_idx", 0):
+                continue
             if candidate.payload.get("artist_name", "") == query_payload.get("artist_name", ""):
                 continue
             if int(candidate.payload.get("artist_genre_idx") or 0) <= 0:
@@ -534,7 +630,7 @@ class EmbeatDatabase:
                 genre_score_dict[idx] = genre_score_dict[idx] + 1 / ((index + 1) ** 0.5)
             genre_score_list = list(genre_score_dict.items())
             genre_score_list = sorted(genre_score_list, key=lambda item: item[1], reverse=True)
-            if genre_score_list and genre_score_list[0][1] > genre_score_list[1][1] * 2.0:
+            if genre_score_list and genre_score_list[0][1] > genre_score_list[1][1] * self.track_genre_score_ratio:
                 track_genre_idx = genre_score_list[0][0]
             else:
                 track_genre_idx = fallback_idx
@@ -706,12 +802,8 @@ class EmbeatDatabase:
         if query_track_id not in self.wv:
             return result
         wv_result = self.wv.most_similar(query_track_id, topn=candidate_limit)
-        for track_id, score in wv_result:
-            if self.min_related_track_score > 0.0 and score < self.min_related_track_score:
-                continue
-            record = self.find_query_record_by_track(track_id=track_id)
-            if record is not None:
-                result.append(record)
+        track_ids = [track_id for track_id, score in wv_result if track_id.strip()]
+        result = self.find_query_record_by_track(track_id=track_ids)
         return result
 
     # similar_candidates to final result
@@ -728,7 +820,9 @@ class EmbeatDatabase:
         query_artist_genre_idx = int(query_payload.get("artist_genre_idx") or 0)
         query_popularity = float(query_payload.get("popularity") or 0.0)
         min_popularity = min(query_popularity, self.min_popularity)
-        track_genre_idx = self.get_track_genre_idx(query_payload=query_payload, candidates=candidates, fallback_idx=query_artist_genre_idx)
+        track_genre_idx = int(query_payload.get("track_genre_idx") or 0)
+        if track_genre_idx == 0:
+            track_genre_idx = self.get_track_genre_idx_from_similar(query_payload=query_payload, candidates=candidates, fallback_idx=query_artist_genre_idx)
         prev_similarity = 1.0
         similarity_eps = 1e-5
         for candidate in candidates:
@@ -854,7 +948,7 @@ class EmbeatDatabase:
 
     # Avoid same artist gathering
     def shuffle_result_block(self, result: list, column_name: str, max_block_len: int = 1, max_tries: int = 20):
-        protect_multi_source = True
+        protect_multi_source = False
         is_shuffled = False
         for _ in range(max_tries):
             same_counter = 1
@@ -1072,13 +1166,17 @@ class EmbeatDatabase:
         return result
 
     # Main method
-    def search_entry(self, track_id: str = "", track_name: str = "", artist_name: str = "", artist_idx: int = 0, top_k: int = 20, add_query_track: bool = False):
+    def search_entry(self, track_id: str = "", isrc: str = "", track_name: str = "", artist_name: str = "", artist_idx: int = 0, top_k: int = 20, add_query_track: bool = False):
         result = []
         artist_idx = max(0, artist_idx)
-        if (not track_id) and (not track_name and not artist_name) and (not artist_idx) and (not artist_name):
-            print("Must provide one: 1. track_id; 2. track_name & artist_name; 3. artist_idx; 4. artist_name.")
+        if (not track_id) and (not isrc) and (not track_name and not artist_name) and (not artist_idx) and (not artist_name):
+            print("Must provide one: 1. track_id; 2. isrc; 3. track_name & artist_name; 4. artist_idx; 5. artist_name.")
+            return result
+        if not self.enable_name_search and (not track_id or not artist_idx):
+            print("Name search mode is disabled.")
             return result
         track_id = track_id.strip()
+        isrc = isrc.upper().strip()
         track_name = track_name.strip()
         artist_name = artist_name.strip()
         if track_name and self.is_zhconv and "zhconv" not in DISABLED_PACKAGES:
@@ -1092,6 +1190,8 @@ class EmbeatDatabase:
         query_record = None
         if track_id:
             query_record = self.find_query_record_by_track(track_id=track_id)
+        elif isrc:
+            query_record = self.find_query_record_by_track(isrc=isrc)
         elif track_name and artist_name:
             if not self.enable_name_search and self.verbose_log:
                 print("WARNING: please set `enable_name_search` to True and rebuild the Qdrant index for faster query.")
@@ -1136,8 +1236,24 @@ class EmbeatDatabase:
         if self.verbose_log:
             print(f"-> Find query record used time: {int((t2 - t1) * 1000)}ms")
         t1 = time.time()
+        related_track_candidates = []
+        related_track_result = []
+        if self.wv is not None:
+            candidate_limit = max(1, min(int(top_k * 5), 128))
+            related_track_candidates = self.search_related_track_record(query_payload=query_payload, candidate_limit=candidate_limit)
+            related_track_result = self.filter_others_candidates(query_payload=query_payload, candidates=related_track_candidates, top_k=top_k)
+        t2 = time.time()
+        if self.verbose_log:
+            print(f"-> Related track recall used time: {int((t2 - t1) * 1000)}ms")
+        track_genre_idx = 0
+        if related_track_candidates:
+            track_genre_idx = self.get_track_genre_idx_from_related_track(query_payload=query_payload, candidates=related_track_candidates, fallback_idx=query_artist_genre_idx)
+            if self.verbose_log and track_genre_idx != query_artist_genre_idx:
+                print(f"-> [UPDATED] Query track genre: {self.index_genre_dict.get(query_artist_genre_idx) or '<unk>'} -> {self.index_genre_dict.get(track_genre_idx) or '<unk>'}")
+        query_payload['track_genre_idx'] = track_genre_idx
+        t1 = time.time()
         candidate_limit = max(1, min(int(top_k * 10), 512))
-        candidates = self.search_vector_similar_record(query_vector=query_vector, candidate_limit=candidate_limit, artist_genre_idx=artist_genre_idxs)
+        candidates = self.search_vector_similar_record(query_vector=query_vector, candidate_limit=candidate_limit, artist_genre_idx=track_genre_idx if track_genre_idx > 0 else artist_genre_idxs)
         result = self.filter_similar_candidates(query_payload=query_payload, candidates=candidates, top_k=top_k)
         t2 = time.time()
         if self.verbose_log:
@@ -1146,8 +1262,7 @@ class EmbeatDatabase:
         popular_result = []
         if query_artist_genre_idx > 0:
             candidate_limit = max(1, min(int(top_k * 2), 128))
-            track_genre_idx = self.get_track_genre_idx(query_payload=query_payload, candidates=candidates, fallback_idx=query_artist_genre_idx)
-            popular_candidates = self.search_genre_popular_record(query_vector=query_vector, candidate_limit=candidate_limit, artist_genre_idx=track_genre_idx)
+            popular_candidates = self.search_genre_popular_record(query_vector=query_vector, candidate_limit=candidate_limit, artist_genre_idx=track_genre_idx if track_genre_idx > 0 else query_artist_genre_idx)
             popular_result = self.filter_others_candidates(query_payload=query_payload, candidates=popular_candidates, top_k=top_k)
         t2 = time.time()
         if self.verbose_log:
@@ -1175,15 +1290,6 @@ class EmbeatDatabase:
         t2 = time.time()
         if self.verbose_log:
             print(f"-> Related artist recall used time: {int((t2 - t1) * 1000)}ms")
-        t1 = time.time()
-        related_track_result = []
-        if self.wv is not None:
-            candidate_limit = max(1, min(int(top_k * 2), 128))
-            related_track_candidates = self.search_related_track_record(query_payload=query_payload, candidate_limit=candidate_limit)
-            related_track_result = self.filter_others_candidates(query_payload=query_payload, candidates=related_track_candidates, top_k=top_k)
-        t2 = time.time()
-        if self.verbose_log:
-            print(f"-> Related track recall used time: {int((t2 - t1) * 1000)}ms")
         t1 = time.time()
         result = self.merge_result_by_score(query_payload=query_payload, similar_result=result, popular_result=popular_result, same_artist_result=same_artist_result, related_artist_result=related_artist_result, related_track_result=related_track_result, top_k=top_k)
         if add_query_track:
@@ -1243,11 +1349,15 @@ def main():
     command = sys.argv[1]
     if command in ["-t", "--track"]:
         if len(sys.argv) < 3:
-            print("ERROR: track_id is required.")
+            print("ERROR: track_id or ISRC is required.")
             sys.exit(1)
         track_id = sys.argv[2]
         t1 = time.time()
-        result = ed.search_entry(track_id=track_id)
+        isrc_pattern = re.compile(r'^[A-Z]{2}[A-Z0-9]{3}\d{7}$')
+        if bool(isrc_pattern.match(track_id)):
+            result = ed.search_entry(isrc=track_id)
+        else:
+            result = ed.search_entry(track_id=track_id)
         t2 = time.time()
         ed.print_result(result)
         print(f"Query used time: {t2 - t1:.3f}s")
