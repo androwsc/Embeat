@@ -8,8 +8,8 @@
 
 <p align="center">
   <a href="https://github.com/gdstudio-org/Embeat">Homepage</a> •
-  <a href="https://www.bilibili.com/opus/1218087093501165591">Document</a> •
-  <a href="https://github.com/gdstudio-org/Embeat/tree/main/checkpoints">Model</a> •
+  <a href="https://www.bilibili.com/opus/1218087093501165591">Blog</a> •
+  <a href="https://huggingface.co/GD-Studio/embeat-track2vec">Model</a> •
   <a href="https://huggingface.co/datasets/GD-Studio/embeat_45m_spotify_tracks">Dataset</a> •
   <a href="https://pan.baidu.com/s/1CWFzgM75Z4YjP1tZnGCZKg?pwd=0616">Database</a>
 </p>
@@ -41,9 +41,10 @@ Embeat is a music recommendation system built on Spotify acoustic feature data. 
 > If you find this project helpful, please give it a ⭐️. It means a lot to a personal project, thanks!
 
 - [x] **2026-06-26**: Open-source initial codebase + [EmbeatMLP model weights](checkpoints/EmbeatMLP/)
-- [x] **2026-06-26**: Open-source [45M tracks dataset](https://huggingface.co/datasets/GD-Studio/embeat_45m_spotify_tracks) + [Technical document](https://www.bilibili.com/opus/1218087093501165591)
-- [x] **2026-07-02**: Open-source [Qdrant database](https://pan.baidu.com/s/1CWFzgM75Z4YjP1tZnGCZKg?pwd=0616) (Password: 0616)
-- [ ] **1K Stars**: Open-source Track2Vec model weights + 1.8M playlists dataset
+- [x] **2026-06-26**: Open-source [45M tracks dataset](https://huggingface.co/datasets/GD-Studio/embeat_45m_spotify_tracks) + [Technical blog](https://www.bilibili.com/opus/1218087093501165591)
+- [x] **2026-07-02**: Open-source Qdrant database V1 [[Google Drive](https://drive.google.com/drive/folders/1dFdueTmcWgGZXhJXs7c7YOjeniZsSW9x?usp=sharing)] [[Baidu Netdisk](https://pan.baidu.com/s/1CWFzgM75Z4YjP1tZnGCZKg?pwd=0616)]
+- [x] **2026-09-06**: Open-source Qdrant database V2 (same link above, 2GB+ RAM can deploy)
+- [x] **2026-09-06**: Open-source [Track2Vec model weights](https://huggingface.co/GD-Studio/embeat-track2vec)
 
 
 ## Demo
@@ -192,7 +193,7 @@ Using the LLM-as-a-Judge method (GPT-5.5 / Gemini Flash 3.5 / Claude Sonnet 4.6)
 
 - Embeat's core strength lies in its balance between style precision and artist diversity, with a particularly notable advantage in niche-style scenarios that span across languages and cultures
 - Netease Cloud Music retains some reference value only in its deep mining of Mandarin-language local content
-- For detailed comparison, please refer to the [Technical document](https://www.bilibili.com/opus/1218087093501165591)
+- For detailed comparison, please refer to the [Technical blog](https://www.bilibili.com/opus/1218087093501165591)
 
 
 ## System Architecture
@@ -204,7 +205,7 @@ Using the LLM-as-a-Judge method (GPT-5.5 / Gemini Flash 3.5 / Claude Sonnet 4.6)
 - Input: 64-dim discrete features (key, mode, tempo, time_signature) + 64-dim continuous features (energy, valence, danceability, etc., 7 dimensions)
 - Architecture: Dual-tower MLP (Discrete Tower + Acoustic Tower -> Backbone)
 - Output: 64-dim L2-normalized vectors
-- Training: Masked InfoNCE Loss, batch_size=4096, converges in ~70 steps
+- Training: Masked InfoNCE Loss, batch_size=4096, converges in ~330 steps
 - Extremely small parameter count, supports real-time CPU-only inference
 
 **Track2Vec** - Playlist Collaborative Filtering Model
@@ -266,7 +267,7 @@ Embeat/
 - Python >= 3.10
 - PyTorch >= 2.6, < 2.7 (required for training)
 - CUDA >= 12.0 (required for training)
-- [Qdrant](https://github.com/qdrant/qdrant/releases) (required for inference)
+- [Qdrant](https://github.com/qdrant/qdrant/releases) >= 1.18 (required for inference)
 
 ### Installation
 
@@ -322,7 +323,7 @@ song_b = {"key": 5, "mode": 0, "tempo": 87, "time_signature": 4,
 similarity = infer(sample_a=song_a, sample_b=song_b,
                    checkpoint_path="checkpoints/EmbeatMLP/model.pt")
 
-# Similarity: 0.7312
+# Similarity: 0.6944
 print(f"Similarity: {similarity:.4f}")
 ```
 
@@ -383,6 +384,7 @@ Query used time: 0.229s
 </p>
 
 - GD Music (Live Demo): [https://music.gdstudio.xyz](https://music.gdstudio.xyz)
+- Embeat UI Web: [https://github.com/lkwodp/embeat-ui-refactor](https://github.com/lkwodp/embeat-ui-refactor)
 - Bilibili: [https://space.bilibili.com/13715770](https://space.bilibili.com/13715770)
 - Telegram: [https://t.me/gdstudio_music](https://t.me/gdstudio_music)
 
@@ -398,6 +400,6 @@ Query used time: 0.229s
 | Scope | License |
 |-------|---------|
 | Code, Model Weights | MIT |
-| Datasets, Database | [CC-BY-NC 4.0](LICENSE) |
+| Datasets, Database | CC-BY-NC 4.0 |
 
-> Made with ❤️ by GD Studio
+> Made with ❤️ by [GD Studio](https://github.com/gdstudio-org)

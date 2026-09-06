@@ -9,7 +9,7 @@
 <p align="center">
   <a href="https://github.com/gdstudio-org/Embeat">主页</a> •
   <a href="https://www.bilibili.com/opus/1218087093501165591">技术文档</a> •
-  <a href="https://github.com/gdstudio-org/Embeat/tree/main/checkpoints">模型</a> •
+  <a href="https://huggingface.co/GD-Studio/embeat-track2vec">模型</a> •
   <a href="https://huggingface.co/datasets/GD-Studio/embeat_45m_spotify_tracks">数据集</a> •
   <a href="https://pan.baidu.com/s/1CWFzgM75Z4YjP1tZnGCZKg?pwd=0616">数据库</a>
 </p>
@@ -42,8 +42,9 @@ Embeat 是一个基于 Spotify 声学特征数据构建的歌曲推荐系统，�
 
 - [x] **2026-06-26**：开源 初版代码 + [EmbeatMLP 模型权重](checkpoints/EmbeatMLP/)
 - [x] **2026-06-26**：开源 [45M 单曲数据集](https://huggingface.co/datasets/GD-Studio/embeat_45m_spotify_tracks) + [技术文档](https://www.bilibili.com/opus/1218087093501165591)
-- [x] **2026-07-02**：开源 [Qdrant 数据库](https://pan.baidu.com/s/1CWFzgM75Z4YjP1tZnGCZKg?pwd=0616) (提取码：0616)
-- [ ] **1K Stars**：开源 Track2Vec 模型权重 + 1.8M 歌单数据集
+- [x] **2026-07-02**：开源 Qdrant 数据库 V1 [[谷歌云盘](https://drive.google.com/drive/folders/1dFdueTmcWgGZXhJXs7c7YOjeniZsSW9x?usp=sharing)] [[百度网盘](https://pan.baidu.com/s/1CWFzgM75Z4YjP1tZnGCZKg?pwd=0616)]
+- [x] **2026-09-06**：开源 Qdrant 数据库 V2（链接同上，2GB+内存可部署）
+- [x] **2026-09-06**：开源 [Track2Vec 模型权重](https://huggingface.co/GD-Studio/embeat-track2vec)
 
 
 ## 效果展示
@@ -204,7 +205,7 @@ Embeat 是一个基于 Spotify 声学特征数据构建的歌曲推荐系统，�
 - 输入：64 维离散特征（key, mode, tempo, time_signature）+ 64 维连续特征（energy, valence, danceability 等 7 维）
 - 架构：双塔 MLP（Discrete Tower + Acoustic Tower -> Backbone）
 - 输出：64 维 L2 归一化向量
-- 训练：Masked InfoNCE Loss，batch_size=4096，~70 steps 即可收敛
+- 训练：Masked InfoNCE Loss，batch_size=4096，~330 steps 即可收敛
 - 参数量极小，支持纯 CPU 实时推理
 
 **Track2Vec** - 歌单协同过滤模型
@@ -266,7 +267,7 @@ Embeat/
 - Python >= 3.10
 - PyTorch >= 2.6, < 2.7（训练需要）
 - CUDA >= 12.0（训练需要）
-- [Qdrant](https://github.com/qdrant/qdrant/releases)（推理需要）
+- [Qdrant](https://github.com/qdrant/qdrant/releases) >= 1.18（推理需要）
 
 ### 安装依赖
 
@@ -322,7 +323,7 @@ song_b = {"key": 5, "mode": 0, "tempo": 87, "time_signature": 4,
 similarity = infer(sample_a=song_a, sample_b=song_b,
                    checkpoint_path="checkpoints/EmbeatMLP/model.pt")
 
-# 相似度：0.7312
+# 相似度：0.6944
 print(f"Similarity: {similarity:.4f}")
 ```
 
@@ -383,6 +384,7 @@ Query used time: 0.229s
 </p>
 
 - GD音乐台（在线体验）：[https://music.gdstudio.xyz](https://music.gdstudio.xyz)
+- Embeat UI Web: [https://github.com/lkwodp/embeat-ui-refactor](https://github.com/lkwodp/embeat-ui-refactor)
 - B站：[https://space.bilibili.com/13715770](https://space.bilibili.com/13715770)
 - TG群：[https://t.me/gdstudio_music](https://t.me/gdstudio_music)
 
@@ -398,6 +400,6 @@ Query used time: 0.229s
 | 范围 | 协议 |
 |------|------|
 | 代码、模型权重 | MIT |
-| 数据集、数据库 | [CC-BY-NC 4.0](LICENSE) |
+| 数据集、数据库 | CC-BY-NC 4.0 |
 
-> Made with ❤️ by GD Studio
+> Made with ❤️ by [GD Studio](https://github.com/gdstudio-org)
