@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # Written by GD Studio
-# Date: 2026-04-16
+# Date: 2026-08-31
 
 import json
 import os
@@ -101,7 +101,7 @@ def wait_for_qdrant_ready(client: QdrantClient, qdrant_url: str, wait_seconds: f
 
 
 # Create or recreate collection
-def ensure_collection(client: QdrantClient, collection_name: str, vector_size: int, distance: str, embedding_datatype: str, recreate: bool, hnsw_indexing_threshold: int):
+def ensure_collection(client: QdrantClient, collection_name: str, vector_size: int, distance: str, embedding_datatype: str, recreate: bool, hnsw_indexing_threshold: int, enable_low_ram: bool):
     try:
         exists = bool(client.collection_exists(collection_name=collection_name))
     except Exception:
@@ -121,15 +121,18 @@ def ensure_collection(client: QdrantClient, collection_name: str, vector_size: i
             vectors_config=qdrant_models.VectorParams(
                 size=int(vector_size),
                 distance=get_qdrant_distance(distance),
-                datatype=get_qdrant_datatype(embedding_datatype)
+                datatype=get_qdrant_datatype(embedding_datatype),
+                on_disk=enable_low_ram
             ),
             hnsw_config=qdrant_models.HnswConfigDiff(
                 m=8,
-                ef_construct=200
+                ef_construct=200,
+                on_disk=False
             ),
             optimizers_config=qdrant_models.OptimizersConfigDiff(
                 indexing_threshold=hnsw_indexing_threshold,
-            )
+            ),
+            on_disk_payload=enable_low_ram
         )
     return
 
@@ -345,7 +348,8 @@ def main():
     hnsw_indexing_threshold = 0  # 20000 or None = Qdrant default value; 0 = no HNSW indexing
     start_index = 0
     max_rows = 0
-    min_popularity = 0.01
+    min_popularity = 0.1
+    enable_low_ram = True
     device = None
     strict = True
     payload_include_embedding = False
@@ -364,6 +368,7 @@ def main():
     print("batch_size:", batch_size)
     print("min_popularity:", min_popularity)
     print("hnsw_indexing_threshold:", hnsw_indexing_threshold)
+    print("enable_low_ram:", enable_low_ram)
 
     genre_patch_map = {}
     if artist_genre_idx_patch_enabled:
@@ -397,7 +402,7 @@ def main():
 
     client = build_qdrant_client(qdrant_url, qdrant_api_key, qdrant_timeout)
     wait_for_qdrant_ready(client, qdrant_url, wait_qdrant_seconds)
-    ensure_collection(client, collection_name, vector_size, distance, embedding_datatype, recreate, hnsw_indexing_threshold)
+    ensure_collection(client, collection_name, vector_size, distance, embedding_datatype, recreate, hnsw_indexing_threshold, enable_low_ram)
     print("qdrant_collection:", collection_name)
 
     stat_scanned = 0
