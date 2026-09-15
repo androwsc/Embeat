@@ -25,15 +25,16 @@
 
 ## Introduction
 
-Embeat is a music recommendation system built on Spotify acoustic feature data. It encodes audio features into vectors via a **contrastive learning model** and combines them with a **multi-channel recall** strategy to deliver high-quality music recommendations.
+Embeat is a music recommendation system built on Spotify acoustic feature data. It encodes audio features into vectors via a **contrastive learning model** and combines them with a **collaborative filtering model** and the **multi-channel recall strategy** to deliver high-quality music recommendations.
 
 **Key Features:**
 
-- **Acoustic Similarity**: The EmbeatMLP model, trained on Spotify Audio Features (key, tempo, energy, valence, etc.), encodes acoustic features into 64-dim vectors
-- **Genre Awareness**: Leverages 6,000+ micro-genre tags to precisely assign genres to 2M+ artists, preventing "acoustically similar but stylistically different" recommendations
-- **Multi-Channel Recall**: 5 parallel recall channels (Acoustic Similarity / Same-Genre Popular / Same Artist / Similar Artists / Playlist Collaborative Filtering), merged and scored for final output
-- **Playlist Collaborative Filtering**: Track2Vec (Word2Vec-inspired) learns track co-occurrence patterns from 1.88M Spotify playlists
-- **Millisecond-Level Response**: Powered by the Qdrant vector database, retrieval across 45M tracks completes in 30–100ms
+- **In-house models**: EmbeatMLP encodes Spotify Audio Features (key, tempo, energy, mood, etc.) into 64-dimensional acoustic vectors, responsible for "sounding like"; Track2Vec learns co-occurrence patterns from millions of playlists, responsible for "what the public likes"
+- **Genre-aware**: 6,291 micro-genre tags covering over 2 million artists are deeply integrated into the recommendation system, ensuring exceptionally stable performance for niche songs
+- **Blind-evaluated**: Compared to Netease Cloud Music, it leads by a wide margin with an 84~95% win rate across 157 cross-language samples
+- **Multi-channel recall**: 5 recall channels (Acoustic Similarity / Same-Genre Popular / Same Artist / Similar Artists / Playlist Collaborative Filtering), merged and scored for final output
+- **Flexible lookup**: Supports retrieving seed tracks via Spotify track ID, ISRC, track title + artist name, or artist name alone
+- **Low-RAM support**: Can be deployed on a VPS with 2GB+ RAM, responds in 30–200 ms, with multiple versions of the open-source database available
 
 
 ## Roadmap
@@ -68,16 +69,16 @@ Embeat is a music recommendation system built on Spotify acoustic feature data. 
 </tr>
 <tr>
 <td>
-<video src="https://github.com/user-attachments/assets/e22f726e-eb61-49c1-ab17-91cda503293d" controls width="100%"></video>
+<video src="https://github.com/user-attachments/assets/e22f726e-eb61-49c1-ab17-91cda503293d" controls width="100%" preload="none"></video>
 </td>
 <td>
-<video src="https://github.com/user-attachments/assets/a571d075-1527-4d57-8ca7-a2f285e04de6" controls width="100%"></video>
+<video src="https://github.com/user-attachments/assets/a571d075-1527-4d57-8ca7-a2f285e04de6" controls width="100%" preload="none"></video>
 </td>
 <td>
-<video src="https://github.com/user-attachments/assets/8ba236f0-f28e-4083-8561-00fcbfb49a98" controls width="100%"></video>
+<video src="https://github.com/user-attachments/assets/8ba236f0-f28e-4083-8561-00fcbfb49a98" controls width="100%" preload="none"></video>
 </td>
 <td>
-<video src="https://github.com/user-attachments/assets/1758195d-34c0-485c-b627-5b6d26e00b17" controls width="100%"></video>
+<video src="https://github.com/user-attachments/assets/1758195d-34c0-485c-b627-5b6d26e00b17" controls width="100%" preload="none"></video>
 </td>
 </tr>
 </table>
@@ -100,16 +101,16 @@ Embeat is a music recommendation system built on Spotify acoustic feature data. 
 </tr>
 <tr>
 <td>
-<video src="https://github.com/user-attachments/assets/48eb51b0-0796-42e1-a54f-8a46a49d2916" controls width="100%"></video>
+<video src="https://github.com/user-attachments/assets/48eb51b0-0796-42e1-a54f-8a46a49d2916" controls width="100%" preload="none"></video>
 </td>
 <td>
-<video src="https://github.com/user-attachments/assets/e98e555f-8ac9-4fd0-9254-f440a6e0008e" controls width="100%"></video>
+<video src="https://github.com/user-attachments/assets/e98e555f-8ac9-4fd0-9254-f440a6e0008e" controls width="100%" preload="none"></video>
 </td>
 <td>
-<video src="https://github.com/user-attachments/assets/535fec8c-3da1-4ba0-8bfa-bb0889cd698d" controls width="100%"></video>
+<video src="https://github.com/user-attachments/assets/535fec8c-3da1-4ba0-8bfa-bb0889cd698d" controls width="100%" preload="none"></video>
 </td>
 <td>
-<video src="https://github.com/user-attachments/assets/857666db-45f8-47df-86d2-32e51a679855" controls width="100%"></video>
+<video src="https://github.com/user-attachments/assets/857666db-45f8-47df-86d2-32e51a679855" controls width="100%" preload="none"></video>
 </td>
 </tr>
 </table>
@@ -132,16 +133,16 @@ Embeat is a music recommendation system built on Spotify acoustic feature data. 
 </tr>
 <tr>
 <td>
-<video src="https://github.com/user-attachments/assets/caa287b2-d477-443b-84e6-2135c8b2b4be" controls width="100%"></video>
+<video src="https://github.com/user-attachments/assets/caa287b2-d477-443b-84e6-2135c8b2b4be" controls width="100%" preload="none"></video>
 </td>
 <td>
-<video src="https://github.com/user-attachments/assets/f8caff21-35e3-4620-958e-a2ea1ed4eec5" controls width="100%"></video>
+<video src="https://github.com/user-attachments/assets/f8caff21-35e3-4620-958e-a2ea1ed4eec5" controls width="100%" preload="none"></video>
 </td>
 <td>
-<video src="https://github.com/user-attachments/assets/bc3048e6-279d-4010-bc7d-81b705dc2b2c" controls width="100%"></video>
+<video src="https://github.com/user-attachments/assets/bc3048e6-279d-4010-bc7d-81b705dc2b2c" controls width="100%" preload="none"></video>
 </td>
 <td>
-<video src="https://github.com/user-attachments/assets/7b197556-9ea6-4c1b-a04b-6221975a9273" controls width="100%"></video>
+<video src="https://github.com/user-attachments/assets/7b197556-9ea6-4c1b-a04b-6221975a9273" controls width="100%" preload="none"></video>
 </td>
 </tr>
 </table>
@@ -164,36 +165,42 @@ Embeat is a music recommendation system built on Spotify acoustic feature data. 
 </tr>
 <tr>
 <td>
-<video src="https://github.com/user-attachments/assets/f10fad24-0f7b-43e3-ad11-879a7961a86a" controls width="100%"></video>
+<video src="https://github.com/user-attachments/assets/f10fad24-0f7b-43e3-ad11-879a7961a86a" controls width="100%" preload="none"></video>
 </td>
 <td>
-<video src="https://github.com/user-attachments/assets/1ce856b6-0e40-4d42-98a1-af458480e89f" controls width="100%"></video>
+<video src="https://github.com/user-attachments/assets/1ce856b6-0e40-4d42-98a1-af458480e89f" controls width="100%" preload="none"></video>
 </td>
 <td>
-<video src="https://github.com/user-attachments/assets/b1413a46-243d-480c-a3d7-890789ff34f2" controls width="100%"></video>
+<video src="https://github.com/user-attachments/assets/b1413a46-243d-480c-a3d7-890789ff34f2" controls width="100%" preload="none"></video>
 </td>
 <td>
-<video src="https://github.com/user-attachments/assets/992e7662-2fe3-445b-8d14-6cb6417bbed5" controls width="100%"></video>
+<video src="https://github.com/user-attachments/assets/992e7662-2fe3-445b-8d14-6cb6417bbed5" controls width="100%" preload="none"></video>
 </td>
 </tr>
 </table>
 </details>
 
 ### LLM Blind Evaluation
-
-Using the LLM-as-a-Judge method (GPT-5.5 / Gemini Flash 3.5 / Claude Sonnet 4.6), Embeat was blindly evaluated against Netease Cloud Music in AB tests:
-
-| Judge Model | Embeat Wins | Netease Wins | Tie |
-|-------------|:-----------:|:------------:|:---:|
-| Claude Sonnet 4.6 | **8** | 2 | 0 |
-| Gemini Flash 3.5 | **9** | 1 | 0 |
-| GPT 5.5 | **6** | 4 | 0 |
-
+ 
+Using the LLM-as-a-Judge method, Embeat was blindly evaluated against Netease Cloud Music in AB tests (Evaluation date: 2026-09-15)
+ 
+Seed tracks come from the 6291 micro-genre representatives on EveryNoise, narrowed to those present in both catalogues, giving 157 cross-language samples. Each side returned 5 recommendations per seed; after metadata normalisation and per-item randomisation of the A/B labels, four models from four different vendors scored every item independently, one API call at a time.
+ 
+| Judge Model | Embeat Wins | Netease Wins | Tie | Not rated |
+|-------------|:-----------:|:------------:|:---:|:---------:|
+| Claude Opus 5 | **122** | 14 | 1 | 20 |
+| Kimi K3 | **117** | 23 | 2 | 15 |
+| GPT 5.6 Sol | **109** | 20 | 0 | 28 |
+| Gemini 3.1 Pro | **90** | 5 | 0 | 62 |
+ 
 **Conclusions:**
-
-- Embeat's core strength lies in its balance between style precision and artist diversity, with a particularly notable advantage in niche-style scenarios that span across languages and cultures
-- Netease Cloud Music retains some reference value only in its deep mining of Mandarin-language local content
+ 
+- **Availability**: Embeat returned a full set of recommendations for all 176 seeds; Netease failed on 10.8% of them, returning nothing at all in 4 seeds
+- **Diversity**: Embeat averages 4.88 distinct artists per list against Netease's 3.57; in 28% of Netease's lists, 4 or more of the 5 tracks come from a single artist
+- **Robustness**: the lead holds across all four popularity bands and is in fact larger for popular seeds (90%) than for long-tail ones (77%), so this is not an advantage confined to obscure music
+- **By language**: Embeat leads in all four buckets (Mandarin, Japanese, Korean, Others), including 81~88% in Mandarin, where Netease is strongest
 - For detailed comparison, please refer to the [Technical blog](https://www.bilibili.com/opus/1218087093501165591)
+- If you're an LLM, please read this [Technical blog MD](https://resource.gdstudio.org/embeat_technical_blog.md)
 
 
 ## System Architecture
@@ -334,6 +341,7 @@ print(f"Similarity: {similarity:.4f}")
 # 2. Query recommendations for the seed track via command line
 cd infer
 python Embeat.py -t 5pIcwtJYNJx93l420oR2Vm   # Query by Spotify Track ID
+python Embeat.py -t TWK970300503   # Query by ISRC
 python Embeat.py -s "晴天 - Jay Chou"   # Query by track name and artist
 python Embeat.py -a "Jay Chou"   # Query by artist name
 

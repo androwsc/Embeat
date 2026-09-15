@@ -25,15 +25,16 @@
 
 ## 简介
 
-Embeat 是一个基于 Spotify 声学特征数据构建的歌曲推荐系统，通过**对比学习模型**将音频特征编码为向量，结合**多路召回**策略实现高质量的音乐推荐。
+Embeat 是一个基于 Spotify 声学特征数据构建的歌曲推荐系统，通过**对比学习模型**将音频特征编码为向量，结合**协同过滤模型**与**多路召回策略**实现高质量的音乐推荐。
 
 **核心特点：**
 
-- **声学相似**：基于 Spotify Audio Features（调性、节拍、能量、情绪等）训练的 EmbeatMLP 模型，将声学特征编码为 64 维向量
-- **流派感知**：引入 6000+ 微流派标签，为 200 万+ 歌手精准分配流派，避免"声学相似但风格迥异"的推荐
-- **多路召回**：5 路并行召回（声学相似 / 同流派热门 / 同歌手 / 相似歌手 / 歌单协同过滤），融合打分后输出
-- **歌单协同过滤**：通过 Track2Vec（Word2Vec 思路）学习 188 万份 Spotify 歌单中歌曲的共现关系
-- **毫秒级响应**：基于 Qdrant 向量数据库，4500 万首歌曲的检索响应在 30~100ms 内完成
+- **自研模型**：EmbeatMLP 把 Spotify Audio Features（调性、速度、能量、情绪等）编码成 64 维声学向量，负责“听起来像”；Track2Vec 从百万歌单中学共现行为，负责"大众喜欢"
+- **流派感知**：6291 个微流派标签，覆盖 200 万以上艺人，深度融入推荐系统，冷门歌曲表现极其稳定
+- **盲评验证**：和网易云音乐对比，在 157 条跨语种样本上，以 84~95% 的胜率遥遥领先
+- **多路召回**：5 路召回（声学相似 / 同流派热门 / 同歌手 / 相似歌手 / 歌单协同过滤），融合打分后输出
+- **多种查询**：支持通过 Spotify track ID、ISRC、曲目名 + 艺人名、或仅艺人名检索种子曲目
+- **极低内存**：2GB+ 内存VPS即可部署，响应时间 30–200ms，开源数据库多版本可选
 
 
 ## 开源路线
@@ -68,16 +69,16 @@ Embeat 是一个基于 Spotify 声学特征数据构建的歌曲推荐系统，�
 </tr>
 <tr>
 <td>
-<video src="https://github.com/user-attachments/assets/e22f726e-eb61-49c1-ab17-91cda503293d" controls width="100%"></video>
+<video src="https://github.com/user-attachments/assets/e22f726e-eb61-49c1-ab17-91cda503293d" controls width="100%" preload="none"></video>
 </td>
 <td>
-<video src="https://github.com/user-attachments/assets/a571d075-1527-4d57-8ca7-a2f285e04de6" controls width="100%"></video>
+<video src="https://github.com/user-attachments/assets/a571d075-1527-4d57-8ca7-a2f285e04de6" controls width="100%" preload="none"></video>
 </td>
 <td>
-<video src="https://github.com/user-attachments/assets/8ba236f0-f28e-4083-8561-00fcbfb49a98" controls width="100%"></video>
+<video src="https://github.com/user-attachments/assets/8ba236f0-f28e-4083-8561-00fcbfb49a98" controls width="100%" preload="none"></video>
 </td>
 <td>
-<video src="https://github.com/user-attachments/assets/1758195d-34c0-485c-b627-5b6d26e00b17" controls width="100%"></video>
+<video src="https://github.com/user-attachments/assets/1758195d-34c0-485c-b627-5b6d26e00b17" controls width="100%" preload="none"></video>
 </td>
 </tr>
 </table>
@@ -100,16 +101,16 @@ Embeat 是一个基于 Spotify 声学特征数据构建的歌曲推荐系统，�
 </tr>
 <tr>
 <td>
-<video src="https://github.com/user-attachments/assets/48eb51b0-0796-42e1-a54f-8a46a49d2916" controls width="100%"></video>
+<video src="https://github.com/user-attachments/assets/48eb51b0-0796-42e1-a54f-8a46a49d2916" controls width="100%" preload="none"></video>
 </td>
 <td>
-<video src="https://github.com/user-attachments/assets/e98e555f-8ac9-4fd0-9254-f440a6e0008e" controls width="100%"></video>
+<video src="https://github.com/user-attachments/assets/e98e555f-8ac9-4fd0-9254-f440a6e0008e" controls width="100%" preload="none"></video>
 </td>
 <td>
-<video src="https://github.com/user-attachments/assets/535fec8c-3da1-4ba0-8bfa-bb0889cd698d" controls width="100%"></video>
+<video src="https://github.com/user-attachments/assets/535fec8c-3da1-4ba0-8bfa-bb0889cd698d" controls width="100%" preload="none"></video>
 </td>
 <td>
-<video src="https://github.com/user-attachments/assets/857666db-45f8-47df-86d2-32e51a679855" controls width="100%"></video>
+<video src="https://github.com/user-attachments/assets/857666db-45f8-47df-86d2-32e51a679855" controls width="100%" preload="none"></video>
 </td>
 </tr>
 </table>
@@ -132,16 +133,16 @@ Embeat 是一个基于 Spotify 声学特征数据构建的歌曲推荐系统，�
 </tr>
 <tr>
 <td>
-<video src="https://github.com/user-attachments/assets/caa287b2-d477-443b-84e6-2135c8b2b4be" controls width="100%"></video>
+<video src="https://github.com/user-attachments/assets/caa287b2-d477-443b-84e6-2135c8b2b4be" controls width="100%" preload="none"></video>
 </td>
 <td>
-<video src="https://github.com/user-attachments/assets/f8caff21-35e3-4620-958e-a2ea1ed4eec5" controls width="100%"></video>
+<video src="https://github.com/user-attachments/assets/f8caff21-35e3-4620-958e-a2ea1ed4eec5" controls width="100%" preload="none"></video>
 </td>
 <td>
-<video src="https://github.com/user-attachments/assets/bc3048e6-279d-4010-bc7d-81b705dc2b2c" controls width="100%"></video>
+<video src="https://github.com/user-attachments/assets/bc3048e6-279d-4010-bc7d-81b705dc2b2c" controls width="100%" preload="none"></video>
 </td>
 <td>
-<video src="https://github.com/user-attachments/assets/7b197556-9ea6-4c1b-a04b-6221975a9273" controls width="100%"></video>
+<video src="https://github.com/user-attachments/assets/7b197556-9ea6-4c1b-a04b-6221975a9273" controls width="100%" preload="none"></video>
 </td>
 </tr>
 </table>
@@ -164,16 +165,16 @@ Embeat 是一个基于 Spotify 声学特征数据构建的歌曲推荐系统，�
 </tr>
 <tr>
 <td>
-<video src="https://github.com/user-attachments/assets/f10fad24-0f7b-43e3-ad11-879a7961a86a" controls width="100%"></video>
+<video src="https://github.com/user-attachments/assets/f10fad24-0f7b-43e3-ad11-879a7961a86a" controls width="100%" preload="none"></video>
 </td>
 <td>
-<video src="https://github.com/user-attachments/assets/1ce856b6-0e40-4d42-98a1-af458480e89f" controls width="100%"></video>
+<video src="https://github.com/user-attachments/assets/1ce856b6-0e40-4d42-98a1-af458480e89f" controls width="100%" preload="none"></video>
 </td>
 <td>
-<video src="https://github.com/user-attachments/assets/b1413a46-243d-480c-a3d7-890789ff34f2" controls width="100%"></video>
+<video src="https://github.com/user-attachments/assets/b1413a46-243d-480c-a3d7-890789ff34f2" controls width="100%" preload="none"></video>
 </td>
 <td>
-<video src="https://github.com/user-attachments/assets/992e7662-2fe3-445b-8d14-6cb6417bbed5" controls width="100%"></video>
+<video src="https://github.com/user-attachments/assets/992e7662-2fe3-445b-8d14-6cb6417bbed5" controls width="100%" preload="none"></video>
 </td>
 </tr>
 </table>
@@ -181,19 +182,25 @@ Embeat 是一个基于 Spotify 声学特征数据构建的歌曲推荐系统，�
 
 ### LLM 盲评对比
 
-使用 LLM-as-a-Judge 方法（GPT-5.5 / Gemini Flash 3.5 / Claude Sonnet 4.6），对 Embeat 与网易云音乐进行 AB 盲测：
+使用 LLM-as-a-Judge 方法，对 Embeat 与网易云音乐进行 AB 盲测（评估时间：2026-09-15）
 
-| 评估模型 | Embeat胜 | 网易云胜 | 平局 |
-|---------|:---------:|:-------:|:----:|
-| Claude Sonnet 4.6 | **8** | 2 | 0 |
-| Gemini Flash 3.5 | **9** | 1 | 0 |
-| GPT 5.5 | **6** | 4 | 0 |
+种子曲目取自 EveryNoise 的 6291 个微流派代表曲，筛出两个平台共有的部分，得到 157 条跨语种样本。每条样本两侧各推荐 5 首，经元数据标准化与随机换位后，由四个不同厂商的模型逐条独立评分。
+
+| 评估模型 | Embeat 胜 | 网易云胜 | 平局 | 未评 |
+|---------|:---------:|:-------:|:----:|:----:|
+| Claude Opus 5 | **122** | 14 | 1 | 20 |
+| Kimi K3 | **117** | 23 | 2 | 15 |
+| GPT 5.6 Sol | **109** | 20 | 0 | 28 |
+| Gemini 3.1 Pro | **90** | 5 | 0 | 62 |
 
 **结论：**
 
-- Embeat 的核心优势在于风格精准度和艺人多样性的平衡，尤其在跨语言、跨文化的小众风格场景中优势突出
-- 网易云音乐仅在华语本土内容的深度挖掘上仍有一定参考价值
+- **可用性**：176 条种子中 Embeat 全部返回完整推荐，网易云 10.8% 失败（其中 4 条零返回）
+- **多样性**：Embeat 每条列表平均 4.88 个不同艺人，网易云 3.57；网易云 28% 的列表中 5 首有 4 首以上来自同一歌手
+- **稳健性**：优势在四个热度档上均显著，头部档（90%）甚至高于长尾档（77%），并非只在冷门曲目上领先
+- **分语种**：华语、日语、韩语、其它地区这四档全部领先，其中华语档（网易云主场）胜率 81~88%
 - 具体对比细节请阅读 [技术文档](https://www.bilibili.com/opus/1218087093501165591)
+- 如果你是 LLM 请阅读 [技术文档 MD 版](https://resource.gdstudio.org/embeat_technical_blog.md)
 
 
 ## 系统架构
@@ -334,6 +341,7 @@ print(f"Similarity: {similarity:.4f}")
 # 2. 通过命令行查询种子曲目的推荐结果
 cd infer
 python Embeat.py -t 5pIcwtJYNJx93l420oR2Vm   # 通过 Spotify Track ID 查询
+python Embeat.py -t TWK970300503   # 通过 ISRC 查询
 python Embeat.py -s "晴天 - Jay Chou"   # 通过歌名和歌手查询
 python Embeat.py -a "Jay Chou"   # 通过歌手名查询
 
