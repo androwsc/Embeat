@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
 # Written by GD Studio
-# Date: 2026-09-06
+# Date: 2026-09-12
 
 import json
 import numpy as np
 import os
 import random
+import re
 import requests
 import sys
 import time
@@ -305,7 +306,7 @@ class EmbeatDatabase:
         if not self.artist_genre_idx_patch_path or not os.path.isfile(self.artist_genre_idx_patch_path):
             self.artist_genre_idx_patch_path = ""
             if self.verbose_log:
-                print("Optional file `artist_genre_idx_patch.json` is missing. System might have a bad predition on some edge cases.")
+                print("Optional file `artist_genre_idx_patch.json` is missing. System might have a bad prediction on some edge cases.")
         else:
             try:
                 with open(self.artist_genre_idx_patch_path, "r", encoding="utf-8") as f:
@@ -320,7 +321,7 @@ class EmbeatDatabase:
         if not self.related_artist_idx_path or not os.path.isfile(self.related_artist_idx_path):
             self.related_artist_idx_path = ""
             if self.verbose_log:
-                print("Optional file `related_artist_idx.json` is missing. System might not have the best predition result.")
+                print("Optional file `related_artist_idx.json` is missing. System might not have the best prediction result.")
         else:
             try:
                 with open(self.related_artist_idx_path, "r", encoding="utf-8") as f:
@@ -338,7 +339,7 @@ class EmbeatDatabase:
         if not os.path.isfile(self.track2vec_path):
             self.track2vec_path = f"{self.file_dir}/track2vec.bin"
         if not os.path.isfile(self.track2vec_path):
-            print("Optional file `track2vec.wv` or `track2vec.bin` is missing. System might not have the best predition result.")
+            print("Optional file `track2vec.wv` or `track2vec.bin` is missing. System might not have the best prediction result.")
             return
         try:
             if self.track2vec_path.split(".")[-1].lower() == "bin":
@@ -421,19 +422,18 @@ class EmbeatDatabase:
         return result
 
     # Find seed track by track_id, isrc, or track info
-    def find_query_record_by_track(self, track_id: Union[str, list] = "", isrc: Union[str, list] = "", track_name: str = None, artist_name: str = None):
-        def normalize_id(value):
-            if isinstance(value, list):
-                return [str(v) for v in value if v], True
-            return ([str(value)] if value else []), False
-
-        track_ids, track_id_batched = normalize_id(track_id)
-        isrcs, isrc_batched = normalize_id(isrc)
-        is_batched = track_id_batched or isrc_batched
+    def find_query_record_by_track(self, track_id: Union[str, list] = "", isrc: str = "", track_name: str = None, artist_name: str = None):
+        if isinstance(track_id, list):
+            track_ids = [str(t) for t in track_id if t]
+            is_batched = True
+        else:
+            track_ids = [str(track_id)] if track_id else []
+            is_batched = False
         result = [] if is_batched else None
-        if not track_ids and not isrcs and (not track_name or not artist_name):
+        if not track_ids and not isrc and (not track_name or not artist_name):
             print("Must provide `track_id`, `isrc`, or `track_name & artist_name` for `find_query_record_by_track`.")
             return result
+        isrc = str(isrc).upper().strip() if isrc else ""
         if self.collection_version not in ["v1"] and track_ids:
             target_uuids = [str(uuid.uuid5(uuid.NAMESPACE_DNS, t)) for t in track_ids]
             try:
@@ -448,6 +448,8 @@ class EmbeatDatabase:
                 return result
         else:
             must_conditions = []
+            scroll_limit = max(len(track_ids), 1)
+            is_isrc_lookup = False
             if track_ids:
                 must_conditions.append(
                     qdrant_models.FieldCondition(
@@ -455,13 +457,15 @@ class EmbeatDatabase:
                         match=qdrant_models.MatchAny(any=track_ids)
                     )
                 )
-            elif isrcs and self.collection_version not in ["v1", "v2"]:
+            elif isrc and self.collection_version not in ["v1", "v2"]:
+                is_isrc_lookup = True
                 must_conditions.append(
                     qdrant_models.FieldCondition(
                         key="isrc",
-                        match=qdrant_models.MatchAny(any=isrcs)
+                        match=qdrant_models.MatchValue(value=isrc)
                     )
                 )
+                scroll_limit = 20
             else:
                 must_conditions.append(
                     qdrant_models.FieldCondition(
@@ -479,13 +483,25 @@ class EmbeatDatabase:
                 records, _ = self.client.scroll(
                     collection_name=self.collection_name,
                     scroll_filter=qdrant_models.Filter(must=must_conditions),
-                    limit=max(len(track_ids), len(isrcs), 1),
+                    limit=scroll_limit,
                     with_payload=True,
                     with_vectors=True if not is_batched else False
                 )
             except Exception as e:
                 print(f"Failed to run Qdrant scroll: {e}")
                 return result
+            if is_isrc_lookup and records:
+                best_record = None
+                best_popularity = 0.0
+                for record in records:
+                    try:
+                        popularity = float((record.payload or {}).get("popularity"))
+                    except Exception:
+                        popularity = 0.0
+                    if best_record is None or popularity > best_popularity:
+                        best_record = record
+                        best_popularity = popularity
+                records = [best_record]
         if not records:
             return result
         if is_batched:
@@ -630,7 +646,7 @@ class EmbeatDatabase:
                 genre_score_dict[idx] = genre_score_dict[idx] + 1 / ((index + 1) ** 0.5)
             genre_score_list = list(genre_score_dict.items())
             genre_score_list = sorted(genre_score_list, key=lambda item: item[1], reverse=True)
-            if genre_score_list and genre_score_list[0][1] > genre_score_list[1][1] * self.track_genre_score_ratio:
+            if genre_score_list and genre_score_list[0][1] > genre_score_list[1][1] * max(1.0, self.track_genre_score_ratio):
                 track_genre_idx = genre_score_list[0][0]
             else:
                 track_genre_idx = fallback_idx
@@ -947,14 +963,12 @@ class EmbeatDatabase:
         return result
 
     # Avoid same artist gathering
-    def shuffle_result_block(self, result: list, column_name: str, max_block_len: int = 1, max_tries: int = 20):
-        protect_multi_source = False
-        is_shuffled = False
-        for _ in range(max_tries):
+    def shuffle_result_block(self, result: list, column_name: str, max_block_len: int = 1, protect_multi_source: bool = False):
+        result = list(result)
+        for _ in range(max(20, len(result))):
             same_counter = 1
             prev_name = ""
-            if is_shuffled:
-                break
+            is_shuffled = False
             for i in range(len(result)):
                 current_name = result[i][column_name]
                 if i == 0:
@@ -965,23 +979,23 @@ class EmbeatDatabase:
                     sources.remove("same_artist")
                 if protect_multi_source and len(sources) > 1:
                     prev_name = current_name
+                    same_counter = 1
                     continue
                 if current_name == prev_name:
                     same_counter = same_counter + 1
                 else:
                     prev_name = current_name
                     same_counter = 1
-                if i + 1 < len(result) and same_counter > max_block_len:
+                if same_counter > max_block_len and i + 1 < len(result):
+                    result_count = len(result)
                     poped_item = result.pop(i)
-                    if i + 1 == len(result):
-                        insert_position = len(result)
-                    else:
-                        insert_position = random.randrange(i + 1, len(result))
+                    insert_position = random.randrange(i + 1, result_count)
                     result.insert(insert_position, poped_item)
                     prev_name = result[i][column_name]
                     same_counter = 1
                     break
-                is_shuffled = True
+            if not is_shuffled:
+                break
         return result
 
     # Merge 3-way recall result by given ratio
@@ -1161,8 +1175,8 @@ class EmbeatDatabase:
             result[i]['sources'] = trackid_result_dict.get(result[i]['track_id'], {}).get("sources", [])
             score_int = int(min(trackid_result_dict.get(result[i]['track_id'], {}).get("score", 0.0), 2.0) * score_scaling_ratio)
             result[i]['score'] = round(score_int / 100, 2)
-        result = self.shuffle_result_block(result=result, column_name="album_name", max_block_len=1, max_tries=top_k)
-        result = self.shuffle_result_block(result=result, column_name="artist_name", max_block_len=2, max_tries=top_k)
+        result = self.shuffle_result_block(result=result, column_name="album_name", max_block_len=1)
+        result = self.shuffle_result_block(result=result, column_name="artist_name", max_block_len=2)
         return result
 
     # Main method
