@@ -25,7 +25,7 @@
 
 ## Introduction
 
-Embeat is a music recommendation system built on Spotify acoustic feature data. It encodes audio features into vectors via a **contrastive learning model** and combines them with a **collaborative filtering model** and the **multi-channel recall strategy** to deliver high-quality music recommendations.
+Embeat is a music recommendation system built on Spotify acoustic feature data. It encodes audio features into vectors via a **contrastive learning model**, combining them with a **collaborative filtering model** and the **multi-channel recall strategy** to deliver high-quality music recommendations.
 
 **Key Features:**
 
@@ -46,6 +46,7 @@ Embeat is a music recommendation system built on Spotify acoustic feature data. 
 - [x] **2026-07-02**: Open-source Qdrant database V1 [[Google Drive](https://drive.google.com/drive/folders/1dFdueTmcWgGZXhJXs7c7YOjeniZsSW9x?usp=sharing)] [[Baidu Netdisk](https://pan.baidu.com/s/1CWFzgM75Z4YjP1tZnGCZKg?pwd=0616)]
 - [x] **2026-09-06**: Open-source Qdrant database V2 (same link above, 2GB+ RAM can deploy)
 - [x] **2026-09-06**: Open-source [Track2Vec model weights](https://huggingface.co/GD-Studio/embeat-track2vec)
+- [x] **2026-09-16**: Open-source [Evaluation data](eval/assets/)
 
 
 ## Demo
@@ -247,6 +248,7 @@ Embeat/
 │   ├── EmbeatMLP/          # EmbeatMLP model weights
 │   └── Track2Vec/          # Track2Vec model weights (requires separate download)
 ├── data/                   # Data processing folder (not fully organized)
+├── eval/                   # Evaluation code and data folder
 ├── infer/                  # Inference code folder
 │   ├── Embeat.py           # Embeat recommendation system core
 │   ├── EmbeatUtils.py      # Embeat extension utilities

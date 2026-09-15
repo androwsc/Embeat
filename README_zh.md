@@ -46,6 +46,7 @@ Embeat 是一个基于 Spotify 声学特征数据构建的歌曲推荐系统，�
 - [x] **2026-07-02**：开源 Qdrant 数据库 V1 [[谷歌云盘](https://drive.google.com/drive/folders/1dFdueTmcWgGZXhJXs7c7YOjeniZsSW9x?usp=sharing)] [[百度网盘](https://pan.baidu.com/s/1CWFzgM75Z4YjP1tZnGCZKg?pwd=0616)]
 - [x] **2026-09-06**：开源 Qdrant 数据库 V2（链接同上，2GB+内存可部署）
 - [x] **2026-09-06**：开源 [Track2Vec 模型权重](https://huggingface.co/GD-Studio/embeat-track2vec)
+- [x] **2026-09-16**：开源 [评估数据](eval/assets/)
 
 
 ## 效果展示
@@ -247,6 +248,7 @@ Embeat/
 │   ├── EmbeatMLP/          # EmbeatMLP 模型权重
 │   └── Track2Vec/          # Track2Vec 模型权重 (需额外下载)
 ├── data/                   # 数据处理目录 (未完全整理)
+├── eval/                   # 评估代码与数据目录
 ├── infer/                  # 推理代码目录
 │   ├── Embeat.py           # Embeat 推荐系统核心
 │   ├── EmbeatUtils.py      # Embeat 扩展辅助工具
