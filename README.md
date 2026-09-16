@@ -182,21 +182,21 @@ Embeat is a music recommendation system built on Spotify acoustic feature data. 
 </details>
 
 ### LLM Blind Evaluation
- 
+
 Using the LLM-as-a-Judge method, Embeat was blindly evaluated against Netease Cloud Music in AB tests (Evaluation date: 2026-09-15)
- 
-Seed tracks come from the 6291 micro-genre representatives on EveryNoise, narrowed to those present in both catalogues, giving 157 cross-language samples. Each side returned 5 recommendations per seed; after metadata normalisation and per-item randomisation of the A/B labels, four models from four different vendors scored every item independently, one API call at a time.
- 
+
+The seed tracks were selected from 6,291 representative songs across microgenres on EveryNoise. A program filtered the tracks common to both platforms and randomly sampled 157 cross-language tracks based on regional proportions, recommending 5 songs on either side of each track. After standardizing the metadata and randomly shuffling the order, an LLM from four different vendors independently scored each track
+
 | Judge Model | Embeat Wins | Netease Wins | Tie | Not rated |
 |-------------|:-----------:|:------------:|:---:|:---------:|
 | Claude Opus 5 | **122** | 14 | 1 | 20 |
 | Kimi K3 | **117** | 23 | 2 | 15 |
 | GPT 5.6 Sol | **109** | 20 | 0 | 28 |
 | Gemini 3.1 Pro | **90** | 5 | 0 | 62 |
- 
+
 **Conclusions:**
- 
-- **Availability**: Embeat returned a full set of recommendations for all 176 seeds; Netease failed on 10.8% of them, returning nothing at all in 4 seeds
+
+- **Availability**: Embeat returned a full set of recommendations for all 176 seeds; Netease failed on 10.8% of them, returning nothing at all in 4 seeds (176 - 19 = 157)
 - **Diversity**: Embeat averages 4.88 distinct artists per list against Netease's 3.57; in 28% of Netease's lists, 4 or more of the 5 tracks come from a single artist
 - **Robustness**: the lead holds across all four popularity bands and is in fact larger for popular seeds (90%) than for long-tail ones (77%), so this is not an advantage confined to obscure music
 - **By language**: Embeat leads in all four buckets (Mandarin, Japanese, Korean, Others), including 81~88% in Mandarin, where Netease is strongest
