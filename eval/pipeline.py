@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # Written by GD Studio
-# Date: 2026-09-15
+# Date: 2026-09-16
 
 import json
 import os
@@ -286,6 +286,7 @@ def collect_eval_result():
             "query_song": "",
             "embeat_recs": [],
             "netease_recs": [],
+            "ab_answer": {},
             "claude_winner": "",
             "claude_reason": "",
             "gpt_winner": "",
@@ -296,6 +297,7 @@ def collect_eval_result():
             "kimi_reason": ""
         }
         question_id = question_item['id']
+        result_item['ab_answer'] = answer_items[question_id]
         embeat_label = "a" if answer_items[question_id]['a'] == "embeat" else "b"
         netease_label = "a" if answer_items[question_id]['a'] == "netease" else "b"
         for seed_item in seed_items:

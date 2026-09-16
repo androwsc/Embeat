@@ -20,6 +20,10 @@
       "Watch Me - Holy Molly",
       "一幕一生 - 恋与深空"
     ],
+    "ab_answer": {
+      "a": "netease",
+      "b": "embeat"
+    },
     "claude_winner": "embeat",
     "claude_reason": "\"Heart Attack\" is loud, belted 2013 radio pop with pop-rock guitars. List b sits squarely in that world: Demi's own contemporaneous single, Taylor Swift's 2012 crossover, plus adjacent teen-pop and pop-punk names that share the vocal-forward, chorus-driven build, even if a couple lean smoother or later. List a drifts far off: an acoustic cut, a Chinese game OST, and obscure dance-pop with little stylistic link; only The Cab lands in a related pop-rock zone, and as a ballad it misses the energy.",
     "gpt_winner": "embeat",
@@ -50,6 +54,10 @@
       "롤린 (Rollin') - Brave Girls",
       "내가 제일 잘 나가 - 2NE1"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "embeat",
     "claude_reason": "EXID's 'Up & Down' is mid-2010s girl-group pop with a brassy, sultry hook. a_recs lands the closest neighbours: Girl's Day's 'Something' shares almost the same year and sexy-retro production, and the 4minute/miss A picks keep the attitude even if they're a few years earlier; only Apink's bright 'Alright' drifts. b_recs has the single best match in Stellar's 'Marionette' and digs up Badkiz, but Apink's 'NoNoNo' and 2NE1's electro-hip-hop swagger sit further from the seed's groove. Slight edge to a on overall closeness, b for discovery.",
     "gpt_winner": "netease",
@@ -80,6 +88,10 @@
       "完全性コンプレックス - やみくろ",
       "自由の果て - sleepy.ab"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "embeat",
     "claude_reason": "奏 is a warm mid-2000s piano-led J-pop parting ballad. a_recs stays squarely in that mainstream melodic singer-songwriter/band world — キセキ is almost a perfect match, and Superfly, ゆず and 槇原敬之 all share the emotive, acoustic-pop character; only the uptempo Ah Yeah!! sits slightly off. b_recs drifts into indie rock (くるり, sleepy.ab) and recent bedroom/net pop, sharing language and general melancholy but not the production or scene, and one pick I cannot place at all.",
     "gpt_winner": "embeat",
@@ -110,6 +122,10 @@
       "Lost in the Crowd - Tom Frane",
       "Can say yes Don't say no - Vars"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "embeat",
     "claude_reason": "elijah woods works in bright, hooky bedroom/indie-pop with clean synth-pop production. a_recs stays in that lane: his own similarly styled track, gavn! and vaultboy are close scene matches, with Zach Seabaugh and Zack Tabudlo drifting toward softer singer-songwriter ballad territory. In b_recs only Finding Hope is placeable for me — a lo-fi sad-pop cousin rather than a match — and the remaining four artists I cannot situate at all, so the list offers little I can vouch for.",
     "gpt_winner": "embeat",
@@ -140,6 +156,10 @@
       "Trust Your Mechanic - Dead Kennedys",
       "Forest Fire - Dead Kennedys"
     ],
+    "ab_answer": {
+      "a": "netease",
+      "b": "embeat"
+    },
     "claude_winner": "embeat",
     "claude_reason": "a_recs is five more Dead Kennedys cuts, mostly Plastic Surgery Disasters — all genuinely sonically right, but a listener who just played Holiday in Cambodia already has this record. b_recs keeps one perfect same-session pick (Police Truck) and then opens out into the wider early-80s American punk world: Agent Orange's Californian surf-punk grit, The Dickies' fast LA snottiness, Minor Threat's DC hardcore, and Geza X, whose sound is directly tied to the Fresh Fruit sessions. Same scene, era and intensity, with far more discovery value.",
     "gpt_winner": "embeat",
@@ -170,6 +190,10 @@
       "Far from Home - Gamper & Dadoni",
       "Heavy Heart - Gamper & Dadoni"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "embeat",
     "claude_reason": "\"Bulletproof\" is 2009 retro-synthpop with a sharp female vocal and 80s synth hooks. Neither list finds that: both drift into 2010s club/deep-house remix territory. A at least stays in mainstream electronic pop with recognisable vocal hooks (Guetta, Avicii, Brando) that a pop listener could ride into. B is four tracks by one remix duo plus an unrelated Chinese rap cut, including a nightcore remix — thin, repetitive, and one pick is entirely off-scene.",
     "gpt_winner": "embeat",
@@ -200,6 +224,10 @@
       "多麼想念你 - 戴佩妮",
       "无上觉 - 张承煜(小魂)"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "embeat",
     "claude_reason": "對的人 is a big-voiced Mandarin power ballad from the mid-2000s Taiwanese pop scene. a_recs stays in that world: 信樂團 and 動力火車 bring the same belted rock-ballad delivery, another 戴愛玲 drama ballad matches directly, and 朱俐靜 is a close female-ballad neighbour; only the sodagreen track shifts toward indie textures. b_recs has decent picks in 本多RuRu and 戴佩妮, but 小魂's guofeng style is a different scene entirely and a couple of entries are unplaceable, making it a looser and patchier set.",
     "gpt_winner": "embeat",
@@ -230,6 +258,10 @@
       "The Magic Flicker - Silva Hound",
       "Flim Flam Miracle Curative Tonic - Daniel Ingram"
     ],
+    "ab_answer": {
+      "a": "netease",
+      "b": "embeat"
+    },
     "claude_winner": "",
     "claude_reason": "I cannot place \"Hinterland (Rabbit Hole)\" by Koa; the surrounding candidates point ambiguously toward either the brony/pony music scene or the internet anime-cover space, and I do not know this artist's actual sound well enough to judge which recommendations match its genre, tempo or production character. Guessing from the candidate names alone would not be a real judgement.",
     "gpt_winner": "",
@@ -260,6 +292,10 @@
       "When I Die - King Von",
       "NO LUCK - Tiffany Day"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "embeat",
     "claude_reason": "ABC's lush 1982 synth-pop sits squarely in the British new-romantic/sophisti-pop world, and a_recs stays there: Kajagoogoo, Frankie Goes to Hollywood and Nik Kershaw are era-perfect, ABC's own later single fits, and Pet Shop Boys is only a decade off in production. b_recs offers contemporary rap and R&B with no stylistic, era or production link to the seed.",
     "gpt_winner": "embeat",
@@ -290,6 +326,10 @@
       "잘하고 있잖아 - 유지희",
       "첫사랑 - Sondia"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "embeat",
     "claude_reason": "The seed is a sparse, aching piano-led Korean drama OST ballad. a_recs is consistently in that world: Jung Seung Hwan and Heize's OST ballads, Kim Feel's soft indie-folk, Baek Yerin's melancholic indie-pop, plus another Sondia track in the same hushed register — varied but tightly on-mood. b_recs only lands with the second Sondia song; a live IU cut is looser, 015B is 90s synth-pop from a different era and production world, and two picks I can't place leave the list thin and unreliable.",
     "gpt_winner": "embeat",
@@ -320,6 +360,10 @@
       "BE LIKE ME - Teki",
       "ON THE ROAD - WickedRuna"
     ],
+    "ab_answer": {
+      "a": "netease",
+      "b": "embeat"
+    },
     "claude_winner": "",
     "claude_reason": "I don't know Pay4n or this track, and cannot place its genre, era or production character, so I cannot judge how well any of the candidates would follow it. Most of the recommended artists are also unfamiliar to me, so any rating would be guesswork based on names alone.",
     "gpt_winner": "",
@@ -350,6 +394,10 @@
       "From A Distance - Maura O'Connell",
       "The Whisky Did - Paul Heaton"
     ],
+    "ab_answer": {
+      "a": "netease",
+      "b": "embeat"
+    },
     "claude_winner": "embeat",
     "claude_reason": "Galileo is a warm, soulful Irish acoustic singer-songwriter ballad. List a leans on three more O'Rourke tracks (fine, though the blues-cover is a stylistic detour) and then drifts to 80s Irish folk-pop and English pop-soul, which share mood only loosely. List b keeps one O'Rourke ballad and surrounds it with exactly the right neighbourhood — Paddy Casey and Damien Dempsey are contemporaries with the same acoustic-soul warmth, Paul Brady the obvious elder statesman, and the Waterboys' Yeats setting sits comfortably alongside. Better fit and far more useful discovery.",
     "gpt_winner": "embeat",
@@ -380,6 +428,10 @@
       "Fever Deep - Jasr",
       "Trust Me - Pandora"
     ],
+    "ab_answer": {
+      "a": "netease",
+      "b": "embeat"
+    },
     "claude_winner": "embeat",
     "claude_reason": "The seed is a Komuro Tetsuya-style J-pop power ballad re-recording. b_recs lands squarely in that world: globe and hitomi are the same Komuro/avex production lineage, Kahala's own DEPARTURES cover is a direct match, SPEED and GLAY are era- and scene-adjacent 90s J-pop. a_recs offers a children's folk standard, hyperpop and unrelated dance tracks; only Pandora's Eurodance has even a faint link to the Komuro sound's eurobeat leanings.",
     "gpt_winner": "embeat",
@@ -410,6 +462,10 @@
       "Waves With No Shores - Ash Code",
       "Suspended From Class - Camera Obscura"
     ],
+    "ab_answer": {
+      "a": "netease",
+      "b": "embeat"
+    },
     "claude_winner": "embeat",
     "claude_reason": "Møme's Aloha is sunny French tropical/chill house with warm synths and breezy vocals. B lands squarely in that scene — Tez Cadey, Petit Biscuit and Feder are the exact French melodic-house peers, plus a well-chosen Møme track from the same sonic world. A drifts: Rhye and DEAMN are at least chilled electronic-adjacent, but the Cannons cover is indie synth-pop, while Ash Code's darkwave and Camera Obscura's twee indie pop have no relationship to the seed at all.",
     "gpt_winner": "embeat",
@@ -440,6 +496,10 @@
       "你有心 - 關心妍",
       "美丽缘份 - 马浚伟"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "embeat",
     "claude_reason": "Vincy Chan's ballad sits in mid-2000s/2010s EEG-era Cantopop. List a stays right in that world: her own track, Sherman Chung and Mag Lam are direct stylistic peers, with Sammi Cheng and a Leo Ku live cut only slightly off in era or format. List b drifts — Freya Lim is Taiwanese Mandarin ballad territory, and Steven Ma's late-90s TVB-drama ballads are a thinner, older sound; only Jade Kwan is a close match, and one entry I can't place.",
     "gpt_winner": "embeat",
@@ -470,6 +530,10 @@
       "上海滩 - 葉麗儀",
       "天地映雪 - 簟画"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "netease",
     "claude_reason": "The seed is the 1983 Roman Tam/Jenny Tseng Condor Heroes duet — grand orchestral-Cantopop TVB theme. Both lists open with a sibling theme from the same serial, which is ideal. b stays in that world: another Roman Tam/Tseng wuxia duet, a Jenny Tseng ballad, and Frances Yip's 上海灘, the archetypal TVB theme. a mixes in solid 80s Cantopop ballads but also 陳曉東's late-90s idol pop, which is clearly out of era and mood. One unplaceable track in b doesn't offset its tighter period and TV-theme character.",
     "gpt_winner": "netease",
@@ -500,6 +564,10 @@
       "Shoulders - Men I Trust",
       "You Love I - Melanie Martinez"
     ],
+    "ab_answer": {
+      "a": "netease",
+      "b": "embeat"
+    },
     "claude_winner": "embeat",
     "claude_reason": "Field Mob's \"So What\" is early-2000s Dirty South rap with a bouncy, radio-friendly hook. b_recs sits in that world: Lil' Flip's \"Sunshine\" is near-perfect, Chingy is the same crossover Southern rap lane, with Ciara and Kelly Rowland drifting into mid-2000s R&B and Salt-N-Pepa a decade off. a_recs offers Men I Trust's dream pop and Melanie Martinez's alt-pop, which have nothing to do with the seed, plus several tracks too obscure to place.",
     "gpt_winner": "embeat",
@@ -530,6 +598,10 @@
       "攻占上海马戏城 - 顶楼的马戏团",
       "愛情夾在麵包裡面 - 四分衛"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "embeat",
     "claude_reason": "The seed is Taiwanese guitar rock with an emotive, band-driven sound. a_recs stays inside that world: Mary See the Future and Hello Nico are core Taiwanese indie rock, 脫拉庫 shares the older Taiwan band-scene energy, 甜約翰 is softer but still indie band territory, and the same-artist track fits naturally. b_recs is scattered — mandopop ballad, mainland folk-pop, and Shanghai dialect novelty rock share little with the seed beyond language; only the 四分衛 cut and THE 尺口MP land near the target.",
     "gpt_winner": "embeat",
@@ -560,6 +632,10 @@
       "Into The Wild - Gossip",
       "God Damn - Post Malone"
     ],
+    "ab_answer": {
+      "a": "netease",
+      "b": "embeat"
+    },
     "claude_winner": "",
     "claude_reason": "I don't know Jurassic Shark or the track 'Maybe' well enough to characterise its sound, and most candidates on both sides are equally obscure to me, so I cannot judge fit.",
     "gpt_winner": "embeat",
@@ -590,6 +666,10 @@
       "니가 보여 - 申容财",
       "걸음이 느려서 - 申容财"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "embeat",
     "claude_reason": "Shin Yong Jae's territory is emotive Korean ballads and drama OSTs. Both lists land mostly in that world: a_recs pairs his own OST cut with Kim Jong Wan's brooding ballad and Ailee's big-voiced ballad, though the piano-version track is a poor 'next song' and GB9 leans hip-hop-adjacent. b_recs has strong individual fits but leans on three more Shin Yong Jae ballads, one likely the same song under its Korean title, and EXO's brighter pop is off-mood. a_recs is the more useful set.",
     "gpt_winner": "embeat",
@@ -620,6 +700,10 @@
       "Bolero - Santiago Feliú",
       "Ayer y hoy enamorado - Vicente Feliú"
     ],
+    "ab_answer": {
+      "a": "netease",
+      "b": "embeat"
+    },
     "claude_winner": "netease",
     "claude_reason": "Para Bárbara is intimate Cuban nueva trova: solo guitar, dense poetic lyric. List a stays exactly there — Feliú's own guitar-and-voice songs plus Noel Nicola and Vicente Feliú, contemporaries from the same Havana trova circle, so it both fits and points the listener somewhere new. List b starts well with another Feliú and reasonable cantautor picks in Aute and Milanés, but Chavela Vargas's ranchera drama and Cabral's folk-philosophy are a different tradition and break the mood.",
     "gpt_winner": "netease",
@@ -650,6 +734,10 @@
       "ことばのあや - たま",
       "不可逆的ネクサス - Senya"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "embeat",
     "claude_reason": "The seed is Kenji Kawai's Ghost in the Shell chant rebuilt as a big, brash Steve Aoki club track, so the useful neighbours are festival EDM and remix culture. The a list stays in that world — big-room, hard dance and a drum'n'bass remix — even if none matches the cinematic chant element exactly. The b list is Japanese doujin/Touhou vocal arrange material plus a 90s folk-rock band; the only real link is Japanese origin, and たま in particular has nothing to do with the seed's production character.",
     "gpt_winner": "embeat",
@@ -680,6 +768,10 @@
       "The Ephemeral Curse - Immolation",
       "Derelict of Spirit - Immolation"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "embeat",
     "claude_reason": "All of b_recs are Immolation cuts from the surrounding albums, so every one is a perfect sonic match for the dissonant NYDM crawl of the seed — but a listener who just played Immolation gains nothing from five more Immolation tracks. a_recs keeps one on-point Immolation song and then branches into the wider 90s death metal circle (Sinister, Massacre, Monstrosity, Korpse), all riff-driven old-school death metal with comparable heaviness even if the production and dissonance are slightly less oppressive. That opens something up while staying in genre.",
     "gpt_winner": "embeat",
@@ -710,6 +802,10 @@
       "My Romance - Carmen Cuesta",
       "Back In Summertime - Kevin Rowe"
     ],
+    "ab_answer": {
+      "a": "netease",
+      "b": "embeat"
+    },
     "claude_winner": "embeat",
     "claude_reason": "The seed is a soft acoustic cover of a pop ballad, the kind of hushed guitar/piano reworking that lives on chill-acoustic playlists. B stays squarely in that lane: acoustic covers of familiar pop hits by small cover acts, same intimate arrangements and production, including a companion track by the same artist. A drifts into contemporary R&B (Tinashe, Giveon) and jazz-standard vocal territory, which shares only a general 'mellow' feel; the tone, rhythm and production are noticeably different, and a couple of picks I cannot place.",
     "gpt_winner": "embeat",
@@ -740,6 +836,10 @@
       "我在孤岛守候黎明 - 云之泣",
       "大脑宕机 - 杨和苏KeyNG"
     ],
+    "ab_answer": {
+      "a": "netease",
+      "b": "embeat"
+    },
     "claude_winner": "embeat",
     "claude_reason": "The seed is Sandee Chan's arty, electronically-tinged Mandarin indie pop. Both lists anchor with another Sandee Chan track, which fits. A then adds 自然卷, a genuine Taiwanese indie neighbour, but falls apart with a mainland trap rap track and an ACG/古風 vocalist that share nothing with the seed. B stays in the Taiwanese alt-pop orbit — Faith Yang is a near-perfect stylistic sibling — and its weak picks are merely bland mainstream ballads rather than outright mismatches, making it the safer, more coherent list.",
     "gpt_winner": "embeat",
@@ -770,6 +870,10 @@
       "I'm Taking You Out Tonight - Jaguar",
       "The Fox - Jaguar"
     ],
+    "ab_answer": {
+      "a": "netease",
+      "b": "embeat"
+    },
     "claude_winner": "embeat",
     "claude_reason": "\"Axe Crazy\" is fast, raw NWOBHM. The b list stays exactly in that world: another Jaguar cut from the same period, plus Hollow Ground, Girlschool, Tysondog and Ostrogoth — all early-80s British/European speed-edged metal with the same rough production, and it broadens the listener's horizon. The a list is entirely Jaguar's own catalogue; the tracks are stylistically close enough, but several are the band's more mid-paced rock material, one credit appears to point at an unrelated act, and the list adds nothing beyond the band the listener already has.",
     "gpt_winner": "embeat",
@@ -800,6 +904,10 @@
       "恋はタイミング - EBiSSH",
       "All's Well - Call Me No One"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "embeat",
     "claude_reason": "SUPER★DRAGON sit in the EBiDAN/Japanese dance-vocal boy-group world with rap and rock-tinged pop production. a_recs stays entirely in that lane: a same-group track plus BATTLE BOYS, 7ORDER, the FAKE MOTION project unit and ONE N' ONLY — all peer boy groups with comparable production. b_recs has three solid picks (ONE N' ONLY, BUDDiiS, EBiSSH) but is derailed by two Western rock/metalcore acts, One Morning Left and Call Me No One, which share nothing with the seed's scene or vocal style.",
     "gpt_winner": "embeat",
@@ -830,6 +938,10 @@
       "一生的梦 - 王佳佳",
       "刘三姐 - 凤凰传奇"
     ],
+    "ab_answer": {
+      "a": "netease",
+      "b": "embeat"
+    },
     "claude_winner": "embeat",
     "claude_reason": "The seed is an early-90s Taiwanese Mandarin ballad from the Rock Records/李宗盛 circle. b_recs lands squarely there: 陳淑樺's 夢醒時分 shares the same writer and era, 大雨 is a stylistic sibling by the same singer, 孟庭葦 continues the early-90s female ballad line, and 鳳飛飛/木吉他 fill in the Taiwanese pop-folk lineage behind it. a_recs drifts into mainland 90s/2000s pop and network songs, with 鳳凰傳奇's ethnic dance-pop plainly out of place and 徐小鳳's Live standard from a different vintage.",
     "gpt_winner": "embeat",
@@ -860,6 +972,10 @@
       "선물할게 - 屋顶月光",
       "Same - Kisnue"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "embeat",
     "claude_reason": "uju works in a nocturnal Korean indie city-pop/soft-R&B space. a_recs leads with another uju track in exactly that late-night mood and pairs it with dreamy indie-pop like BehindtheMoon; the remaining picks are too obscure for me to place. b_recs stays in Korean indie but drifts toward jazzy indie rock (Life And Time, Peterpan Complex) and acoustic folk-pop (옥상달빛), which share the scene but not the smooth synth-pop production; Fromm's soft dream-pop is the closest of them. a feels tighter to the seed's sonic character.",
     "gpt_winner": "embeat",
@@ -890,6 +1006,10 @@
       "Earth Radio - SheWon't",
       "Alone by Your Side - j'san"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "tie",
     "claude_reason": "The seed sits in the instrumental lofi hip-hop / chillhop world — dusty drums, jazzy chords, mellow tempo — and both lists stay squarely inside that scene. a_recs pairs a companion track by the same producer with peers like [bsd.u] and Cotard Beatz; b_recs spreads across five different beatmakers, with j'san and GRILLABEATS being especially natural neighbours. Neither list wanders off-genre, and neither offers a clear advantage in depth or discovery, so this is a genuine draw.",
     "gpt_winner": "",
@@ -920,6 +1040,10 @@
       "Red Dragon - Arston",
       "Forever Young - Deagon"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "netease",
     "claude_reason": "Suyano sits in the Dutch festival-EDM lane (big room / future-house, Revealed/Hexagon-style). In list a, another Suyano cut and Kill The Buzz land squarely there, but Sultan + Shepard's deep progressive house is a noticeably calmer, more introspective sound than a bright festival record, and two picks I can't place. List b's Manse, Arston and WildVibes all live in that same melodic festival/future-house ecosystem with comparable energy and production gloss, giving a more consistent set without relying on the seed artist. Several unknowns on both sides keep confidence low.",
     "gpt_winner": "embeat",
@@ -950,6 +1074,10 @@
       "Radioactive Wild Boar - Catie Curtis",
       "This Girl's in Love With You - Catie Curtis"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "embeat",
     "claude_reason": "Both lists stay in Catie Curtis's warm acoustic singer-songwriter territory. a_recs pairs one of her own tracks with Deb Talan and Antje Duvekot, who share the same intimate contemporary-folk voice-and-guitar sound, plus Americana-leaning Gretchen Peters and the more retro-harmony Secret Sisters, which drifts slightly. b_recs is five more of her own songs — they fit, but include a Bacharach cover and a quirkier novelty cut, and the list tells a listener nothing new. a_recs is the more useful 'more like this'.",
     "gpt_winner": "embeat",
@@ -980,6 +1108,10 @@
       "熟睡像座山脉 - 热写生",
       "在船底搔癢 (Underwater Ticking) - 熱寫生"
     ],
+    "ab_answer": {
+      "a": "netease",
+      "b": "embeat"
+    },
     "claude_winner": "",
     "claude_reason": "I do not know 熱寫生 or this track well enough to characterise its genre, era or production, so I cannot judge how closely either list matches it.",
     "gpt_winner": "",
@@ -1010,6 +1142,10 @@
       "Build Something - 1TakeOcho",
       "Outrageous - 1TakeOcho"
     ],
+    "ab_answer": {
+      "a": "netease",
+      "b": "embeat"
+    },
     "claude_winner": "embeat",
     "claude_reason": "1takejay's LA street rap sits in the 1Take crew and the wider Inglewood/Compton scene. The all-1TakeOcho list is stylistically right — same collective, same bouncy beats and punchline delivery — but it's five tracks from one closely related artist and opens nothing up. The other list keeps the same regional sound while spreading across Rucci, $tupid Young and Bay Area adjacents, which is a far more useful 'more like this'; Lil Pete is the softest, more melodic fit.",
     "gpt_winner": "embeat",
@@ -1040,6 +1176,10 @@
       "God knows...(TVver.) - 平野綾",
       "茎 - 椎名林檎"
     ],
+    "ab_answer": {
+      "a": "netease",
+      "b": "embeat"
+    },
     "claude_winner": "embeat",
     "claude_reason": "The seed is bright 1983 Japanese idol pop. b_recs stays inside that world almost throughout — Kawai Naoko, Kudo Shizuka, Oginome Yoko, Honda Minako are all 80s idol contemporaries — though the karaoke-only Kawai track wastes a slot. a_recs opens strongly with Matsuda Seiko and a Nakamori Akina live cut, but then veers into 2000s anime tie-ins and Shiina Ringo's art-rock, which share nothing with the seed's era or production.",
     "gpt_winner": "embeat",
@@ -1070,6 +1210,10 @@
       "한(寒) - i-dle",
       "ส่วนประกอบ - I-Zax"
     ],
+    "ab_answer": {
+      "a": "netease",
+      "b": "embeat"
+    },
     "claude_winner": "",
     "claude_reason": "I cannot place I-Zax's sound — I don't know this Thai act's genre, era or production character well enough to judge whether the candidates match, and guessing from the song title or the surrounding Thai rock names would not be a real judgement.",
     "gpt_winner": "embeat",
@@ -1100,6 +1244,10 @@
       "Дураараа - Zoé",
       "Тэр - Zoé"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "embeat",
     "claude_reason": "Labios rotos is spacey Mexican alt-rock, and list A lands squarely in that scene: Enjambre and San Pascualito Rey are peers, Zoé's own 'Soñé' is a direct match, León Larregui is the same voice solo, and La Castañeda is a slightly darker 90s cousin. List B looks to have collided with unrelated artists sharing the name — a techno track featuring a different Zøe is plainly wrong, and the remaining picks I can't place in this scene at all, leaving only a live bolero cover as plausible.",
     "gpt_winner": "embeat",
@@ -1130,6 +1278,10 @@
       "相似的人 - 鱼灵",
       "晚风遇见你 - 路杰"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "embeat",
     "claude_reason": "LINION's smooth Taiwanese neo-soul/bedroom R&B is best matched by his own material and by Osean, whose soul-pop sits in the same scene — a_recs delivers both, though Karen Mok and Eric Chou pull toward mainstream Mandopop ballads. b_recs has one strong LINION track but the rest are mainland internet-pop ballads, a very different production world from the seed's warm live-band R&B, and largely unplaceable. a_recs is the more usable list.",
     "gpt_winner": "embeat",
@@ -1160,6 +1312,10 @@
       "大象之歌 - 周笔畅",
       "时光陷阱 - 赵乃吉"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "embeat",
     "claude_reason": "The seed is a gentle mid-2000s Mandopop piano/acoustic ballad. a_recs stays squarely in that lane: Joi Chua's own companion ballad, Maggie Chiang and Hou Xiangting's soft female ballads of the same era, plus adjacent male ballads. b_recs has one strong same-artist ballad, but Daniel Chan and Bibi Zhou sit in different pop registers, and two picks are obscure enough that the list feels scattershot rather than a coherent 'more like this'.",
     "gpt_winner": "embeat",
@@ -1190,6 +1346,10 @@
       "夜の向こうへ - the band apart",
       "かげろう - Vaundy"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "embeat",
     "claude_reason": "ROTH BART BARON works in expansive Japanese indie-folk/chamber pop with falsetto vocals and orchestral textures. a_recs lands squarely in that world: odol's atmospheric piano-led indie and Orisaka Yuta's folk songwriting are close neighbours, with only 毛皮のマリーズ's garage-glam feeling out of place. b_recs drifts into groove and guitar-band territory - Suchmos' acid-jazz funk and the band apart's math-rock share almost nothing with the seed's airy folk arrangements, and Vaundy/indigo la End are mainstream J-rock rather than the same chamber-folk scene.",
     "gpt_winner": "embeat",
@@ -1220,6 +1380,10 @@
       "they'll post it online - overtonight",
       "Summer - Oakwood"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "embeat",
     "claude_reason": "Surf Curse's 'Freaks' is scrappy lo-fi indie/surf rock with yelped vocals. a_recs lands squarely in that world: another Surf Curse cut from the same record, plus Vundabar, The Rare Occasions, Eyedress and The Drums — all jangly, bedroom-adjacent indie with the same reverb-soaked, youthful energy, and it spreads across several artists rather than repeating one. b_recs offers obscure or unrelated material, including a metalcore-leaning band and a sped-up edit, with no evident stylistic link to the seed.",
     "gpt_winner": "embeat",
@@ -1250,6 +1414,10 @@
       "不裝飾你的夢 - 蔡國權",
       "問為何 - 雷安娜"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "netease",
     "claude_reason": "The seed is an early-80s TVB-style sentimental Cantonese ballad. b_recs sits squarely in that world: 倆忘煙水裡 and 不裝飾你的夢 are exactly the same era, arrangement and mood, with a same-artist ballad and a Paula Tsui track (only weakened by being a Mandarin live cut). a_recs has good period picks in 問我 and 似是故人來, but 餓狼傳說 is a mid-90s uptempo dance number that breaks the mood badly, and the Kenny Bee track is a later, brighter ballad.",
     "gpt_winner": "netease",
@@ -1280,6 +1448,10 @@
       "Ek gaan jou vat vanaand - Lianie May",
       "Die Liefde Van My Lewe - Lianie May"
     ],
+    "ab_answer": {
+      "a": "netease",
+      "b": "embeat"
+    },
     "claude_winner": "embeat",
     "claude_reason": "The seed is contemporary Afrikaans sokkie/country-pop. List a is five more Lianie May tracks: all stylistically on target, but a listener who just played her already knows her catalogue, so the list adds little. List b keeps one Lianie May cut and reaches into the same Afrikaans sokkie/pop scene with Brendan Peyper, which is an ideal match, plus Jo Black's more singer-songwriter ballad style as a looser fit. b opens up the scene without leaving it.",
     "gpt_winner": "embeat",
@@ -1310,6 +1482,10 @@
       "Miraż - Louis Villain",
       "Wiatr - Mortal"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "",
     "claude_reason": "I do not know the track \"Jesteś Ty\" or the artist Jonatan well enough to describe its sound, so I cannot judge how closely any candidate matches its genre, era or production character.",
     "gpt_winner": "netease",
@@ -1340,6 +1516,10 @@
       "Mony Mony - Billy Idol",
       "Fairytale of New York - The Pogues"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "embeat",
     "claude_reason": "The seed is early-80s American jangle/power pop from the Mitch Easter school. a_recs lands squarely there: skinny-tie power pop (The Records), Athens-scene guitar jangle (Love Tractor), Hitchcock's chiming psych-pop, plus a later power-pop descendant in Sloan, and a same-band track that genuinely matches. b_recs wanders into synthpop, hi-NRG, Celtic folk-punk and Taiwanese math rock — no shared guitar sound, scene or production character with the query.",
     "gpt_winner": "embeat",
@@ -1370,6 +1550,10 @@
       "Rockin' My Paw - Summer Salt",
       "向日葵の小径 - 小松未歩"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "netease",
     "claude_reason": "Both lists correctly anchor on 黃小楨's own lo-fi bedroom material and 何欣穗, her closest Taiwanese singer-songwriter counterpart. A then drifts into mainstream Mandopop (JS) and contemporary R&B-pop (Sam Lin), which are far from the intimate, hushed acoustic character of the seed. B's Summer Salt is a different scene but genuinely shares the lo-fi, breezy bedroom-pop feel, and only the 90s Being-style J-pop track is clearly off. B holds the intimate tone more consistently.",
     "gpt_winner": "embeat",
@@ -1400,6 +1584,10 @@
       "天体嗜好症 - 人間椅子",
       "一半一半 - Top Barry"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "embeat",
     "claude_reason": "小半 is soft mainland indie-folk/pop with intimate female vocals. a_recs stays inside that world: another 陈粒 track, 宋冬野's 斑马斑马 is the canonical neighbour, 阿肆 is close indie-pop, 老狼 is older campus folk but same family. b_recs has plausible soft singer-songwriter picks in 郑润泽 (though doubled), but drops in 人間椅子, a Japanese heavy prog-metal band, which is jarringly wrong and spoils the set; two other entries are too obscure to place.",
     "gpt_winner": "embeat",
@@ -1430,6 +1618,10 @@
       "Mammas Don't Let Your Babies Grow Up to Be Cowboys - Ed Bruce",
       "The Yellow Jacket - Shaun Martin"
     ],
+    "ab_answer": {
+      "a": "netease",
+      "b": "embeat"
+    },
     "claude_winner": "embeat",
     "claude_reason": "Jimmie Vaughan plays swinging, soul-inflected Texas blues rooted in the Freddie King/Albert King tradition. b_recs sits squarely there: soul-blues guitar (Albert King, Freddie King), classic Chicago blues (Howlin' Wolf) and a modern peer in Joe Louis Walker, plus one of his own sides. a_recs drifts far off — 60s British beat-pop, a Babyface-produced Clapton crossover, a country standard and a contemporary gospel-fusion keyboard piece share almost nothing with the seed's tone or groove.",
     "gpt_winner": "embeat",
@@ -1460,6 +1652,10 @@
       "港からやって来た女 - 甲斐バンド",
       "蛹化の女 (Live 2011) (初商品化ボーナストラック) - 戸川純"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "embeat",
     "claude_reason": "Seed is Jun Togawa's Yapoos: theatrical 80s Japanese new wave/avant-pop. List a nails it with two Yapoos cuts from the same period and Hikashu, a peer from exactly that techno/new-wave scene; Kiyoshiro is adjacent Japanese rock, and only the Hamada ballad is plainly wrong. List b gets Togawa's own solo material right, but Akina Nakamori, an enka standard and Kai Band share only the era and language, not the sound. a is both more accurate and opens onto the wider scene.",
     "gpt_winner": "embeat",
@@ -1490,6 +1686,10 @@
       "全是爱 - 李沐青",
       "煙火 - 光良"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "embeat",
     "claude_reason": "The seed is a gentle piano-led Mandopop breakup ballad. a_recs stays squarely in that lane: another Victor Wong ballad plus Rachel Liang, Lin Fan, Lin Yu Zhong and Aska Yang, all same-era mid-tempo Mandarin ballads with similar vocal warmth, and it spreads across several artists. b_recs has two ideal picks in Michael Wong, the seed singer's own duo partner and stylistic twin, but the other three are obscure acts I can't place, leaving the list half unusable in practice.",
     "gpt_winner": "embeat",
@@ -1520,6 +1720,10 @@
       "Veda Paaus Hastacha - Ravindra Sathe",
       "Sanai Bole Bole Hey Dhol - Ravindra Sathe"
     ],
+    "ab_answer": {
+      "a": "netease",
+      "b": "embeat"
+    },
     "claude_winner": "netease",
     "claude_reason": "The seed is the classic Marathi Ganpati aarti in a traditional devotional arrangement. List a keeps the Marathi frame and includes a genuine Ganesh bhakti track (He Gajaanan Baba), with the rest being Sathe's Marathi light/bhavgeet material — adjacent but less ritual — spoiled by the Alisha Chinai pop track, which is wholly out of place. List b drifts toward Hindi bhajan and a Bollywood film song (Woh Kisna Hai), which shares only a broad devotional flavour, and several picks are too obscure to place. a is the more usable set.",
     "gpt_winner": "embeat",
@@ -1550,6 +1754,10 @@
       "黑色克罗心 - Yosko",
       "你别担心 - 三火flame"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "",
     "claude_reason": "I do not know BG8LOCC or the track 'Uncrowned' well enough to characterise its sound, and most candidates on both sides are also unfamiliar to me, so I cannot judge fit honestly.",
     "gpt_winner": "",
@@ -1580,6 +1788,10 @@
       "La chambre bleue - Marie-Ève Janvier & Jean-François Breau",
       "Femme au carré ballet, pt. 2 - François de Roubaix"
     ],
+    "ab_answer": {
+      "a": "netease",
+      "b": "embeat"
+    },
     "claude_winner": "embeat",
     "claude_reason": "The seed is de Roubaix's moody 1970 French thriller score, jazz-tinged with early electronics. List a stays inside his own catalogue, which fits sonically, but it is all one composer and it drops in a modern Quebec pop duet that has nothing to do with the music. List b keeps one de Roubaix theme and then widens sensibly into the same French film-score milieu — Cosma, Delerue, Schäfer — plus Jarre's early electronic work, which echoes de Roubaix's synth side. Better spread, no misfire.",
     "gpt_winner": "embeat",
@@ -1610,6 +1822,10 @@
       "There's Fear in Letting Go - I Prevail",
       "Salamander - ELLEGARDEN"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "embeat",
     "claude_reason": "The seed sits in the modern Japanese metalcore/post-hardcore scene, with clean-to-scream dynamics and polished electronic-tinged production. a_recs stays squarely in that scene — BEFORE MY LIFE FAILS, WEAKEND HEROES and Story of Hope are exactly the peer bands, plus a same-artist track that fits. b_recs is broader Western metalcore: Shrezzers and I Prevail are genuinely adjacent, but Too Close to Touch is a softer era, ELLEGARDEN is melodic punk rock rather than heavy, and mgk's pop-punk is off the mark entirely.",
     "gpt_winner": "",
@@ -1640,6 +1856,10 @@
       "Be My Own Boyfriend - Olivia Dean",
       "Civilian - Wye Oak"
     ],
+    "ab_answer": {
+      "a": "netease",
+      "b": "embeat"
+    },
     "claude_winner": "embeat",
     "claude_reason": "The Big Hash sits in the South African trap/emo-rap lane, and b_recs stays right in that scene: FLVME is essentially the same sonic world, Maraza close by, with K.O and Fifi Cooper broader SA hip-hop but still plausible. a_recs drifts to UK neo-soul and American indie folk (Olivia Dean, Wye Oak), which share nothing with the seed's autotuned trap production, and the remaining picks I can't place. b_recs is the more useful list despite leaning on the seed artist for one slot.",
     "gpt_winner": "embeat",
@@ -1670,6 +1890,10 @@
       "In Your Face - Type-RUKU",
       "Hip Hop For Respect - Infinite Flow"
     ],
+    "ab_answer": {
+      "a": "netease",
+      "b": "embeat"
+    },
     "claude_winner": "embeat",
     "claude_reason": "Garion is old-school Korean boombap with dense Korean-language flows. In a_recs, Infinite Flow sits in the same underground scene, while Junoflo and Primary are much later, glossier hip hop and Jaurim's alt-rock is simply off-genre. b_recs stays inside Korean rap: Garion's own 'Post Mortem' matches the sound exactly and YDG is era-appropriate, though PSY's intro and Outsider's melodic speed-rap are pop-leaning misses. b holds the tighter scene overall despite less discovery value.",
     "gpt_winner": "embeat",
@@ -1700,6 +1924,10 @@
       "Love Yourself - 赤西仁",
       "Higher - The Saturdays"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "embeat",
     "claude_reason": "The seed is Korean classical-crossover vocal-group material with Italian-language repertoire. a_recs stays inside that exact scene: another crossover ensemble's Italian aria-pop, a musical-theatre showpiece from the same singer pool, and Forestella, whose lush multi-voice arrangements are the closest possible match. b_recs is scattered pop miscellany - Gregorian's chant-cover is at least vocally adjacent, but John Denver folk, a Japanese punk band, J-pop and a UK girl-group dance track share nothing with the seed's operatic ensemble sound.",
     "gpt_winner": "",
@@ -1730,6 +1958,10 @@
       "世界末日 - KANNA BUSH",
       "Higher Brothers-暴雨 - 江崎川"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "embeat",
     "claude_reason": "The seed is melodic Chinese trap/R&B from the Rap of China circle. a_recs lands squarely in that scene: another 李佳隆 cut, plus GALI and 艾熱 whose auto-tuned melodic trap shares the same production sheen, and 黃旭's rap take on 說散就散 fits the sentimental-hip-hop mood. b_recs opens with a Japanese pop novelty track that has no connection at all, and the rest are obscure or look like reuploads/covers, offering little a listener could use.",
     "gpt_winner": "embeat",
@@ -1760,6 +1992,10 @@
       "PIECE OF MY WISH - 今井美樹",
       "一目惚れ - 舟津真翔"
     ],
+    "ab_answer": {
+      "a": "netease",
+      "b": "embeat"
+    },
     "claude_winner": "embeat",
     "claude_reason": "The seed is raw 1980 Japanese rock'n'roll with Kiyoshiro's ragged vocal. b_recs stays in that world: another RC single from the same period, Sheena & the Rokkets' garage rock'n'roll, plus late-80s beat/ska bands that grew out of it — only the Beat Takeshi ballad sits apart. a_recs offers polished J-pop ballads and 90s mainstream rock with no stylistic link to the seed's grit.",
     "gpt_winner": "embeat",
@@ -1790,6 +2026,10 @@
       "Intro(AE86) - 陈光荣",
       "apogee - skyfall beats"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "embeat",
     "claude_reason": "The seed is dissonant, hypnotic avant-garde black metal with industrial-tinged repetition. a_recs stays squarely in that world: The Ruins of Beverast and Misþyrming for dissonant atmosphere, Akhlys for ritual menace, Drudkh for tremolo-driven melancholy, plus a fitting Blut aus Nord cut. b_recs offers metalcore, rap metal and electronica/soundtrack material with no tie to the seed's genre, era or production character.",
     "gpt_winner": "embeat",
@@ -1820,6 +2060,10 @@
       "What Do You Like? - Graham Parker",
       "Stay Here Loving You - Graham Parker"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "embeat",
     "claude_reason": "Parker's melodic, slightly rootsy singer-songwriter rock sits closest to Nick Lowe and Frankie Miller, and Marshall Crenshaw's power pop is a natural neighbour; only The Stranglers' harder new wave edge feels off. The b list is all Parker himself, which fits by definition but tells a listener nothing new, and an acoustic alternate version thins it further. a covers the same pub-rock/new-wave world while actually opening it up.",
     "gpt_winner": "embeat",
@@ -1850,6 +2094,10 @@
       "Palie Mou File - My Old Friend - Dakis",
       "I Who Have Nothing - Dakis"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "netease",
     "claude_reason": "Dakis sits in 60s/70s Greek light pop (elafrolaiko, beat-era covers). A mixes one solid same-era pick (Voskopoulos) and a Dakis track with clearly off-scene choices: Malamas is entehno folk, Konstantina is 90s laiko, Rena Morfi is contemporary. B stays inside the right era and vocal-pop sound throughout, though it leans heavily on Dakis himself and the Hatzinasios entry looks like an orchestral take on the seed song, which adds nothing. Still the more listenable continuation.",
     "gpt_winner": "netease",
@@ -1880,6 +2128,10 @@
       "風があなたの髪を梳ける(风儿拂过你的发) - 冰咖啡",
       "雨宿り - 西崎みどり"
     ],
+    "ab_answer": {
+      "a": "netease",
+      "b": "embeat"
+    },
     "claude_winner": "embeat",
     "claude_reason": "The seed is mid-80s Japanese idol pop with a city-pop sheen. B lands squarely in that world: Yoshimoto Miyoko and Kudo Yuki are contemporaneous idol singles, Kokubu Yurie brings the AOR/city-pop side, and Ohtaki is the adjacent Niagara production lineage; the same-artist track also fits stylistically. A wanders across decades and styles — 70s folk rock, a 90s Komuro dance hit, an enka-leaning ballad — with only Kisugi Takao coming near the era and mood.",
     "gpt_winner": "embeat",
@@ -1910,6 +2162,10 @@
       "Yokaze - Itoko Toma",
       "Ephemeral - Itoko Toma"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "",
     "claude_reason": "I do not know Itoko Toma's music well enough to describe the sound of this track, so I cannot judge which recommendations sit close to it. Rating the candidates would mean guessing from titles and playlist associations rather than from the seed's actual style.",
     "gpt_winner": "",
@@ -1940,6 +2196,10 @@
       "RGBA - Chill Cole",
       "Dusty Electronics - Chill Cole"
     ],
+    "ab_answer": {
+      "a": "netease",
+      "b": "embeat"
+    },
     "claude_winner": "embeat",
     "claude_reason": "The seed is mellow lo-fi chillhop instrumental music. All of a_recs is the same artist's catalogue, which fits the mood almost by definition but tells a listener nothing they couldn't find on the artist page. b_recs keeps one strong same-artist pick and reaches out to adjacent chill/lo-fi producers; Dylan Sitts sits squarely in that same beat-tape world, and the remaining names I can't place, so my scores there are thin. On usefulness as a 'more like this' list, b is the better hand even if a is safer.",
     "gpt_winner": "netease",
@@ -1970,6 +2230,10 @@
       "The Rhythm Changes - Kamasi Washington",
       "Satisfaction - Benny Benassi"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "embeat",
     "claude_reason": "Energy Flash is a 1990 hard rave/techno landmark. a_recs stays inside that world: Mentasm is its sibling hoover-riff anthem, Outlander's Vamp is the Belgian rave counterpart, and Dave Clarke, Substance and Dave Angel are all early-90s techno of the same relentless, stripped, dark character. b_recs wanders into melodic deep house, contemporary jazz, indie psych and 2000s electro house — only Benassi is even dance music, and its bouncy electro has nothing to do with the seed's raw rave attack.",
     "gpt_winner": "embeat",
@@ -2000,6 +2264,10 @@
       "Artifice - Tour-Maubourg",
       "Raining but It's Ok - dublon"
     ],
+    "ab_answer": {
+      "a": "netease",
+      "b": "embeat"
+    },
     "claude_winner": "embeat",
     "claude_reason": "Both lists stay inside the lush, jazzy deep-house world the seed occupies. a_recs is anchored by three more Tour-Maubourg tracks, including one from the same project, which fit perfectly but tell a listener little they don't already have. b_recs keeps one Tour-Maubourg cut and then reaches out to Chaos in the CBD and Felipe Gordon, peers with the same warm, dubby, jazz-inflected house character, making it the more useful 'more like this' result.",
     "gpt_winner": "embeat",
@@ -2030,6 +2298,10 @@
       "Soft Light - lang",
       "Consciousness / 辺縁に立っている - lang"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "embeat",
     "claude_reason": "The seed sits in the Japanese screamo/emoviolence scene, and a_recs maps that world precisely: sassya-, killie, moreru and くだらない1日 all share the frantic tempos, raw production and shouted vocals; only Ling tosite sigure drifts toward cleaner mainstream math-rock. b_recs is four more lang tracks — stylistically safe but nothing a listener doesn't already have access to — plus Lang Elliott, a nature-recording artist matched purely on name, which is a jarring miss.",
     "gpt_winner": "",
@@ -2060,6 +2332,10 @@
       "First Day Out - Shennumbanine",
       "Gorilla Rap - Shennumbanine"
     ],
+    "ab_answer": {
+      "a": "netease",
+      "b": "embeat"
+    },
     "claude_winner": "",
     "claude_reason": "I do not know Shennumbanine or this track well enough to describe its sound, so I cannot judge how closely any of the candidates match its scene, era or production character.",
     "gpt_winner": "",
@@ -2090,6 +2366,10 @@
       "MR. SMILE - The Hertz",
       "逆旅 - The Hertz"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "embeat",
     "claude_reason": "The seed is Chinese-language indie rock with guitar-led band arrangements. a_recs stays in that Sinophone indie orbit — Schoolgirl Byebye's dream-pop is close in scene, another Hertz track anchors it, and Yoyo Sham is softer but still HK indie songwriting. b_recs' three extra Hertz tracks fit well but add little a listener doesn't already know, and the conservatory choral setting of 沁园春·长沙 is completely outside the scene, which spoils the list. Several candidates on both sides I could not place.",
     "gpt_winner": "embeat",
@@ -2120,6 +2400,10 @@
       "Hear You Calling (Hardcharger vs. Aurora & Toxic Remix Edit) - Jade",
       "Empty Love (Demo 2015) - Jade"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "embeat",
     "claude_reason": "The seed is a Spanish-language anime-theme cover with polished pop-vocal production. List a stays right in that world: more Spanish anime openings/endings from the same singer plus another vocalist's Inuyasha theme, and it also reaches outside the artist. List b appears to conflate several unrelated acts sharing the name — 90s American R&B singles and a hardstyle remix have no link to the seed — leaving only the Naruto cover as a real match.",
     "gpt_winner": "",
@@ -2150,6 +2434,10 @@
       "Government Money (Hq Remastered 2024) - Sleepy John Estes",
       "Lawyer Clark Blues - Sleepy John Estes"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "embeat",
     "claude_reason": "b_recs is airtight on fit — five Estes sides in the same Tennessee country-blues idiom, harmonica-and-guitar shuffle vocals — but it tells a listener nothing they couldn't find by browsing the artist, and one entry is just a remaster tag. a_recs keeps one Estes anchor and reaches into the surrounding prewar world (Blind Willie Johnson, Lead Belly) that genuinely sits next to this record; Dupree's barrelhouse piano and Lenoir's later protest blues are looser but still the same family. a_recs is the more useful handful.",
     "gpt_winner": "embeat",
@@ -2180,6 +2468,10 @@
       "事不关己 - 邻间少年",
       "我的希望在路上 - 白羽"
     ],
+    "ab_answer": {
+      "a": "netease",
+      "b": "embeat"
+    },
     "claude_winner": "embeat",
     "claude_reason": "周云蓬's 九月 is spare poetic Chinese folk with a weathered baritone. In a_recs, 胡德夫 is an ideal match (deep-voiced poetic folk) and 左小祖咒 belongs to the same underground alt-folk circle, but three picks are too obscure for me to place, leaving the list thin in usable content. b_recs is consistently on-scene: another 周云蓬 track, 张玮玮 (his frequent collaborator, same acoustic/accordion folk world), 莫西子诗's earthy poetic folk, plus 陈粒 and 谢春花 which are cleaner, younger indie-folk-pop — adjacent but softer. Overall b delivers a more reliably fitting and better-rounded set.",
     "gpt_winner": "embeat",
@@ -2210,6 +2502,10 @@
       "Peace Meal - The Jazzanians",
       "Four Part Suite: (Opus #20) Hymn for the War Orphans - Zim Ngqawana"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "embeat",
     "claude_reason": "Both lists stay firmly inside South African jazz with Xhosa/township melodic roots, which is exactly the seed's world. a_recs spreads across the scene Zim belongs to — Yenana's pianism, Tsoaeli's Xhosa-hymn bass writing, Dyantyis's contemporary Xhosa jazz — plus a companion piece from Zim himself. b_recs is tighter in sound but leans on three cuts from one late-80s ensemble, a thinner and more archival result; the Zim picks there fit beautifully, though the suite excerpts are more composed and less elegiac.",
     "gpt_winner": "netease",
@@ -2240,6 +2536,10 @@
       "女生不哭 - 可岚",
       "常在我心中 - 林子祥"
     ],
+    "ab_answer": {
+      "a": "netease",
+      "b": "embeat"
+    },
     "claude_winner": "embeat",
     "claude_reason": "Marf's track sits in the current MakerVille-era Cantopop wave — glossy pop production, 2020s Hong Kong scene. b_recs stays right there: her own single, MIRROR's Jer, fellow COLLAR member Winka, and a MIRROR THE FIRST TAKE performance, all same scene and era. a_recs only lands with Panther Chan; Phil Chang is 2000s Mandopop and George Lam is 1980s Cantopop, both far from this sound, and two entries I can't place. b_recs is the more coherent 'more like this' result.",
     "gpt_winner": "embeat",
@@ -2270,6 +2570,10 @@
       "One by One - Air Raid",
       "Raiders of Hell - Air Raid"
     ],
+    "ab_answer": {
+      "a": "netease",
+      "b": "embeat"
+    },
     "claude_winner": "embeat",
     "claude_reason": "Air Raid trade in NWOBHM-revival heavy metal with soaring vocals and twin guitars, so every same-artist pick in the first list sits stylistically right, but five of their own tracks tells a listener nothing new. The second list keeps one Air Raid cut and surrounds it with the same trad/speed metal revival scene — Stallion and Enforcer are near-perfect matches, Morgul Blade a touch more epic/raw, Sabïre rawer and blacker than the seed. Broader and still on-target, so it is the more useful result.",
     "gpt_winner": "embeat",
@@ -2300,6 +2604,10 @@
       "オン・ザ・ショア - 山中千尋",
       "キャント・テイク・マイ・アイズ・オフ・オブ・ユー (Edit) - 山中千尋"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "embeat",
     "claude_reason": "The seed is acoustic Japanese jazz piano. a_recs stays in that world: another Yamanaka piano arrangement plus Japanese jazz/fusion players (Terai's violin, Matsumoto's tenor standards), with Casiopea's electric fusion the loosest link. b_recs has two strong Yamanaka piano tracks, but Yamashita's doo-wop a cappella standard is stylistically off and the enormous yacht-rock DJ megamix is unusable as a next track. a_recs is the more coherent and more exploratory list.",
     "gpt_winner": "embeat",
@@ -2330,6 +2638,10 @@
       "착한사랑 - Roo'Ra",
       "연인 - Roo'Ra"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "embeat",
     "claude_reason": "The seed is mid-90s Korean dance-pop with rap breaks. a_recs pairs Roo'Ra's own signature hit with Turbo, Kim Sung Jae and Jinusean — exactly the same 1995-97 dance/hip-hop scene and production style, and it opens up beyond the seed artist. b_recs is all Roo'Ra: the big hit and the Hotel California dance cover fit well, but the Christmas novelty and the softer mid-tempo tracks drift off, and a listener who just played 3!4! already knows this catalogue.",
     "gpt_winner": "embeat",
@@ -2360,6 +2672,10 @@
       "Trust Me - Pandora",
       "入秋 - RAMBO GANG"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "embeat",
     "claude_reason": "tokiwa sits in the Japanese kawaii future bass / doujin electronic world. a_recs lands squarely there: the Aiobahn remix and Such share the same sugary synth-and-vocal production, and the tokiwa track is a natural continuation, with a couple of obscure names I can't place. b_recs scatters across UK trance, 90s Eurodance and J-pop vocal work with no shared production character or scene, so it reads as a generic electronic grab bag rather than a 'more like this' result.",
     "gpt_winner": "",
@@ -2390,6 +2706,10 @@
       "Angel Dust - Perturbator",
       "Melting Point - Mitch Murder"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "embeat",
     "claude_reason": "Stilz sits in the driving outrun corner of synthwave, and a_recs stays right there: VHS Dreams, NightStop and Absolute Valentine share the same pulsing arpeggios and neon-highway production, with Timecop1983 only slightly softer. b_recs is all credible synthwave but drifts further out — Perturbator is heavier darksynth, Mitch Murder is cleaner retro pastiche, and Jasper Byrne's Hotline Miami material is murkier and more ambient than Stilz's polished outrun. Both lists spread across artists; a's centre of gravity matches the seed better.",
     "gpt_winner": "embeat",
@@ -2420,6 +2740,10 @@
       "将你放在我心内 - 萧闳仁",
       "世界第一等 - NEW音乐家庭"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "",
     "claude_reason": "I do not know EmptyORio or this track well enough to describe its sound, so I cannot judge whether the Taiwanese indie-rock picks or the Taiyu/Mandopop picks are the closer match.",
     "gpt_winner": "",
@@ -2450,6 +2774,10 @@
       "My Favorite Things - Hanah",
       "Against the Tide - Various Artists"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "embeat",
     "claude_reason": "Joyside is scrappy Beijing garage-punk sung in English. a_recs stays largely in the Chinese indie/rock orbit: another Joyside cut plus Da Bo Lang's garage-surf rock fits well, Muma is adjacent alt-rock, while Supermarket's electronica drifts off. b_recs offers one solid Joyside track, but the rest are obscure entries I cannot place, including a 'Various Artists' compilation credit that gives a listener nothing to act on. a_recs is the more usable list.",
     "gpt_winner": "embeat",
@@ -2480,6 +2808,10 @@
       "Käpt'n Allright (Marsch) - Shanty Chor Frische Brise",
       "Finster war die Nacht - Shanty Chor Frische Brise"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "embeat",
     "claude_reason": "Both lists stay in the German maritime-song world. B is tightly on target — a Carolinensiel shanty-choir potpourri plus three more Frische Brise tracks — but three of five are the seed's own choir, so it opens little up. A offers genuine peers from other shanty and navy choirs (Blaue Jungs, Baltrum) alongside the seed artist, and its looser picks (Santiano's folk-rock, Curd Jürgens' Reeperbahn schlager) still share the seafaring theme even though the production is quite different. Broader and more useful.",
     "gpt_winner": "netease",
@@ -2510,6 +2842,10 @@
       "Cumberland Gap - Nancy Whiskey",
       "Freight Train - Chas McDevitt"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "",
     "claude_reason": "The seed carries a Japanese title, which points to a Japanese act rather than the 1950s Scottish skiffle singer of the same name, and I cannot tell which artist this track actually belongs to or what it sounds like. Without knowing the seed's genre, era and instrumentation I cannot fairly judge either Celtic-leaning or skiffle-leaning candidates.",
     "gpt_winner": "netease",
@@ -2540,6 +2876,10 @@
       "武侯区 - 邓典果DDG",
       "废柴 - 邓典果DDG"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "embeat",
     "claude_reason": "Seed is Chengdu dialect trap. a_recs stays largely inside that scene — 謝帝 and AnsrJ are core Sichuan-dialect rap, Pissy is adjacent (though a live cut), with 那奇沃夫 the loosest fit as a mainstream trap pick. b_recs has an excellent Asen pick and two more DDG tracks that fit, but 法老's Beijing style sits apart and two same-artist slots make the list thinner. a_recs opens more of the surrounding scene while keeping the dialect-rap character.",
     "gpt_winner": "netease",
@@ -2570,6 +2910,10 @@
       "I Can't Wait - Kieran Kane",
       "Eight More Miles (live) - Kieran Kane"
     ],
+    "ab_answer": {
+      "a": "netease",
+      "b": "embeat"
+    },
     "claude_winner": "embeat",
     "claude_reason": "Kane's world is sparse, groove-driven acoustic Americana. a_recs nails the immediate circle — Kevin Welch and Rayna Gellert are his own Dead Reckoning/duo collaborators, and the Kane cuts sit right beside the seed — but three of five slots are Kane himself plus two live takes, so it barely moves past what the listener already has. b_recs keeps one Kane track and then reaches into Gurf Morlix and Neal Casal, both close in tone; Old 97's and Lucero are rowdier and rockier than Kane's understated feel, but the list as a whole is the more useful 'more like this'.",
     "gpt_winner": "netease",
@@ -2600,6 +2944,10 @@
       "上からマリコ - AKB48",
       "わるきー - 渡辺美優紀"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "embeat",
     "claude_reason": "ダウト play showa-flavoured, energetic visual kei. a_recs stays inside that world: another Dauto track, vistlip and DIAURA from the same modern VK scene, Megamasso's retro-pop cover matching the kayokyoku streak, with MIYAVI a slightly looser solo-rock pick. b_recs opens well with D and DaizyStripper, but then drops into idol pop (AKB48, Watanabe Miyuki) and a novelty act, which share nothing with the seed's guitar-driven VK sound.",
     "gpt_winner": "embeat",
@@ -2630,6 +2978,10 @@
       "Ceres Is for Lovers - Ceres",
       "Obsesionado - Ceres"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "embeat",
     "claude_reason": "Ceres sit in the Melbourne emo/indie-punk scene, so Tiny Little Houses, Dear Seattle and Bec Stevens are close scene-mates, and their own 'Me & You' matches the sound; only Vera Blue's polished electro-pop drifts away. The b list opens with big-room EDM and hard dance tracks that have nothing to do with jangly guitar emo, then falls back on two tracks credited to a different Ceres entirely that I can't place. a is the only usable result.",
     "gpt_winner": "embeat",
@@ -2660,6 +3012,10 @@
       "Arati Ghanraja - Shubhangi Joshi",
       "CHOTI CHOTI GAIYYA CHOTE CHOTE GWAL - Shubhangi Joshi"
     ],
+    "ab_answer": {
+      "a": "netease",
+      "b": "embeat"
+    },
     "claude_winner": "netease",
     "claude_reason": "The seed is a Marathi abhang/bhajan in the warhkari devotional idiom. Both lists stay largely in Marathi bhakti-geet territory: Hiremath's abhangs and the Shubhangi Joshi aarti/abhang tracks all sit close to the seed's mood and instrumentation. b_recs includes the strongest single match (Avaghe Garaje Pandharpur) but is diluted by Jaanta Raja, a Shivaji-themed folk/powada piece with a very different character, and a Hindi Hanuman aarti. a_recs holds the devotional register throughout, though the Krishna bhajan in Hindi drifts slightly.",
     "gpt_winner": "",
@@ -2690,6 +3046,10 @@
       "プレイボール~鬼太郎チームVSブータレーズ - 憂歌団",
       "ゲゲゲの鬼太郎~鬼太郎の忠告 - 憂歌団"
     ],
+    "ab_answer": {
+      "a": "netease",
+      "b": "embeat"
+    },
     "claude_winner": "embeat",
     "claude_reason": "The seed is Yukadan's gritty Osaka blues with Kimura's raw vocal. a_recs is entirely Yukadan's Gegege no Kitaro project material — skits and character pieces tied to the cartoon rather than the band's blues songs, so despite the artist match it delivers almost none of the seed's sound and no variety at all. b_recs leads with a genuine Yukadan blues number and then branches into the adjacent Kansai folk/singer-songwriter world (Folk Crusaders, Old Days Tailor, Shimoda) plus BEGIN's bluesy pop — looser fits, but the list is usable and opens things up.",
     "gpt_winner": "embeat",
@@ -2720,6 +3080,10 @@
       "Like an Animal - RÜFÜS DU SOL",
       "Home - Adriatique"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "embeat",
     "claude_reason": "The seed is Afterlife-flavoured melodic house/indie dance with warm organic production. a_recs stays in that lane throughout — RÜFÜS DU SOL's own material, Elderbrook, Hayden James and Panama all share the vocal-led, mid-tempo, emotive character; the Adriatique version is essentially another mix of the seed song, so it fits sonically but adds little. b_recs has two very strong picks (RÜFÜS DU SOL, Adriatique) but pairs them with big-room Armin van Buuren trance, which is a different scene and energy entirely, and one track I can't place. a_recs is the more coherent and usable set.",
     "gpt_winner": "embeat",
@@ -2750,6 +3114,10 @@
       "아무도 모른다 - Siwa",
       "봄을 만든다 - Siwa"
     ],
+    "ab_answer": {
+      "a": "netease",
+      "b": "embeat"
+    },
     "claude_winner": "embeat",
     "claude_reason": "Seed is gentle Korean acoustic folk singer-songwriter material. List a is five more Siwa tracks, which almost certainly match the sound but tell a listener nothing new. List b keeps the quiet acoustic mood while reaching outward: JEONGMILLA is a near-perfect stylistic neighbour, Lee So Ra and Hyukoh are plausible if slightly more produced, and the Standing Egg piano version is a weak pick since it is an alternate mix rather than a fresh song. b is the more useful result overall.",
     "gpt_winner": "embeat",
@@ -2780,6 +3148,10 @@
       "Cançó de la mort - Tardor",
       "Energia (En Directe) - Tardor"
     ],
+    "ab_answer": {
+      "a": "netease",
+      "b": "embeat"
+    },
     "claude_winner": "",
     "claude_reason": "I don't know the band Tardor or this track well enough to describe its sound, so I can't judge how closely any of the candidates match its genre, era or production character.",
     "gpt_winner": "embeat",
@@ -2810,6 +3182,10 @@
       "Nuclear - SKRY",
       "Psyko Squat - SKRY"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "embeat",
     "claude_reason": "Both lists stay inside the French frenchcore/tribecore world, so fit is broadly comparable. a_recs keeps one SKRY track for continuity and otherwise reaches across the same scene — Farfacid, Von Bikräv, Fasotek, Vortek's all share the kicks, distorted rave stabs and tempo range. b_recs is five more SKRY cuts: they fit, but a listener who just played SKRY gains little from a catalogue dump. Confidence is low as most individual titles are unfamiliar to me.",
     "gpt_winner": "",
@@ -2840,6 +3216,10 @@
       "年輕人的心聲 - 潘安邦",
       "跟着感觉走 - 潘安邦"
     ],
+    "ab_answer": {
+      "a": "netease",
+      "b": "embeat"
+    },
     "claude_winner": "embeat",
     "claude_reason": "The seed is a 1979 Taiwanese campus-folk staple: gentle acoustic guitar, nostalgic and warm. b_recs lands squarely in that world — 童年 and 葉佳修's 赤足走在田埂上 (by the seed's own composer) are near-perfect companions, plus another Pan An-bang track and two adjacent Mandarin easy-listening ballads. a_recs re-serves the query song itself, which is worthless to the listener, and pads with mainland 80s material (喀秋莎, 军港之夜) that shares little beyond gentleness. Only 年輕人的心聲 truly fits there.",
     "gpt_winner": "embeat",
@@ -2870,6 +3250,10 @@
       "دریا - Niaz Nawab",
       "Maghze Por Jib Khali - Erwin Khachikian"
     ],
+    "ab_answer": {
+      "a": "netease",
+      "b": "embeat"
+    },
     "claude_winner": "embeat",
     "claude_reason": "Both lists stay inside the Iranian alternative/fusion world the seed belongs to. List a is mostly the seed's own catalogue plus what appears to be the same song 'Darya/دریا' credited twice, which tells a listener nothing new. List b keeps one Niaz Nawab track and otherwise reaches across the same Tehran alt/indie scene — Pallett, Namjoo, Radio Tehran — with only the glossier Rana Mansour pop track drifting off style, so it is the more useful 'more like this' result.",
     "gpt_winner": "netease",
@@ -2900,6 +3284,10 @@
       "STREET ROCK'N ROLLER - 44MAGNUM",
       "You Love Me Don't You - 44magnum"
     ],
+    "ab_answer": {
+      "a": "netease",
+      "b": "embeat"
+    },
     "claude_winner": "embeat",
     "claude_reason": "Both lists sit in mid-80s Japanese hard rock/metal. a_recs is five more 44MAGNUM cuts — all genuinely close in sound and era, but a listener who just played the seed already has that catalogue in reach. b_recs keeps one 44MAGNUM track and then opens up the same Nagoya/Japanese metal scene with ANTHEM, VOW WOW and REACTION, which match the guitar-driven, melodic-metal character well; only Ningen Isu's doom-prog leans away. b gives the more useful result.",
     "gpt_winner": "embeat",
@@ -2930,6 +3318,10 @@
       "你需要我的時候 - 當代電影大師",
       "December - 午夜乒乓"
     ],
+    "ab_answer": {
+      "a": "netease",
+      "b": "embeat"
+    },
     "claude_winner": "",
     "claude_reason": "I cannot place SADOG's sound reliably, and nearly all candidate artists in both lists are outside my knowledge, so any scoring would be guesswork based on naming style rather than music.",
     "gpt_winner": "",
@@ -2960,6 +3352,10 @@
       "燙心 - 羽·泉",
       "影子的影子 - 谢天笑"
     ],
+    "ab_answer": {
+      "a": "netease",
+      "b": "embeat"
+    },
     "claude_winner": "",
     "claude_reason": "I cannot place Chen Guo or this track's sound, so I have no basis for judging whether these Chinese pop and rock candidates match its genre, era or production character.",
     "gpt_winner": "",
@@ -2990,6 +3386,10 @@
       "Vuela Vuela Pajarillo - Ernesto Cavour",
       "El Palo de Escoba Que Quería Ser Caballo - Ernesto Cavour"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "embeat",
     "claude_reason": "The seed is Andean charango instrumental folk. b_recs is five more Cavour pieces, all squarely in the same charango idiom and flawless on fit, but a listener who just played Cavour gains little from a list that never leaves him. a_recs keeps the charango core (another Cavour track, a Bolivian charango player, Los Calchakis' Andean folk) while opening the scene wider; only the Violeta Parra vocal drifts toward nueva canción, and one candidate I can't place.",
     "gpt_winner": "embeat",
@@ -3020,6 +3420,10 @@
       "9to9 - 王允宸",
       "Show - BEJ48"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "embeat",
     "claude_reason": "The seed is polished 7SENSES idol dance-pop from the SNH48 family. a_recs leads with another 7SENSES track and the parent group, then widens sensibly into C-pop idol acts with comparable production, so the sonic character stays close. b_recs stays inside the SNH48 orbit but leans on individual members' solo cuts and a live stage recording, which are patchier in production and mood than the seed's sleek single sound, and the live take is a weaker 'next track' choice.",
     "gpt_winner": "embeat",
@@ -3050,6 +3454,10 @@
       "My Heart Will Go On - 满舒克",
       "ITS OKAY NOW - TheReal FatBoi"
     ],
+    "ab_answer": {
+      "a": "netease",
+      "b": "embeat"
+    },
     "claude_winner": "embeat",
     "claude_reason": "The seed is an intimate solo-piano miniature on Armenian folk themes. b_recs stays in that world: more Ayrapetyan piano arrangements of Armenian/spiritual material fit perfectly, and the Buniatishvili tracks are at least solo piano recital repertoire, though Scarlatti and the Gainsbourg arrangement drift away in era and character. a_recs offers contemporary pop, rap and electronic tracks with no connection at all to solo classical piano — a listener would be jolted out of the mood immediately.",
     "gpt_winner": "embeat",
@@ -3080,6 +3488,10 @@
       "What You Do (Hendriks Remix) - Finnebassen",
       "You Will Never Sleep (Jay Shepheard remix) - Finnebassen"
     ],
+    "ab_answer": {
+      "a": "netease",
+      "b": "embeat"
+    },
     "claude_winner": "embeat",
     "claude_reason": "Both lists stay in the same warm, vocal-tinged deep house lane as \"Bella\". A is tightly on-target but is essentially the Finnebassen catalogue plus remixes of his own tracks — a listener who just played him gains little. B keeps one strong Finnebassen cut and surrounds it with scene-adjacent deep/tech house from Miguel Campbell and Karmon, which is a more useful \"more like this\" result even if one pick is slightly cooler and more club-techno in character.",
     "gpt_winner": "embeat",
@@ -3110,6 +3522,10 @@
       "All I want (Live) - 하현상",
       "Still Wonder - 하현상"
     ],
+    "ab_answer": {
+      "a": "netease",
+      "b": "embeat"
+    },
     "claude_winner": "embeat",
     "claude_reason": "The seed is a soft, delicate Korean indie singer-songwriter track. a_recs leans on three Ha Hyun Sang songs, which fit sonically but add little, and the Parannoul shoegaze pick is far noisier and lo-fi than anything the seed suggests. b_recs stays in the same Korean indie-band/singer-songwriter circle — Hoppipolla's cello ballad is an especially close match, LUCY is adjacent if brighter, and the Kyoungseo ballad is softer-pop but plausible — while still offering discovery beyond the artist's own catalogue.",
     "gpt_winner": "embeat",
@@ -3140,6 +3556,10 @@
       "El vals - Eleni Karaindrou",
       "Tango of Love - Eleni Karaindrou"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "embeat",
     "claude_reason": "The seed is Karaindrou's chamber-melancholic Angelopoulos score: accordion, strings, modal Greek laments. List a keeps that world and widens it usefully — another Karaindrou piece, Reboutsika's Greek film melodicism, and Preisner's Kieslowski writing, which is almost a sibling aesthetic; the Persian violin and solo-piano picks are looser but still slow, sorrowful instrumentals. List b's three Karaindrou tracks are perfect matches but tell a listener nothing new, and Woodkid's brass-driven orchestral pop and Badalamenti's noir-synth mood sit further from the acoustic chamber sound. a is the more useful handful.",
     "gpt_winner": "netease",
@@ -3170,6 +3590,10 @@
       "拝啓, 少年よ - Hump Back",
       "台所 - ハンバート ハンバート"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "embeat",
     "claude_reason": "Stompin' Bird sits in the Japanese melodic hardcore/skate-punk circuit, and a_recs lands squarely there: Over Arm Throw, HOTSQUALL, locofrank and Boobie Trap share the same fast, melodic, English-shouted attack and label-scene sound. b_recs is scattered — STANCE PUNKS and Hump Back are at least punk-adjacent, The 50 Kaitenz is garage rock'n'roll, and two acoustic folk tracks by Humbert Humbert have nothing to do with the seed's energy or production.",
     "gpt_winner": "embeat",
@@ -3200,6 +3624,10 @@
       "SHINSEN Girls (Ep26) - 田中秀和",
       "Blue Sky And Yellow Sunflower - 横田進"
     ],
+    "ab_answer": {
+      "a": "netease",
+      "b": "embeat"
+    },
     "claude_winner": "embeat",
     "claude_reason": "Kirakiraboshi is hazy, loop-based Japanese ambient from Sakura. b_recs stays in that world: another Sakura piece, Meitei's dusty Japanese ambient, and Biosphere's cool minimal ambient are all strong matches, with Mort Garson a mild era outlier. a_recs only truly connects via the Yokota track credited in kanji; Kid Koala's turntablist cut-ups and a bright anime BGM cue pull away from the seed's drifting mood, and two picks I can't place leave the list thin.",
     "gpt_winner": "embeat",
@@ -3230,6 +3658,10 @@
       "Galgenvögel - Totenwache",
       "Stahl & Schwefel - Totenwache"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "embeat",
     "claude_reason": "Both lists stay inside German-language black metal. b_recs is five more Totenwache tracks: all fit the seed's raw German black metal sound perfectly, but a listener who just played one already has the discography and learns nothing new. a_recs keeps the same scene through Mavorim and Runenwacht, with Non Est Deus and Dark Fortress drifting toward industrial and melodic/avant-garde territory — a slightly looser fit, but a far more useful 'more like this' result.",
     "gpt_winner": "embeat",
@@ -3260,6 +3692,10 @@
       "あ・り・が・と・YESTERDAYS - 秋月律子",
       "Tell the Falling Sun - KaiL Baxley"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "embeat",
     "claude_reason": "The seed is a hushed acoustic cover of a classic pop song by a jazzy female vocalist. a_recs nails that exact niche: stripped-down covers (Civil Wars' Billie Jean, Daniela Andrade's Creep), Cheer Chen's acoustic Mandarin folk, plus a fitting Joanna Wang track — consistent mood, instrumentation and cover-song character. b_recs is scattered: a soft bedroom-pop track and a folk singer-songwriter are loosely adjacent, but an idol character song is unrelated, and a remix and obscure indie entry add little coherence.",
     "gpt_winner": "embeat",
@@ -3290,6 +3726,10 @@
       "Lurar I Skuggan - Genius of Time",
       "Sunswell - Genius of Time"
     ],
+    "ab_answer": {
+      "a": "netease",
+      "b": "embeat"
+    },
     "claude_winner": "embeat",
     "claude_reason": "The seed is dusty, jazz-tinged Swedish deep house. a_recs is five more Genius of Time cuts — all genuinely on-point sonically, but a listener who just played one already has the catalogue in front of them. b_recs keeps the same sample-based, warm deep-house lane (MCDE, Move D, Borrowed Identity, Moodymann's Detroit roots) while including one GoT track, so it fits just as tightly and actually broadens the listening.",
     "gpt_winner": "embeat",
@@ -3320,6 +3760,10 @@
       "擁有 - 張學友",
       "紅唇綠酒 - 甄妮"
     ],
+    "ab_answer": {
+      "a": "netease",
+      "b": "embeat"
+    },
     "claude_winner": "embeat",
     "claude_reason": "譚炳文 sits in the early Cantonese pop / oldies world with opera-tinged phrasing. A's two 任劍輝 pieces are genuine Cantonese opera classics — culturally adjacent heritage listening, but a different form from a crooned pop song, and the 蔡琴/張學友/甄妮 picks jump to later Mandarin and 80s-90s Cantopop with no real link. B leads with 鄭錦昌's 新禪院鐘聲, almost the ideal match: same 60s-70s Cantonese oldies scene and delivery, and Frances Yip's standard plus 羅嘉良's retro-styled ballad stay loosely in that lane. 草蜢's dance-pop and 蘇永康 are misfires, but B's best pick is far stronger.",
     "gpt_winner": "embeat",
@@ -3350,6 +3794,10 @@
       "Showtime - Embark Studios",
       "Just the Two of Us - Grover Washington, Jr."
     ],
+    "ab_answer": {
+      "a": "netease",
+      "b": "embeat"
+    },
     "claude_winner": "embeat",
     "claude_reason": "Kissing the Pink is early-80s British synth-pop/new wave. List a is a grab-bag of game-soundtrack cues, J-core and a smooth-jazz standard, none of which share genre, era or production with the seed. List b sits squarely in the same scene: ABC's sophisti-pop, Belouis Some, Classix Nouveaux, plus a KTP track, with The Wild Swans as a looser jangle-pop stretch. b is the obvious choice.",
     "gpt_winner": "embeat",
@@ -3380,6 +3828,10 @@
       "情歌而已 (2021 Version) - 声音碎片",
       "目击你刚刚完成这一跳 - 寸铁"
     ],
+    "ab_answer": {
+      "a": "netease",
+      "b": "embeat"
+    },
     "claude_winner": "embeat",
     "claude_reason": "Both open with a fitting 声音玩具 track and both include 寸铁, which sits right in the same literary Chinese indie-rock lane. a_recs has the strongest single adjacent pick in 声音碎片, but it is spoiled by an old Shanghai-era Mandarin pop track that has nothing to do with the seed, plus an unplaceable entry. b_recs stays consistently inside the mainland indie/post-punk scene (木马, 野外合作社), with 棱镜 the only softer, more mainstream outlier, making it the more usable list overall.",
     "gpt_winner": "embeat",
@@ -3410,6 +3862,10 @@
       "Ruins & Reveries - Darkest Horizon",
       "Eternum - Darkest Horizon"
     ],
+    "ab_answer": {
+      "a": "netease",
+      "b": "embeat"
+    },
     "claude_winner": "embeat",
     "claude_reason": "Darkest Horizon play modern, technically polished melodic death metal, so their own catalogue tracks are inherently a tight sonic match — but five of them is a thin 'more like this' result for someone already playing the band. b_recs lands the same territory across the scene: Mors Principium Est and The Halo Effect are near-perfect melodeath matches, with Children of Bodom, Whispered and Engel sitting slightly to the side in keyboard-led, symphonic and modern-groove directions. That list is far more useful.",
     "gpt_winner": "embeat",
@@ -3440,6 +3896,10 @@
       "Yoga's Quiet Strings - Guitar Serenity",
       "Nature's Harmony for Yoga Practice - Yoga Motion"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "netease",
     "claude_reason": "The seed is functional yoga/ambient instrumental music built around breath pacing. B stays inside that exact lane throughout — soft ambient beds, gentle guitar, nothing that breaks the flow — even though three picks are from the seed artist itself. A drifts toward devotional mantra chanting and plain nature-sound recordings, which serve a different purpose than a flowing instrumental yoga track, and one candidate I cannot place. B is the safer continuous listen; A opens more catalogue but at the cost of mood consistency.",
     "gpt_winner": "",
@@ -3470,6 +3930,10 @@
       "别走得那么快 - 白虹",
       "麻雀与小孩 - 白虹"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "netease",
     "claude_reason": "The seed is 1930s-40s Shanghai shidaiqu. Both lists anchor correctly with Zhou Xuan and peers, but a_recs drifts badly at the end: Xie Lei is Taiwanese oldies decades later and Tian Zhen is 90s mainland pop-rock, wholly unrelated to the crackly big-band cabaret sound. b_recs has one intruder (Hu Defu's 70s campus folk) but otherwise stays inside the era with Wu Yingyin, Zhou Xuan and two more Bai Hong sides that match the seed's orchestration and vocal style.",
     "gpt_winner": "netease",
@@ -3500,6 +3964,10 @@
       "最後一回春雷 - 昴宿",
       "Intro: Attitude - 神宿"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "embeat",
     "claude_reason": "The seed sits in the Taiwanese instrumental post-rock/math-rock world, and a_recs maps that scene well: Donkey's Ears, TFAP and Paint The Sky Red share the twinkly guitar-layering and slow-build dynamics, Themilo is a slightly dreamier Thai cousin, and the same-artist cut is a natural companion. b_recs is four more Pleiades tracks — all fitting, but a listener already there learns nothing — capped off by a Japanese idol-group intro that has no sonic relationship at all. a_recs is the more useful result.",
     "gpt_winner": "",
@@ -3530,6 +3998,10 @@
       "Feed Her - Rekevin",
       "Weekend at Solomon's - Bfb da Packman"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "embeat",
     "claude_reason": "\"Still Life\" is widescreen synth-washed shoegaze/psych from Skying. a_recs sits squarely in that world: TOY are direct scene peers, another Horrors track from the same reverb-heavy period, plus Deerhunter, Motorama and ILYBICD covering the post-punk/dream-pop edges. b_recs offers one solid neighbour in Temples, but the Smiths/Morrissey picks are jangle-era 80s indie rather than this production style, and a Detroit rap track is entirely unrelated, spoiling the list.",
     "gpt_winner": "embeat",
@@ -3560,6 +4032,10 @@
       "Fever Deep - Jasr",
       "Trust Me - Pandora"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "embeat",
     "claude_reason": "The seed is a straightforward Namo Amitabha devotional chant. a_recs stays entirely inside that world: another chant by the same singer, a temple choir's Medicine Buddha recitation, Imee Ooi's Diamond Sutra, and Guanyin devotional songs — same solemn, repetitive, chant-led character, with some spread across styles from pure recitation to melodic Buddhist pop. b_recs has one strong chant match (印能法师) but surrounds it with mainland pop remixes and unrelated electronic/dance material that share nothing with the seed's devotional purpose or sonic texture.",
     "gpt_winner": "",
@@ -3590,6 +4066,10 @@
       "출항 (Inst.) - 安艺恩",
       "난파 - 安艺恩"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "embeat",
     "claude_reason": "안예은's 야화 is dark, theatrical Korean singer-songwriter pop with traditional colouring. List a pairs her own 출항 with 심규선, whose literary, dramatic ballads are the closest neighbour in the scene, plus theatrical/indie vocal tracks that sit in a similar moody register. List b has one strong same-artist match in 난파 but wastes a slot on an instrumental of 출항, and Heize and 곽진언 are mainstream R&B/ballad territory with little of the seed's theatrical darkness.",
     "gpt_winner": "embeat",
@@ -3620,6 +4100,10 @@
       "夏虫 - Gatsby in a Daze",
       "Mechanical Spring - Gatsby in a Daze"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "embeat",
     "claude_reason": "a_recs plants the seed squarely in the mainland Chinese dream-pop/shoegaze circle — Railway Suicide Train, Schoolgirl Byebye and City Flanker share the hazy guitars and lo-fi warmth almost exactly, with one softer art-pop outlier in 陳婧霏. b_recs is four more Gatsby in a Daze tracks, which fit sonically but tell the listener nothing new, plus it returns the query song itself (worthless as a recommendation) and a UK ukulele-emo track that sits outside the scene entirely.",
     "gpt_winner": "embeat",
@@ -3650,6 +4134,10 @@
       "Nerve - Lujiachi",
       "Mantis - Lujiachi"
     ],
+    "ab_answer": {
+      "a": "netease",
+      "b": "embeat"
+    },
     "claude_winner": "embeat",
     "claude_reason": "Lujiachi works in Taipei's experimental/hard-drum club world, so every a_recs entry sits exactly in that sonic space — but it is four of his own tracks plus his own remix, which tells a listener nothing they couldn't find on his page. b_recs reaches into the same scene properly: Meuko! Meuko! is an almost ideal neighbour, Scintii and Triodust share the deconstructed-club and Eastern Margins aesthetic. Lifeformed's Dustforce chiptune-ambient cue is badly out of place, but the list still opens the scene up.",
     "gpt_winner": "netease",
@@ -3680,6 +4168,10 @@
       "Je pense à toi - Lewis OfMan",
       "Je ne sais pas choisir - Emily Loizeau"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "embeat",
     "claude_reason": "Robine sits in the acoustic chanson/folk revival with a strong libertarian, chanson-à-texte streak. List a lands exactly there: Vian's antimilitarist classic, an anarchist song, Ogeret's traditional repertoire, and Yacoub's Malicorne-rooted folk — same guitar-and-voice, text-driven world, and it spreads across several artists rather than looping back to Robine only. List b is yé-yé pop, a film-score instrumental and modern indie pop; only Emily Loizeau shares any chanson kinship, and even she is a different era and production entirely.",
     "gpt_winner": "embeat",
@@ -3710,6 +4202,10 @@
       "Purified by Gore - Eye of Horus",
       "Phantom Sepulchre - Eye of Horus"
     ],
+    "ab_answer": {
+      "a": "netease",
+      "b": "embeat"
+    },
     "claude_winner": "",
     "claude_reason": "I do not know Eye of Horus or this track well enough to describe its actual sound, and several candidates (Brain Stem, Protosequence) are equally unfamiliar, so any rating would be guesswork from titles rather than music.",
     "gpt_winner": "",
@@ -3740,6 +4236,10 @@
       "再見太難 - 利得彙",
       "漾 - 大羽_GalaxySecurities"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "embeat",
     "claude_reason": "The seed is a soft Mandopop ballad from Singapore's 90s scene. a_recs lands squarely there: Mavis Hee is essentially the same vocal-ballad territory, Cass Phang brings the parallel HK ballad sound, Joi Chua and Stefanie Sun extend it into the slightly later Singaporean wave, and the Kit Chan track itself fits the mood. b_recs consists of obscure online covers, improvisations and marginal network-pop entries that I cannot place with confidence; nothing there reads as a considered ballad match.",
     "gpt_winner": "embeat",
@@ -3770,6 +4270,10 @@
       "Thin Ice - Iron Mind",
       "Spiral of Debt - Iron Mind"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "",
     "claude_reason": "I cannot reliably place this seed: the name 'Iron Mind' and the title could belong either to a metallic hardcore band or to an industrial/electronic project, and the two candidate lists point in opposite directions (modern hardcore bands versus remix-suffixed electronic tracks). Without knowing the seed's actual sonic character I would only be guessing at fit, so I am declining to score.",
     "gpt_winner": "embeat",
@@ -3800,6 +4304,10 @@
       "Fatestorm Sanctuary - Krallice",
       "The Mound - Krallice"
     ],
+    "ab_answer": {
+      "a": "netease",
+      "b": "embeat"
+    },
     "claude_winner": "embeat",
     "claude_reason": "A is five more Krallice tracks — all sonically right, dissonant riff-driven avant black metal with the same bass-forward production, but a listener who just played a Krallice deep cut gains almost nothing from a list of Krallice deep cuts. B keeps one companion track from the same sequence and then reaches outward to genuinely adjacent modern black metal: Sinmara's Icelandic dissonance is a strong match, Altar of Plagues shares the atmospheric-avant lineage, while Mgla's melodic orthodoxy and Ante-Inferno's atmospherics are looser but still in family. B is the more useful result.",
     "gpt_winner": "embeat",
@@ -3830,6 +4338,10 @@
       "Bombarder - Bob Starr",
       "Bosse Comme Un Malade - Sbaak"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "embeat",
     "claude_reason": "a_recs is anchored in the same Gabonese rap scene as La Fuente — another of their own tracks plus Ba'Ponga and Movaizhaleine, all sharing the francophone Central African hip-hop sound; only the Pierre Akendengué pick veers off into acoustic Gabonese folk. I cannot place the Latchow, Bob Starr or Sbaak tracks at all, so b_recs offers me nothing verifiable, and three slots of one artist would also be a thin result. a_recs wins on what I can actually judge.",
     "gpt_winner": "",
@@ -3860,6 +4372,10 @@
       "Eclipse - Brand of Sacrifice",
       "Fall In Love With Me - Yung Bae"
     ],
+    "ab_answer": {
+      "a": "netease",
+      "b": "embeat"
+    },
     "claude_winner": "embeat",
     "claude_reason": "Cruel Force is raw German blackened speed metal in the Bathory/Venom mould. b_recs lands exactly there: Diabolic Night, Hellripper, Midnight and Desaster are the same black/speed/thrash underground with the same filthy production, plus one more Cruel Force cut that fits. a_recs offers polished melodic death (In Flames, Insomnium), modern deathcore, and then psych-pop and future funk, which have no relationship to the seed at all.",
     "gpt_winner": "embeat",
@@ -3890,6 +4406,10 @@
       "命若琴弦 - 低苦艾",
       "兰屿之恋 - 陈建年"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "embeat",
     "claude_reason": "海洋 is gentle acoustic Taiwanese indigenous folk. a_recs stays inside that world: another 陳建年 track from the same album, 以莉.高露 and Suming are exactly the same Amis/Puyuma singer-songwriter scene, with only the PUZZLEMAN electronic/hip-hop pick out of place. b_recs offers one strong same-artist match, but Jacky Cheung's Mandopop ballad is unrelated and the mainland indie-rock entries share only a loose folk framing rather than the seed's warm island-folk texture.",
     "gpt_winner": "embeat",
@@ -3920,6 +4440,10 @@
       "既往不咎 - Forget And Forgive",
       "躯壳 - 穷辛Korsion"
     ],
+    "ab_answer": {
+      "a": "netease",
+      "b": "embeat"
+    },
     "claude_winner": "embeat",
     "claude_reason": "The seed sits in the Chinese metalcore/post-hardcore scene with screamed-and-clean vocal trade-offs. Both lists lean on that same underground circuit, and INCHAOS is a solid stylistic neighbour in either case. The a list is spoiled by a Japanese seiyuu pop ballad, which has nothing to do with the seed's heavy guitar production. The b list stays inside the scene throughout, including a same-artist track that plausibly matches the seed's sound, so it is the safer 'more like this' result. Most other candidates are too obscure for me to place.",
     "gpt_winner": "embeat",
@@ -3950,6 +4474,10 @@
       "My Heart Will Go On - 满舒克",
       "ITS OKAY NOW - TheReal FatBoi"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "embeat",
     "claude_reason": "The seed is a Taiwanese-Hokkien ballad in the 台語 pop/enka tradition. a_recs stays squarely in that scene — 江志豐, 袁小迪, 陳百潭, 黃文星 are all contemporaries working the same mid-tempo, keyboard-and-strings Taiyu ballad style, and it also offers another track by the seed artist. b_recs pulls toward rap/urban material; 满舒克 is a mainland Chinese rapper with no stylistic link, and the remaining acts I cannot place, leaving the list unusable for this listener.",
     "gpt_winner": "embeat",
@@ -3980,6 +4508,10 @@
       "Welcome - Effie Vision",
       "d☆ct (soccer banger) - Effie"
     ],
+    "ab_answer": {
+      "a": "netease",
+      "b": "embeat"
+    },
     "claude_winner": "",
     "claude_reason": "I do not know Effie or this track well enough to describe its sound, so I cannot judge whether the underground/hyperpop-leaning candidates in either list actually match its genre, era or production character.",
     "gpt_winner": "",
@@ -4010,6 +4542,10 @@
       "Katabasis - Sinmara",
       "Teratoid Crossbreed - Sinmara"
     ],
+    "ab_answer": {
+      "a": "netease",
+      "b": "embeat"
+    },
     "claude_winner": "embeat",
     "claude_reason": "Sinmara's dense, dissonant Icelandic black metal is served well by both lists sonically. a_recs is five more Sinmara cuts — all fitting, including earlier harsher Aphotic Womb material, but it tells a listener nothing they don't already have. b_recs keeps one Sinmara track and opens into the exact same Reykjavík circle (Almyrkvi, Svartidauði, Skáphe), with Mgła as a slightly cleaner, more melodic outlier that still sits in the same modern black metal world.",
     "gpt_winner": "embeat",
@@ -4040,6 +4576,10 @@
       "入秋 - RAMBO GANG",
       "My Heart Will Go On - 满舒克"
     ],
+    "ab_answer": {
+      "a": "netease",
+      "b": "embeat"
+    },
     "claude_winner": "embeat",
     "claude_reason": "The seed is scrappy Beijing garage/punk rock with lo-fi guitars and sardonic vocals. b_recs stays right in that world: another 脏手指 cut, Joyside's punk, 假假條's noisy art-rock and 回春丹's indie rock, with only 郭顶's polished dream-pop drifting softer. a_recs offers 80s Cantopop and hip-hop/R&B adjacent tracks with no guitar-band link at all; several I can't place, and the ones I can are far off. b_recs is both the better fit and the more useful map of the scene.",
     "gpt_winner": "embeat",
@@ -4070,6 +4610,10 @@
       "Darker Days - Woods of Desolation",
       "And There Was Light - Illnath"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "embeat",
     "claude_reason": "Antzaat is modern Belgian black metal with orthodox riffing and a raw-but-clear production. a_recs stays in that exact orbit: another Antzaat cut, Curse Upon A Prayer and Lhaad from the same Belgian scene, with Emptiness and Thurisaz drifting toward avant-garde/atmospheric but still adjacent. b_recs is broader black metal grab-bag: Dissection is a fair melodic-black pick and Xasthur/Woods of Desolation share the genre family but not the sound, while Infant Annihilator's deathcore is simply wrong. a_recs is tighter and more useful.",
     "gpt_winner": "embeat",
@@ -4100,6 +4644,10 @@
       "Lost and Found - Hillbilly Rawhide",
       "High on the Road - Hillbilly Rawhide"
     ],
+    "ab_answer": {
+      "a": "netease",
+      "b": "embeat"
+    },
     "claude_winner": "embeat",
     "claude_reason": "a_recs is five more Hillbilly Rawhide cuts: they obviously match the band's rockabilly/psychobilly punk sound, but a listener who just played the seed already has the album. b_recs keeps one on-point HR track and reaches into the same Brazilian booze-and-boots rock circle — Matanza's outlaw country-metal is a near-ideal neighbour, Velhas Virgens and Confraria da Costa are plausible if tamer, and only Ludov's indie rock is off-scene. That makes it the more useful 'more like this' list despite the weaker tail.",
     "gpt_winner": "netease",
@@ -4130,6 +4678,10 @@
       "Malevolent Haze - Aborted",
       "The Chyme Congeries - Aborted"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "embeat",
     "claude_reason": "Both lists stay in the brutal/technical death metal zone the seed occupies. a_recs pairs one Aborted cut with Cattle Decapitation, Hate Eternal and Origin — all sharing the blasting, technical, gore-tinged attack; only Unleashed's old-school Swedish chug sits a bit apart. b_recs is mostly Aborted's own catalogue, which fits sonically but adds little a listener wouldn't already have, and the short 'Interlude' is filler rather than a song. Necrotted is the one genuine discovery there.",
     "gpt_winner": "embeat",
@@ -4160,6 +4712,10 @@
       "Four Rivers - Shirokuma",
       "Thief Of Time (Original Mix) - Shirokuma"
     ],
+    "ab_answer": {
+      "a": "netease",
+      "b": "embeat"
+    },
     "claude_winner": "",
     "claude_reason": "I do not know Shirokuma or this track well enough to say what it sounds like, so I cannot judge whether these candidates match its genre, era or production character.",
     "gpt_winner": "",
@@ -4190,6 +4746,10 @@
       "战士归乡 - 三亩地",
       "莉莉 - 歌舞姬乐队"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "netease",
     "claude_reason": "Kawa's sound is Yunnan Wa ethnic folk crossed with reggae/ska and party-style drinking songs. b_recs stays in that world: another Kawa track, Hanggai's Mongolian folk-rock drinking song, and Li Naluo's Yunnan ethnic folk are all natural neighbours. a_recs pairs one strong same-artist drinking song with two Xie Tianxiao grunge/psych-rock tracks, which are a different intensity and instrumentation entirely; the Taiwanese ska pick is closer but from another scene. Several candidates in both lists I cannot place.",
     "gpt_winner": "netease",
@@ -4220,6 +4780,10 @@
       "AA Shuu de Kei-Oo - Huun-Huur-Tu",
       "Saryglarlar Maidens - Huun-Huur-Tu"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "embeat",
     "claude_reason": "a_recs keeps the Tuvan/Mongolian throat-singing world intact: Alash Ensemble is the closest possible sibling, Yat-Kha is Tuvan with a rockier edge, and Egschiglen/Altai Khangai bring the neighbouring Mongolian ensemble sound. b_recs is four more Huun-Huur-Tu tracks — all perfectly on-style but adding nothing a listener of the seed doesn't already have — plus a Chinese solo piano piece that has no connection to igil, khoomei or the steppe idiom at all. a_recs is the more useful discovery set.",
     "gpt_winner": "embeat",
@@ -4250,6 +4814,10 @@
       "灵魂在夜幕下起舞 - 窒息",
       "辜瓣 - 小雨"
     ],
+    "ab_answer": {
+      "a": "netease",
+      "b": "embeat"
+    },
     "claude_winner": "",
     "claude_reason": "I do not know 雪沉乐队 or the track 乌木 well enough to describe its genre, era or sonic character, so I cannot judge whether the candidates match it. Guessing from the mythological song titles alone would not be a real musical judgement.",
     "gpt_winner": "embeat",
@@ -4280,6 +4848,10 @@
       "Gypsum Davy - Jean Ritchie",
       "Skin and Bones - Jean Ritchie"
     ],
+    "ab_answer": {
+      "a": "netease",
+      "b": "embeat"
+    },
     "claude_winner": "embeat",
     "claude_reason": "a_recs is five more Jean Ritchie traditionals - all perfectly in keeping with her unaccompanied/dulcimer Appalachian style, but a listener who just played her already has these, and nothing is opened up. b_recs keeps the same old-time and folk-revival world - Elizabeth Cotten, the Kossoy Sisters' Appalachian harmony, Roscoe Holcomb's Kentucky high-lonesome - while reaching across the scene; Henry Thomas is a more distant pre-war songster, and one Ritchie track anchors it.",
     "gpt_winner": "embeat",
@@ -4310,6 +4882,10 @@
       "入秋 - RAMBO GANG",
       "My Heart Will Go On - 满舒克"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "embeat",
     "claude_reason": "Tan Dun's theme music sits in the lyrical cinematic-orchestral world of solo strings plus Chinese colour. a_recs lands that squarely with the Crouching Tiger theme and Yo-Yo Ma's Memoirs of a Geisha cue, and stays at least within solo-string classical elsewhere, though the Sarasate and Ysaye pieces are virtuoso concert repertoire rather than film scoring. b_recs offers Chinese hip-hop/pop tracks with no orchestral or scoring connection, plus several tracks I cannot place, making it far weaker as a 'more like this' result.",
     "gpt_winner": "embeat",
@@ -4340,6 +4916,10 @@
       "Omaha ICU - Arty Hill",
       "Big Daddy's Rye (Live) - Arty Hill"
     ],
+    "ab_answer": {
+      "a": "netease",
+      "b": "embeat"
+    },
     "claude_winner": "embeat",
     "claude_reason": "Both lists stay in the honky-tonk/roots world the seed lives in. a_recs is five more Arty Hill cuts — all stylistically right, including a live take that adds little — but tells a listener nothing they don't already have. b_recs keeps the twangy honky-tonk core with Hill's own band and Bill Kirchen's Telecaster shuffle, adds Billy Joe Shaver's outlaw grit, and only loosens with Pete Bernhard's darker solo acoustic blues, which is roots-adjacent but a different mood. Better spread, comparable fit.",
     "gpt_winner": "embeat",
@@ -4370,6 +4950,10 @@
       "Suffocate - Bad Omens",
       "Red Glass - 250"
     ],
+    "ab_answer": {
+      "a": "netease",
+      "b": "embeat"
+    },
     "claude_winner": "embeat",
     "claude_reason": "250's track is a moody, retro-leaning Korean electronic piece rooted in ppong/synth textures. a_recs drifts into electro-swing and French nu-disco, which share only a vintage-sample surface, and the Bad Omens metalcore pick is completely unrelated; only the other 250 cut belongs. b_recs opens with the seed itself, which is worthless as a recommendation, but XXX and Clazziquai sit in the same Korean alt-electronic/label ecosystem and mood, making the rest of the list far more usable despite two tracks I can't place.",
     "gpt_winner": "embeat",
@@ -4400,6 +4984,10 @@
       "What a Leap - Shir",
       "Super Spiders - Shir"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "embeat",
     "claude_reason": "The seed is the classic Hebrew folk/Israeli-song repertoire in a gentle vocal arrangement. a_recs stays squarely in that world: another traditional zemer by the same ensemble, the iconic 'Yerushalayim Shel Zahav', and a Ladino traditional piece, plus a modern Israeli devotional song that is a looser but plausible neighbour. b_recs offers five English-titled tracks credited to 'Shir' that I cannot place at all; they read as an artist-name collision rather than the same Hebrew-song tradition, so the list gives a listener nothing verifiable to go on.",
     "gpt_winner": "embeat",
@@ -4430,6 +5018,10 @@
       "香港靓女多 - 郭炳坚",
       "迎春花 - 张曼莉"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "netease",
     "claude_reason": "The seed sits in the older Cantonese operatic/festive-song world. Both lists open with the same well-matched 文千岁 track, but a_recs then drifts into 80s Cantopop ballads, a TV theme and an English-language Wynners pop song, which share little with the seed's vintage vocal style. b_recs stays with older festive and traditional-leaning Chinese vocal repertoire (贺年歌-style pieces, a 徐小凤 live cut, another 香港靓女多 reading), giving a far more coherent 'more like this' set, even if the live track is a slight mismatch.",
     "gpt_winner": "netease",
@@ -4460,6 +5052,10 @@
       "Pennies from Heaven - Billie Holiday",
       "Plastic - Moses Sumney"
     ],
+    "ab_answer": {
+      "a": "netease",
+      "b": "embeat"
+    },
     "claude_winner": "embeat",
     "claude_reason": "Baaba Maal's Traveller sits in modern West African song with atmospheric, electronic-tinged production. b_recs stays inside that world: Youssou N'Dour is the closest possible Senegalese peer, Mabandla brings the contemporary Afro-folk angle, Mtukudzi and Rajery widen the map without leaving the family, and a same-album Baaba Maal track fits naturally. a_recs wanders into indie rock, vintage jazz and 70s singer-songwriter material with no stylistic link; only Moses Sumney shares any atmospheric kinship.",
     "gpt_winner": "embeat",
@@ -4490,6 +5086,10 @@
       "NO DIRTY PUNX - 脑浊乐队",
       "A Midsummer Night's Dream, op. 61, MWV M13: Scherzo - 台北愛樂管弦樂團"
     ],
+    "ab_answer": {
+      "a": "netease",
+      "b": "embeat"
+    },
     "claude_winner": "embeat",
     "claude_reason": "a_recs has two ideal picks from the band's own punk catalogue, but the other three — glitch-hop, late-period Smashing Pumpkins and a Mendelssohn scherzo — are completely unrelated to Beijing street punk and would derail listening. b_recs stays inside the Chinese rock/punk world throughout: Underbaby is a direct scene peer, another Brain Failure track fits perfectly, and the Flowers tracks are at least pop-punk adjacent even if softer and glossier. b is the more usable list.",
     "gpt_winner": "embeat",
@@ -4520,6 +5120,10 @@
       "Chaos Theory - GRiZ",
       "Numb - Indii G."
     ],
+    "ab_answer": {
+      "a": "netease",
+      "b": "embeat"
+    },
     "claude_winner": "embeat",
     "claude_reason": "The seed is a traditional East Asian instrumental ensemble piece. List b stays entirely inside that world — the same ensemble, plus Chinese traditional ensemble and classical instrumental pieces; the nationality shifts from Korean to Chinese but the acoustic instrumentation, tempo and serene mood carry over well. List a jumps to British pop balladry, an EDM bass track and a novelty cover, none of which share instrumentation, era or mood with the seed; a couple of the smaller-name tracks I can't place at all.",
     "gpt_winner": "",
@@ -4550,6 +5154,10 @@
       "União Total - Selvageria",
       "Armas Letais - Selvageria"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "netease",
     "claude_reason": "Selvageria is heavy Brazilian metallic hardcore/thrash. a_recs starts well with another Selvageria track and Desalmado's grinding Brazilian extremity is at least adjacent, but Impurity's raw black metal sits in a different scene and MegaDriver's video-game metal instrumental covers are plainly wrong for a hardcore listener. b_recs is entirely the seed band, which opens nothing up and is a thin result, yet every track genuinely matches the sound and tempo. The absence of any misfire makes b the list I would rather be handed.",
     "gpt_winner": "",
@@ -4580,6 +5188,10 @@
       "學海無涯 - 農夫",
       "十二月二十二(Live) - 谢安琪"
     ],
+    "ab_answer": {
+      "a": "netease",
+      "b": "embeat"
+    },
     "claude_winner": "",
     "claude_reason": "I do not know this track or the artist 劉藴晴 Rachel well enough to describe its genre, production or scene, so I cannot judge whether any of the candidates would follow it well.",
     "gpt_winner": "",
@@ -4610,6 +5222,10 @@
       "Wånn i die Sternlan sieg - Kärntner Viergesang",
       "Gelbe Roasn - Kärntner Viergesang"
     ],
+    "ab_answer": {
+      "a": "netease",
+      "b": "embeat"
+    },
     "claude_winner": "embeat",
     "claude_reason": "The seed is a Carinthian dialect male-quartet Volkslied. All of a_recs is the same group singing the same repertoire — flawless sonic fit, but it tells a listener nothing they don't already have. b_recs keeps one Kärntner Viergesang track and adds Montanara Chor, a larger alpine male choir with the same warm unaccompanied German folk-song character; slightly bigger, more German-standard repertoire than Carinthian dialect, and the Beethoven sacred piece drifts toward the concert hall. Still the more useful 'more like this' result.",
     "gpt_winner": "",
@@ -4640,6 +5256,10 @@
       "Supremo odio - Cryfemal",
       "Panteón mental - Cryfemal"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "embeat",
     "claude_reason": "Cryfemal's raw, aggressive one-man black metal is served perfectly by b_recs — every cut shares the same lo-fi buzz and Spanish necro atmosphere — but it is five tracks from the same project, which tells a listener nothing new. a_recs keeps one Cryfemal track and reaches into the wider raw/underground black metal world: Dodsferd is a strong stylistic match, while Xasthur, Despondent Moon and Trhä drift toward depressive or atmospheric territory that is looser in intensity but still the same family, and the list is far more useful.",
     "gpt_winner": "embeat",
@@ -4670,6 +5290,10 @@
       "Sanguinolentus Desperatio - Vassline",
       "Tracing the Untraceable - Vassline"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "netease",
     "claude_reason": "VASSLINE is Korean metallic hardcore with death-metal edges and thick, heavy production. Slant sit in the same Seoul hardcore scene but play raw, short, D-beat-driven hardcore punk — adjacent community, noticeably lighter and rawer sound, so acceptable rather than close. The Vassline picks are from the seed's own metallic-hardcore body of work and match tone, riffing and production exactly. Both lists are single-artist and equally thin on discovery, so the tighter sonic match decides it.",
     "gpt_winner": "netease",
@@ -4700,6 +5324,10 @@
       "Valse triste, op. 44 - Jean Dubé",
       "Violin Concerto in D Minor: Violin Concerto in D Minor: I. Allegro moderato - Rico Saccani"
     ],
+    "ab_answer": {
+      "a": "embeat",
+      "b": "netease"
+    },
     "claude_winner": "embeat",
     "claude_reason": "The seed is the Finlandia hymn as a serene sacred choral piece. A stays in that world: Fauré's Sanctus and Sibelius's own Rakastava are near-perfect matches, Elgar's part-songs and Mahler's 'Aufersteh'n' chorus keep the reverent choral mood, with only the solo-piano Impromptu drifting. B offers only composer continuity — violin salon pieces, a piano étude and two different recordings of the same Violin Concerto movement, all instrumental, virtuosic or restless rather than hymn-like, and the doubled concerto makes the list thinner still.",
     "gpt_winner": "embeat",
