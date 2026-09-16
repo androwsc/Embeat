@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # Written by GD Studio
-# Date: 2026-09-12
+# Date: 2026-09-16
 
 import json
 import numpy as np
@@ -993,6 +993,7 @@ class EmbeatDatabase:
                     result.insert(insert_position, poped_item)
                     prev_name = result[i][column_name]
                     same_counter = 1
+                    is_shuffled = True
                     break
             if not is_shuffled:
                 break
