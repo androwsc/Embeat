@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # Written by GD Studio
-# Date: 2026-09-16
+# Date: 2026-09-17
 
 import json
 import os
@@ -20,7 +20,10 @@ from infer.Embeat import EmbeatDatabase
 
 # Get Embeat and Netease recommendation result for eval data sets
 def get_both_recommendation():
-    ed = EmbeatDatabase(verbose_log=False, same_artist_ratio_range=[0.0, 0.0])
+    env_file = os.path.abspath(f"{parent_dir}/infer/.env")
+    if os.path.isfile(env_file) and os.path.getsize(env_file) > 0:
+        raise RuntimeError(f"Please remove or rename `{env_file}` before running evaluation.")
+    ed = EmbeatDatabase(verbose_log=False, random_seed=616, same_artist_ratio_range=[0.0, 0.0], recall_related_track_weights=[2.0, 1.2])
     eval_sources = [os.path.join(EVAL_RESULT_INPUT_DIR, str(file)) for file in os.listdir(EVAL_RESULT_INPUT_DIR) if str(file).endswith(".json")]
     for eval_source in eval_sources:
         eval_file_name = os.path.splitext(os.path.basename(eval_source))[0]
