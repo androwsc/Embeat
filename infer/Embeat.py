@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # Written by GD Studio
-# Date: 2026-09-17
+# Date: 2026-09-24
 
 import json
 import numpy as np
@@ -431,7 +431,7 @@ class EmbeatDatabase:
         else:
             must_conditions = []
             scroll_limit = max(len(track_ids), 1)
-            is_isrc_lookup = False
+            is_best_lookup = False
             if track_ids:
                 must_conditions.append(
                     qdrant_models.FieldCondition(
@@ -440,15 +440,16 @@ class EmbeatDatabase:
                     )
                 )
             elif isrc and self.collection_version not in ["v1", "v2"]:
-                is_isrc_lookup = True
+                is_best_lookup = True
                 must_conditions.append(
                     qdrant_models.FieldCondition(
                         key="isrc",
                         match=qdrant_models.MatchValue(value=isrc)
                     )
                 )
-                scroll_limit = 20
+                scroll_limit = 100
             elif track_name and artist_name:
+                is_best_lookup = True
                 must_conditions.append(
                     qdrant_models.FieldCondition(
                         key="track_name",
@@ -461,6 +462,7 @@ class EmbeatDatabase:
                         match=qdrant_models.MatchText(text=str(artist_name))
                     )
                 )
+                scroll_limit = 20
             else:
                 return result
             try:
@@ -469,12 +471,12 @@ class EmbeatDatabase:
                     scroll_filter=qdrant_models.Filter(must=must_conditions),
                     limit=scroll_limit,
                     with_payload=True,
-                    with_vectors=True if not is_batched else False
+                    with_vectors=True if (not is_batched and not is_best_lookup) else False
                 )
             except Exception as e:
                 print(f"Failed to run Qdrant scroll: {e}")
                 return result
-            if is_isrc_lookup and records:
+            if is_best_lookup and records:
                 best_record = None
                 best_popularity = 0.0
                 for record in records:
@@ -486,12 +488,53 @@ class EmbeatDatabase:
                         best_record = record
                         best_popularity = popularity
                 records = [best_record]
+                if not is_batched:
+                    try:
+                        records = self.client.retrieve(
+                            collection_name=self.collection_name,
+                            ids=[best_record.id],
+                            with_payload=True,
+                            with_vectors=True
+                        )
+                    except Exception as e:
+                        print(f"Failed to run Qdrant retrieve: {e}")
+                        return result
         if not records:
             return result
         if is_batched:
             result = list(records)
         else:
             result = records[0]
+        return result
+
+    # Find seed tracks by isrc (without vectors)
+    def find_query_records_by_isrc(self, isrc: str = "", limit: int = 1):
+        result = []
+        if self.collection_version in ["v1", "v2"]:
+            print(f"Field `isrc` is missing in Qdrant collection version `{self.collection_version}`.")
+            return result
+        try:
+            records, _ = self.client.scroll(
+                collection_name=self.collection_name,
+                scroll_filter=qdrant_models.Filter(
+                    must=[
+                        qdrant_models.FieldCondition(
+                            key="isrc",
+                            match=qdrant_models.MatchAny(any=[isrc])
+                        )
+                    ]
+                ),
+                limit=limit,
+                with_payload=True,
+                with_vectors=False
+            )
+        except Exception as e:
+            print(f"Failed to run Qdrant scroll: {e}")
+            return result
+        for record in records:
+            if record.payload is None:
+                continue
+            result.append(dict(record.payload))
         return result
 
     # Find all artist genre indexs
@@ -792,18 +835,68 @@ class EmbeatDatabase:
         result = sorted(result, key=lambda x: x.payload['popularity'], reverse=True)
         return result
 
+    # Batch get similar result from Track2Vec
+    def batch_most_similar(self, words: list, topn: int = 20, batch_size: int = 1024):
+        query_words = [word for word in words if word in self.wv.key_to_index]
+        result = {word: [] for word in query_words}
+        if not query_words:
+            return result
+        topn = min(topn, len(self.wv.index_to_key) - 1)
+        if topn <= 0:
+            return result
+        query_indices = np.array([self.wv.key_to_index[word] for word in query_words])
+        for start in range(0, len(query_indices), batch_size):
+            batch_indices = query_indices[start:start + batch_size]
+            batch_words = query_words[start:start + batch_size]
+            query_vectors = self.wv.vectors[batch_indices] / self.wv.norms[batch_indices, None]
+            similarities = (query_vectors @ self.wv.vectors.T) / self.wv.norms
+            similarities[np.arange(len(batch_indices)), batch_indices] = -np.inf
+            top_indices = np.argpartition(-similarities, topn - 1, axis=1)[:, :topn]
+            top_similarities = np.take_along_axis(similarities, top_indices, axis=1)
+            sort_order = np.argsort(-top_similarities, axis=1)
+            top_indices = np.take_along_axis(top_indices, sort_order, axis=1)
+            top_similarities = np.take_along_axis(top_similarities, sort_order, axis=1)
+            for word, neighbor_indices, neighbor_similarities in zip(batch_words, top_indices, top_similarities):
+                result[word] = [
+                    (self.wv.index_to_key[index], float(similarity))
+                    for index, similarity in zip(neighbor_indices, neighbor_similarities)
+                ]
+        return result
+
     # Search related track points by collaborative data
-    def search_related_track_record(self, query_payload: dict, candidate_limit: int):
+    def search_related_track_record(self, query_payload: dict, candidate_limit: int, query_all_by_isrc: bool = True):
         result = []
         if self.wv is None:
             return result
         query_track_id = query_payload.get("track_id", "")
         if not query_track_id:
             return result
-        if query_track_id not in self.wv:
-            return result
-        wv_result = self.wv.most_similar(query_track_id, topn=candidate_limit)
-        track_ids = [track_id for track_id, score in wv_result if track_id.strip()]
+        exclude_track_ids = {query_track_id}
+        query_isrc = str(query_payload.get("isrc") or "")
+        wv_result = []
+        if query_all_by_isrc and query_isrc:
+            query_payloads = self.find_query_records_by_isrc(isrc=query_isrc, limit=100)
+            for query_payload_item in query_payloads:
+                linked_track_id = query_payload_item.get("track_id")
+                if linked_track_id:
+                    exclude_track_ids.add(linked_track_id)
+            seed_track_ids = [track_id for track_id in exclude_track_ids if track_id in self.wv]
+            if seed_track_ids:
+                wv_results = self.batch_most_similar(words=seed_track_ids, topn=int(len(exclude_track_ids) + candidate_limit))
+                best_scores = {}
+                for track_wv_results in wv_results.values():
+                    for track_id, score in track_wv_results:
+                        if track_id in exclude_track_ids:
+                            continue
+                        if score > best_scores.get(track_id, float("-inf")):
+                            best_scores[track_id] = score
+                wv_result = sorted(best_scores.items(), key=lambda item: item[1], reverse=True)[:candidate_limit]
+        if not wv_result:
+            if query_track_id not in self.wv:
+                return result
+            wv_result = self.wv.most_similar(query_track_id, topn=int(candidate_limit + 1))
+            wv_result = [(track_id, score) for track_id, score in wv_result if track_id not in exclude_track_ids][:candidate_limit]
+        track_ids = [track_id for track_id, score in wv_result if track_id.strip() and score >= self.min_related_track_score]
         result = self.find_query_record_by_track(track_id=track_ids)
         return result
 
@@ -956,98 +1049,42 @@ class EmbeatDatabase:
 
     # Avoid same artist gathering
     def shuffle_result_block(self, result: list, column_name: str, max_block_len: int = 1, protect_multi_source: bool = True):
-        def can_insert(result: list, pos: int):
-            left_name = result[pos - 1][column_name] if pos > 0 else None
-            right_name = result[pos][column_name] if pos < len(result) else None
-            if current_name not in [left_name, right_name]:
+        def can_append(output: list, item: dict):
+            current_name = item[column_name]
+            if not current_name or is_protected(item=item):
+                return True
+            if tail_same_name_counter(output=output, name=current_name) < max_block_len:
                 return True
             return False
 
-        result = list(result)
-        for _ in range(max(20, len(result))):
-            same_counter = 1
-            prev_name = ""
-            is_shuffled = False
-            for i in range(len(result)):
-                current_name = result[i][column_name]
-                if i == 0:
-                    prev_name = current_name
-                    continue
-                sources = result[i].get("sources", []).copy()
-                if "same_artist" in sources:
-                    sources.remove("same_artist")
-                if protect_multi_source and len(sources) > 1:
-                    prev_name = current_name
-                    same_counter = 1
-                    continue
-                if current_name and current_name == prev_name:
-                    same_counter = same_counter + 1
-                else:
-                    prev_name = current_name
-                    same_counter = 1
-                if same_counter > max_block_len:
-                    result_count = len(result)
-                    poped_item = result.pop(i)
-                    positions = [pos for pos in range(i + 1, result_count) if can_insert(result=result, pos=pos)]
-                    if not positions:
-                        positions = [pos for pos in range(0, i) if can_insert(result=result, pos=pos)]
-                    if not positions:
-                        result.insert(i, poped_item)
-                        break
-                    result.insert(self.rng.choice(positions), poped_item)
-                    is_shuffled = True
-                    break
-            if not is_shuffled:
-                break
-        return result
+        def is_protected(item: dict):
+            if not protect_multi_source:
+                return False
+            sources = item.get("sources", []).copy()
+            if "same_artist" in sources:
+                sources.remove("same_artist")
+            if len(sources) > 1:
+                return True
+            return False
 
-    # Merge 3-way recall result by given ratio
-    def merge_result_by_ratio(self, query_payload: dict, similar_result: list, popular_result: list = [], same_artist_result: list = [], top_k: int = 20):
-        result = []
-        if not similar_result and not popular_result and not same_artist_result:
-            return result
-        if not popular_result and not same_artist_result:
-            result = similar_result[:top_k]
-            return result
-        max_same_artist_ratio = self.rng.uniform(self.same_artist_ratio_range[0], self.same_artist_ratio_range[-1])
-        max_same_artist = max(1, int(top_k * max_same_artist_ratio))
-        popular_len = max(1, min(int(top_k * self.popular_ratio), len(popular_result)))
-        same_artist_len = max(1, min(int(top_k * self.same_artist_ratio_range[0]), len(same_artist_result)))
-        candidates = popular_result[:popular_len] + same_artist_result[:same_artist_len]
-        self.rng.shuffle(candidates)
-        result = similar_result.copy()
-        result_ids = [item['track_id'] for item in result]
-        query_artist_idx = query_payload.get("artist_idx", 0)
-        query_album_name = query_payload.get("album_name", "")
-        same_artist_count = sum(1 for item in result if item.get("artist_idx", 0) == query_artist_idx)
-        for candidate in candidates:
-            payload_track_id = candidate.get("track_id", "")
-            if not payload_track_id:
-                continue
-            payload_artist_idx = candidate.get("artist_idx")
-            if payload_track_id in result_ids:
-                continue
-            payload_track_name = candidate.get("track_name", "").strip()
-            if not payload_track_name or payload_track_name in [item['track_name'] for item in result]:
-                continue
-            if payload_artist_idx == query_artist_idx:
-                if same_artist_count >= max_same_artist:
-                    continue
-                same_artist_count = same_artist_count + 1
-            if query_album_name and candidate.get("album_name", "") == query_album_name:
-                insert_position = 0
-            else:
-                insert_position = self.rng.randrange(min(1, len(result)), len(result))
-            result.insert(insert_position, candidate)
-            if payload_track_id not in result_ids:
-                result_ids.append(payload_track_id)
-            if len(result) > top_k:
-                popped_item = result.pop(-1)
-                result_ids.remove(popped_item['track_id'])
-                if popped_item.get("artist_idx", 0) == query_artist_idx:
-                    same_artist_count = same_artist_count - 1
-        result = result[:top_k]
-        return result
+        def tail_same_name_counter(output: list, name: str):
+            same_counter = 0
+            for prev_item in reversed(output):
+                if prev_item[column_name] != name:
+                    break
+                same_counter = same_counter + 1
+            return same_counter
+
+        remain_result = list(result)
+        output = []
+        while remain_result:
+            chosen_index = 0
+            for i in range(len(remain_result)):
+                if can_append(output=output, item=remain_result[i]):
+                    chosen_index = i
+                    break
+            output.append(remain_result.pop(chosen_index))
+        return output
 
     # Merge 5-way recall result by item score
     def merge_result_by_score(self, query_payload: dict, similar_result: list, popular_result: list = [], same_artist_result: list = [], related_artist_result: list = [], related_track_result: list = [], top_k: int = 20):
